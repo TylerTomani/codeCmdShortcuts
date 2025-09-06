@@ -1,0 +1,28 @@
+/* sizing.css */
+:root {
+    --width-sidebar: 17vw;
+    --width-sidebar-collapsed: 14vw;
+}
+
+.page-wrapper>.side-bar>header {
+    width: 100%;
+}
+.page-wrapper>.side-bar {   
+    width: var(--width-sidebar);
+    height: 100vh;
+}
+
+.page-wrapper>.side-bar.collapsed {
+    width: var(--width-sidebar-collapsed);
+}
+
+.page-wrapper>.side-bar>.side-bar-ul-container {
+    width: 100%;
+}
+.side-bar-ul-container>ul>li>a {
+    width: 90%;
+    width: fit-content;
+}
+.page-wrapper>.main-content {
+    width: calc(100% - var(--width-sidebar))
+}

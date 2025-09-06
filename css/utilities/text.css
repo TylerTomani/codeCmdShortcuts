@@ -1,0 +1,14 @@
+.page-wrapper>.side-bar {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.page-wrapper>.side-bar>header>.page-links-container>a {
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+.side-bar-ul-container>ul>li>a {
+    text-decoration: none;
+}
+.side-bar-ul-container ul li ul li a {
+    text-decoration: none;
+}

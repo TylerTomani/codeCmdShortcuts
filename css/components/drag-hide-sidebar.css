@@ -1,0 +1,25 @@
+/* drag-hide-sidebar.css */
+.side-bar.hidden + .main-content {
+  width: 100% !important;
+  flex: 1 1 100% !important;
+}
+
+.page-wrapper .side-bar {
+  transition: width 0.3s ease, transform 0.3s ease;
+}
+
+.page-wrapper .side-bar.hidden {
+  transform: translateX(-100%) !important;
+  opacity: 0;
+  display: none;
+  transition:  ease-out opacity 2000ms;
+}
+
+/* .side-bar.hidden ~ .main-content{
+    flex-basis: 100% !important;
+    width: 100% !important;
+} */
+.page-wrapper>.main-content {
+  /* takes up all remaining space */
+  transition: width 0.3s ease;
+}

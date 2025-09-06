@@ -1,0 +1,7 @@
+/* display.css */
+.hide {
+    display: none;
+}
+.page-wrapper>.side-bar.hidden {
+    display: none;
+}

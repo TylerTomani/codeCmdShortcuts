@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript-code</title>
+    <link rel="stylesheet" href="css/components/topics-codeCmdShrt.css">
+    <link rel="stylesheet" href="css/copy-code-codeCmdShrt.css">
+
+</head>
+<body>
+    <div id="mainPageContainer" class="page-container">
+        <div class="topics-container">
+            <!-- keyboard Navigation -->
+            <div class="topic">
+                <header>
+                    <a id="keyboardNavigation" href="#" class="topic-title drop-down"><h3>Keyboard Navigation</h3></a>
+                </header>
+                <!-- Letter Focus Code -->
+                <div class="topic-snips show ">
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">Letter Focus Code</a></h4>
+                        <div class="code-cmd">
+                            <sup class="r">
+                                **create pop up with extra info on <code>filter()</code> and <code>findIndex()</code>
+                            </sup>
+                            <sup class="r">
+                                **make a dropCode like dropTopic so each code example can collapse... great job keep going, 
+                                you're doing great with implementing the new letterFocus incrementation !!😎
+                            </sup>
+                            <p>
+                                <strong>Chat Question: does <code class="y">filter()</code> work the same as <code class="y">findIndex()</code>?</strong>
+                                <br>
+                                ChatGPT said:
+                                Awesome question filter is similar to findIndex, but with one big difference in what it returns.
+                                <br>
+                                ✅ Both:
+                            </p>
+                            <ul>
+                                <li>* Take a <span class="mcy">callback</span> function that checks a condition.</li>
+                                <li>* Go through the array element by element.</li>
+                                <li>* Use the callback to test each item.</li>
+                            </ul>
+                            <p>
+                                🔍 Difference:
+                                Method Returns
+                                findIndex The index of the first matching item
+                                filter A new array of all matching items
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+
+    const as = document.querySelectorAll('a')
+    let asTxtArr = [...as]
+    let lastPressedLetter = "";
+    let iLetter = 0;
+    function updateAsTxtArr(){
+        asTxtArr = Array.from(document.querySelectorAll('a'))
+    }
+    addEventListener('keydown', e => {
+        let letter = e.key.toLowerCase()
+        let letteredAs = asTxtArr.<span class="y">filter(</span><span class="mcy">(el) => el.innerText.toLowerCase().startsWith(letter)</span><span class="y">)</span>
+        let activeEl = document.activeElement // current focused element
+        let activeIndex = [...asTxtArr].indexOf(activeEl)
+        if(letter != lastPressedLetter){
+            let closestIndex = letteredAs.<span class="y">findIndex(</span>(el) => asTxtArr.indexOf(el) > activeIndex)
+            iLetter = closestIndex !== -1 ? closestIndex : 0
+        } else {
+            iLetter = (letteredAs.indexOf(activeEl) + 1) % letteredAs.length
+        }
+        if(e.shiftKey){
+            iLetter = (letteredAs.indexOf(activeEl) - 1 + letteredAs.length)  % letteredAs.length
+        }
+        if(letteredAs[iLetter]){
+            letteredAs[iLetter].focus()
+        }
+        lastPressedLetter = letter
+    })</pre>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="snip ">
+                        <h4><a href="#" class="drop-code-cmd">Incrementing / Decrements Letter Focus</a></h4>
+                        <div class="code-cmd show">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    // This page has really good letter focus cycle
+    if(letter == 'c' && !e.metaKey){
+        if(!e.shiftKey){
+        copyCodes[iCopyCodes].focus()
+        iCopyCodes = (iCopyCodes + 1) % copyCodes.length
+        } else{
+            iCopyCodes = (iCopyCodes - 1 + copyCodes.length) % copyCodes.length
+        }
+        copyCodes[iCopyCodes].focus()
+        console.log(iLetter)
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">CamelCase </a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    function toCamelCase(str) {
+        return str
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="topic">
+                <header>
+                    <h3><a href="#" class="topic-title drop-down">Drop</a></h3>
+                </header>
+                <!-- 2 -->
+                <div class="topic-snips ">
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">2</a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    // This page has really good letter focus cycle
+    if(letter == 'c' && !e.metaKey){
+        if(!e.shiftKey){
+        copyCodes[iCopyCodes].focus()
+        iCopyCodes = (iCopyCodes + 1) % copyCodes.length
+        } else{
+            iCopyCodes = (iCopyCodes - 1 + copyCodes.length) % copyCodes.length
+        }
+        copyCodes[iCopyCodes].focus()
+        console.log(iLetter)
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">CamelCase function</a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    function toCamelCase(str) {
+        return str
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Drop Downs -->
+            <div class="topic">
+                <header>
+                    <h3><a id="dropDowns" href="#" class="topic-title drop-down">Drop downs</a></h3>
+                </header>
+                <div class="topic-snips ">
+                    <div class="snip">
+                        <div class="code-cmd">
+                            <h4><a href="#" class="drop-code-cmd">Incrementing / Decrements Letter Focus</a></h4>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    function hideTopics(){
+
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">CamelCase function</a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+    function toCamelCase(str) {
+        return str
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
+    }</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>        
+    </div>
+</body>

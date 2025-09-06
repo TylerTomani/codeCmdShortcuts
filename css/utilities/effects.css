@@ -1,0 +1,18 @@
+.side-bar a:active,
+.side-bar a:focus {
+    /* background-color: lightblue; */
+    font-weight: 999;
+    margin-left: 3%;
+    transition: all 200ms;
+    /* color: blue; */
+    color: black;
+    text-shadow: 1px 1px 1px whitesmoke;
+    border: 1px solid black !important;
+    border: none;
+    font-style: bold;
+}
+
+.side-bar-ul-container>ul>li>a>sub {
+
+    transform: translate(0, -20%);
+}

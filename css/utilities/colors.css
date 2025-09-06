@@ -1,0 +1,12 @@
+.page-wrapper>.side-bar {
+    background-color: gainsboro;
+}
+.side-bar-ul-container>ul>li>a {
+    color: black;
+}
+.side-bar-ul-container ul li ul li a {
+    color: blue;
+}
+body{
+    background-color: lightblue;
+}
