@@ -4,3 +4,9 @@
 .hide {
     display: none !important;
 }
+.code-cmd{
+    /* background-color: blue; */
+}
+.code-cmd.hide {
+    display: none !important;
+}
