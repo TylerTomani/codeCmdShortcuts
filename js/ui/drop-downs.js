@@ -1,11 +1,7 @@
 // drop-downs.js
-function hideAllDropChildren(dropChilds) {
-    dropChilds.forEach(el => {
-        console.log(el)
-        el.classList.add('hide')
-    })
-}
+
 export function initDropDowns() {   
+    hideAllCodeCmds()
     if(!document.listenersAdded){
 
         document.addEventListener("click", handleToggle);
@@ -13,8 +9,7 @@ export function initDropDowns() {
         document.listenersAdded = true
     }
     // const dropChilds = document.querySelectorAll('.code-cmd') ? document.querySelectorAll('.code-cmd') : document.querySelectorAll('.topic-snips')
-    const dropDownChildren =  document.querySelectorAll('.topic-snips,.code-cmd')
-    hideAllDropChildren(dropDownChildren)
+    
     function handleToggle(e) {
         let target;        
         if (e.type === "keydown") {
@@ -51,6 +46,16 @@ export function initDropDowns() {
 function toggleCodeSnips(snip) {
     const codeCmd = snip.querySelector('.code-cmd')
     codeCmd.classList.toggle('hide')
+
+}
+function hideAllCodeCmds() {
+    const codeCmds = document.querySelectorAll('.code-cmd')
+    codeCmds.forEach(el => {
+        if(!el.classList.contains('show')){
+            el.classList.add('hide')
+        }
+    })
+    
 
 }
 function toggleTopicSnips(topic) {

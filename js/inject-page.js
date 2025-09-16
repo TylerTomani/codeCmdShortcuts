@@ -15,6 +15,7 @@ export function injectPage(href) {
         .then((html) => {
             mainLandingPage.innerHTML = html;
             addCopyCodes()
+            initDropDowns()
             // Find the first focusable element in the injected content
             const firstFocusable = mainLandingPage.querySelector("a,[id],input,textarea,[tabindex]:not([tabindex='-1'])");
             firstFocusable?.focus();
@@ -29,14 +30,12 @@ sideBarTopicsAs.forEach((a) => {
     a.addEventListener("click", (e) => {
         e.preventDefault();
         injectPage(a.href);
-        initDropDowns()
         const innerPageTitle = document.querySelector(".main-content-title");
         if (innerPageTitle) innerPageTitle.innerHTML = a.innerHTML;
     });
     a.addEventListener("keydown", (e) => {
         let key = e.key.toLowerCase()
         if(key === 'enter'){
-            initDropDowns()
             injectPage(a.href);
         }
 
