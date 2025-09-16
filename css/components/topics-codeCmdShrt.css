@@ -3,7 +3,6 @@
     --bg-code: rgb(73, 75, 68);
     --bg-codeClr: rgb(246, 247, 246);
 }
-
 body>header {
     display: flex;
     justify-content: space-between;
@@ -102,7 +101,7 @@ main {
     display: flex;
     flex-direction: column;
     border: 1px solid white;
-    padding: 0.5rem;
+    /* padding: 0.5rem; */
     /* key part ↓ */
     width: fit-content;
     /* color: white; */
@@ -143,10 +142,12 @@ main {
     height: 100%;
     padding: 0.5rem;
     padding-bottom: .55rem;
+    padding-right: 0;
     line-height: 1.5;
     /* or pre-line if you prefer */
-    white-space: pre-wrap;
-    word-break: break-word;
+    overflow-x: scroll;
+    /* white-space: pre-wrap; */
+    /* word-break: break-word; */
 }
 
 .hide {
@@ -177,9 +178,15 @@ ul .y,
 }
 
 .snip .code-container .copy-code {
-    font-size: 1.01rem;
+    font-size: .79rem;
 }
 
+@media screen and (max-width: 700px) {
+    .snip .code-container .copy-code {
+        font-size: .69rem;
+    }
+
+}
 @media screen and (max-width: 420px) {
     .snip {
         font-size: 90%;

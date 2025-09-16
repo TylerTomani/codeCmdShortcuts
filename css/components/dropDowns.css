@@ -4,9 +4,11 @@
 .hide {
     display: none !important;
 }
-.code-cmd{
-    /* background-color: blue; */
-}
+
 .code-cmd.hide {
     display: none !important;
+}
+.drop-down,.drop-code-cmd {
+    text-decoration: none;
+    color: black;
 }
