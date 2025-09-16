@@ -2,7 +2,7 @@
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 import { keyboardNav } from "./nav/keyboard-nav.js";
 import { addCopyCodes } from "./copy-code.js";
-
+import { initDropDowns } from "./ui/drop-downs.js";
 export const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeHref = './home-codeCmdShrt.html'
 let loaded = false;
@@ -29,13 +29,14 @@ sideBarTopicsAs.forEach((a) => {
     a.addEventListener("click", (e) => {
         e.preventDefault();
         injectPage(a.href);
-
+        initDropDowns()
         const innerPageTitle = document.querySelector(".main-content-title");
         if (innerPageTitle) innerPageTitle.innerHTML = a.innerHTML;
     });
     a.addEventListener("keydown", (e) => {
         let key = e.key.toLowerCase()
         if(key === 'enter'){
+            initDropDowns()
             injectPage(a.href);
         }
 
