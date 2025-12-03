@@ -8,7 +8,5 @@ import { addCopyCodes } from "./copy-code.js";
 addCopyCodes()
 dragHideSidebar()
 initToggleSideBar();
-
-// initDropDowns();
-
-keyboardNav(); // only once - NO What??!
+initDropDowns();
+keyboardNav(); // only once

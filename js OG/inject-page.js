@@ -1,4 +1,4 @@
-// inject-pag
+// inject-page.js
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 import { keyboardNav } from "./nav/keyboard-nav.js";
 import { addCopyCodes } from "./copy-code.js";

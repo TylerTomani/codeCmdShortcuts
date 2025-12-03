@@ -1,0 +1,15 @@
+.side-bar > header {
+    margin-bottom: 10%;
+    background-color: yellow;
+}
+.side-bar-ul-container>ul {
+    margin-left: 5%;
+    margin-top: 20%;
+    gap: 2rem;
+}
+.side-bar-ul-container>ul>li>a>sub {
+    /* padding-bottom: 10%; */
+}
+.side-bar-ul-container ul li ul li a {
+    /* margin-left: 10%; */
+}

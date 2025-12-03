@@ -1,14 +1,12 @@
 
-.page-wrapper>.side-bar>header img {
-    display: block;
+.side-bar>header > img {
+    /* display: block; */
     /* position: fixed; */
-    margin: 0;
-    width: 90%;
-    border: 1px solid blue;
+    /* margin: 0; */
+    /* width: 90%; */
+    
     max-width: 200px;
-    max-height: 150px;
-    line-height: 1;
-    /* height: 100%; */
+    height: 15vh;
 }
 
 

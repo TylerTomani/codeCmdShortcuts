@@ -1,18 +1,5 @@
 .main-content>header h2 {
-    margin-top: 1%;
-    margin-left: 2%;
+    /* margin-top: 1%; */
+    /* margin-left: 2%; */
 }
-.page-wrapper>.side-bar.collapsed>.side-bar-ul-container {
-    /* margin-top: 180%; */
-}
-.side-bar-ul-container>ul {
-    margin-left: 5%;
-    margin-top: 100%;
-    gap: 2rem;
-}
-.side-bar-ul-container>ul>li>a>sub {
-    padding-bottom: 10%;
-}
-.side-bar-ul-container ul li ul li a {
-    margin-left: 10%;
-}
+

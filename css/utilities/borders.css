@@ -1,12 +1,15 @@
 .page-wrapper>.side-bar {
     border-right: 1px solid black;
 }
-.page-wrapper>.side-bar>header {
-    border: 1px solid blue;
+.page-wrapper>.side-bar>header{
+    border: 1px solid blue !important;
+}
+.page-wrapper>.side-bar>header img{
+    /* border: 1px solid blue; */
 }
 .page-wrapper>.side-bar>header>.page-links-container>a {
     /* border: 1px solid black; */
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 .topic-snips > .snip {
     /* border: 1px solid black; */

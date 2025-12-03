@@ -1,17 +1,26 @@
 /* main.css */
-@import url('components/imgsVids.css');
-@import url('components/sideBarBtn.css');
-@import url('components/drag-hide-sidebar.css');
-@import url('components/dropDowns.css');
+/*@import url('components/dropDowns.css'); */
+/* @import url('components/sideBar.css'); */
 /* @import url('responsive.css'); */
-
+/* componets */
+ @import url('components/imgsVids.css');
+/* ui */
+@import url('components/drag-hide-sidebar.css');
+/* utilities */
 @import url('utilities/borders.css');
-@import url('utilities/colors.css');
+/* @import url('utilities/colors.css'); */
 @import url('utilities/layout.css');
+/* @import url('utilities/sizing.css'); */
+
+        /* sidebar-utilities */
+        @import url('utilities/sidebar/layout.css');
+        @import url('utilities/sidebar/sizing.css');
+        @import url('utilities/sidebar/spacing.css');
+        @import url('utilities/sidebar/sideBarBtn.css');
+        @import url('utilities/sidebar/sideBar.css');
 @import url('utilities/list.css');
 @import url('utilities/position.css');
 @import url('utilities/text.css');
-@import url('utilities/sizing.css');
 @import url('utilities/spacing.css');
 @import url('utilities/zindex.css');
 *{
