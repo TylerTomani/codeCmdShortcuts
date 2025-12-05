@@ -1,13 +1,11 @@
-import { sideBarTopicsAs } from "./injectPage.js";
-
+// import { sideBarTopicsAs } from "./injectPage.js";
+export const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 sideBarTopicsAs.forEach(el => {
     el.addEventListener('click', e => {
         e.preventDefault()
         const liSideBarTopic = e.target.closest('li')
-        
-        const childUl = liSideBarTopic.querySelector('ul')
-        
-        childUl.classList.toggle('hide')
+        const childUl = liSideBarTopic.querySelector('ul')        
+        // childUl.classList.toggle('hide')
     })
 })
 

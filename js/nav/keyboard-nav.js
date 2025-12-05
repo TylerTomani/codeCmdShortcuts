@@ -1,3 +1,98 @@
-export function keyboardNav() {
+let lastLetterPressed = null
 
+export function keyboardNav({ e }) {
+    const key = (e.key || '').toLowerCase()
+    if (!key.match(/^[a-z]$/)) return // only handle letters
+
+    // all visible anchors (same as you had)
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn')].filter(el => {
+        const rect = el.getBoundingClientRect()
+        return rect && rect.width > 0 && rect.height > 0
+    })
+
+    // helper: return the first alphabetic character of the element's text (or '')
+    const firstAlpha = el => {
+        const s = (el.innerText || '').trim()
+        if(el.tagName != 'A' && el.hasAttribute){
+            console.log('do i get the id here somehow if not an a element')
+        }
+        for (let i = 0; i < s.length; i++) {
+            const ch = s[i]
+            if (/[a-zA-Z]/.test(ch)) return ch.toLowerCase()
+        }
+    console.log(el)
+        return ''
+    }
+
+    // matching anchors whose first alpha char equals the pressed key
+    const matching = allEls.filter(el => firstAlpha(el) === key)
+    if (matching.length === 0) return
+
+    const activeEl = document.activeElement
+    const iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
+    const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
+
+    let newIndex
+
+    // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
+    if (key !== lastLetterPressed) {
+        // if there's no active element inside anchors, fallback to first/last
+        if (iActiveAll === -1) {
+            newIndex = e.shiftKey ? matching.length - 1 : 0
+        } else {
+            // find nearest matching element ABOVE the active element (lower index)
+            let aboveEl = null
+            let aboveIdxAll = -1
+            for (let i = iActiveAll - 1; i >= 0; i--) {
+                if (matching.includes(allEls[i])) {
+                    aboveEl = allEls[i]
+                    aboveIdxAll = i
+                    break
+                }
+            }
+
+            // find nearest matching element BELOW the active element (higher index)
+            let belowEl = null
+            let belowIdxAll = -1
+            for (let i = iActiveAll + 1; i < allEls.length; i++) {
+                if (matching.includes(allEls[i])) {
+                    belowEl = allEls[i]
+                    belowIdxAll = i
+                    break
+                }
+            }
+
+            if (aboveEl && belowEl) {
+                // choose whichever is closer; if tie, choose above (you said "directly before" has priority)
+                const distAbove = iActiveAll - aboveIdxAll
+                const distBelow = belowIdxAll - iActiveAll
+                newIndex = (distAbove <= distBelow)
+                    ? matching.indexOf(aboveEl)
+                    : matching.indexOf(belowEl)
+            } else if (aboveEl) {
+                newIndex = matching.indexOf(aboveEl)
+            } else if (belowEl) {
+                newIndex = matching.indexOf(belowEl)
+            } else {
+                // no above/below found (edge) -> fallback
+                newIndex = e.shiftKey ? matching.length - 1 : 0
+            }
+        }
+
+        // --- Same letter pressed repeatedly: cycle through matching items ---
+    } else {
+        if (iActiveMatching === -1) {
+            // currently focused element is not one of the matching elements
+            newIndex = e.shiftKey ? matching.length - 1 : 0
+        } else {
+            newIndex = e.shiftKey
+                ? (iActiveMatching - 1 + matching.length) % matching.length
+                : (iActiveMatching + 1) % matching.length
+        }
+    }
+
+    const target = matching[newIndex]
+    if (!target) return
+    target.focus()
+    lastLetterPressed = key
 }

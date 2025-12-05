@@ -1,6 +1,6 @@
-:root{
+/* :root{
     --sidebar-width: 120px;
-}
+} */
 .page-wrapper>.side-bar {
     display: flex;
     flex-direction: column;

@@ -1,9 +1,17 @@
 /* layout.css */
+.main-content{
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 1; */
+    /* border: 2px solid blue; */
+}
 .page-wrapper {
     display: flex;
+    /* overflow-x: hidden; */
+    /* overflow-y: scroll; */
 }
 .page-wrapper>.side-bar {
-    flex-basis: 10%;
+    /* flex-basis: 10%; */
     /* flex-shrink: 0; */
 }
 .page-wrapper>.main-content {

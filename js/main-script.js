@@ -1,14 +1,13 @@
 // main-script.js
-import { keyboardNav } from "./nav/keyboard-nav.js";
-import { initDropDowns } from "./ui/drop-downs.js";
-import { initToggleSideBar } from "./ui/toggle-sidebar.js";
-import { dragHideSidebar } from "./ui/drag-hide-sidebar.js";
-
-import { addCopyCodes } from "./copy-code.js";
-addCopyCodes()
-dragHideSidebar()
-initToggleSideBar();
-
-// initDropDowns();
-
-keyboardNav(); // only once - NO What??!
+import { keyboardNav } from "./nav/keyboard-nav.js"
+import { initInjectcontetListeners } from "./inject-content.js";
+function initMain(){
+    initInjectcontetListeners()
+}
+export function setupGlobalListeners(){
+    document.addEventListener('keydown', e => {
+        keyboardNav({e})       
+    })    
+}
+initMain()
+setupGlobalListeners()

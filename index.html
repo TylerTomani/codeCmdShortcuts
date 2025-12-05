@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="css/main.css">
 
     <script type="module" src="js/main-script.js" defer></script>
-    <script type="module" src="js/inject-page.js" defer></script>
 
     <!-- <script type="module" src="js/drag-hide-codeCmdShrt.js" defer></script> -->
     <!-- <script type="module" src="../../js/copy-code.js" defer></script> -->
@@ -28,13 +27,22 @@
             <div class="side-bar-ul-container">
                 <ul class="side-bar-topics">
                     <li><a  id="vsCodeAside" class="drop-down" href="topics/visualStudio-codeCmdShrt/visualStudio-codeCmdShrt.html">
-                        V<sub>isual</sub> S<sub>tudio</sub> C<sub>ode</sub></a></li>
+                        V<sub>isual</sub> S<sub>tudio</sub> C<sub>ode</sub></a>
+                        <ul>
+                            <li><a href="#">sub cat</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a  id="'hExElement'" class="drop-down" href="topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html">'hExElement'</a>
+                        
+                    </li>  
                     <li><a autofocus id="javascriptAside" class="drop-down" href="topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html">Javascript</a>
                         <ul >
                             <!-- <li><a href="#">letter focus</a>
                             </li> -->
                         </ul>
                     </li>  
+                    
                     <li><a id="htmlAside" class="drop-down" href="topics/html-codeCmdShrt/html-codeCmdShrt.html">HTML Style</a>
                         <ul>
                             <li><a href="#">sub cat</a>
@@ -45,8 +53,8 @@
                     <li><a id="homeAside" href="index.html">home</a></li>
                 </ul>
             </div>
+            <i tabindex="0" id="sideBarBtn" class="bx bx-menu"></i>
         </aside>
-        <i tabindex="0" id="sideBarBtn" class="bx bx-menu"></i>
         <div tabindex="0" class="main-content">
             <header>
                 <h2 class="main-content-title">home</h2>
@@ -78,7 +86,6 @@
                     </button>
                 </div> -->
             </nav>
-            
             <div tabindex="0" id="mainLandingPage" class="main-landing-page">
                 
             </div>

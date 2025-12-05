@@ -1,1 +1,15 @@
 /* sizing.css */
+:root {
+    --sidebar-width: 100vw;
+    --main-content-width: calc(1000% - var(--sidebar-width))
+}
+.page-wrapper {
+    /* width: 100%; */
+    height: 100vh;
+}
+.page-wrapper > .side-bar{
+    flex-basis: var(--sidebar-width);
+}
+.main-content{
+
+}

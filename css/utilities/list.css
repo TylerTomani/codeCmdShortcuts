@@ -1,9 +1,0 @@
-.side-bar-ul-container>ul {
-    list-style: none;
-}
-
-.side-bar-ul-container>ul>li>ul {
-    list-style: none;
-    font-size: 86%;
-}
-
