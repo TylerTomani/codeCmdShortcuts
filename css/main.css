@@ -16,9 +16,7 @@
         /* mainPageContainer-utilities */
         /* @import url('utilities/mainLandingPage/layout-mainLandPage.css'); */
         /* sidebar-utilities */
-        /* @import url('utilities/sidebar/layout.css'); */
-        /* @import url('utilities/sidebar/sizing.css'); */
-        @import url('utilities/sidebar/spacing-sidebar.css');
+        @import url('utilities/sidebar/layout-sidebar.css');
         @import url('utilities/sidebar/sideBarBtn.css');
 
         /* @import url('utilities/sidebar/sideBar.css'); */

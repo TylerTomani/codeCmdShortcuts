@@ -12,17 +12,25 @@ export function keyboardNav({ e }) {
 
     // helper: return the first alphabetic character of the element's text (or '')
     const firstAlpha = el => {
-        const s = (el.innerText || '').trim()
-        if(el.tagName != 'A' && el.hasAttribute){
-            console.log('do i get the id here somehow if not an a element')
+        // If element is NOT an anchor, use its ID  
+        if (el.tagName !== 'A') {
+            const id = (el.id || '').trim().toLowerCase()
+            for (let i = 0; i < id.length; i++) {
+                const ch = id[i]
+                if (/[a-z]/.test(ch)) return ch
+            }
+            return ''
         }
+
+        // Regular <a> text logic
+        const s = (el.innerText || '').trim().toLowerCase()
         for (let i = 0; i < s.length; i++) {
-            const ch = s[i]
-            if (/[a-zA-Z]/.test(ch)) return ch.toLowerCase()
+            if (/[a-z]/.test(s[i])) return s[i]
         }
-    console.log(el)
+
         return ''
     }
+
 
     // matching anchors whose first alpha char equals the pressed key
     const matching = allEls.filter(el => firstAlpha(el) === key)

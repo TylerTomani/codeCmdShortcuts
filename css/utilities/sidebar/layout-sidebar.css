@@ -1,0 +1,32 @@
+/* :root{
+    --sidebar-width: 120px;
+} */
+.page-wrapper>.side-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper>.side-bar>header {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: flex-start; */
+}
+
+.page-wrapper>.side-bar>header>.page-links-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.page-wrapper>.side-bar>header>.page-links-container>a {
+    display: inline-block;
+}
+
+.page-wrapper>.side-bar>.side-bar-ul-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.side-bar-ul-container>ul {
+    display: flex;
+    flex-direction: column;
+}

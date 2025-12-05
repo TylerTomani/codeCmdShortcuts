@@ -1,7 +1,7 @@
 /* layout.css */
 .main-content{
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
     /* flex-grow: 1; */
     /* border: 2px solid blue; */
 }
