@@ -1,9 +1,10 @@
 /* layout.css */
 .page-wrapper {
     display: flex;
+    overflow: hidden;
 }
 .main-content{
-    flex-shrink: 1;
+    overflow-y: scroll;
 }
 
 .code-container>* {

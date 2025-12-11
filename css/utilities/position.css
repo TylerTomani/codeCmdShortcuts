@@ -1,26 +1,11 @@
 /* position.css */
-
 .page-wrapper {
-    /* position: relative; */
+    /* display: flex; */
 }
 .page-wrapper>.side-bar {
     position: sticky;
     top: 0;
+    left: 0
 }
 .page-wrapper>.main-content {
-}
-.main-content>nav,
-.main-content>header {
-    /* position: relative; */
-}
-.main-content>header h2 {
-    /* position: absolute; */
-    /* left: 0; */
-}
-.page-wrapper>.side-bar {
-    /* position: sticky; */
-    /* top: 0;     */
-}
-.side-bar-ul-container>ul>li>a {
-    /* position: relative; */
 }

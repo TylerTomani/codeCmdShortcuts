@@ -1,15 +1,15 @@
 /* sizing.css */
 :root {
     --sidebar-width: 15%;
-    --main-content-width: calc(1000% - var(--sidebar-width))
+    --main-content-width: calc(100% - var(--sidebar-width))
 }
 .page-wrapper {
-    /* width: 100%; */
-    /* height: 100vh; */
+    height: 100vh;
 }
 .page-wrapper > .side-bar{
+    width: var(--sidebar-width);
 }
-.main-content{
+.page-wrapper > .main-content{
     width: calc(100% - var(--sidebar-width));
 
 }

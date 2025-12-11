@@ -1,11 +1,13 @@
 /* main.css */
-/*@import url('components/dropDowns.css'); */
-/* @import url('components/sideBar.css'); */
-/* @import url('responsive.css'); */
+
+@import url('responsive.css');
+
 /* componets */
+/*@import url('components/dropDowns.css'); */
  @import url('components/imgsVids.css');
 /* ui */
-/* @import url('components/drag-hide-sidebar.css'); */
+@import url('ui/toggle-side-bar.css');
+@import url('ui/sideBarBtn.css');
 /* utilities */
 @import url('utilities/borders.css');
 @import url('utilities/colors.css');

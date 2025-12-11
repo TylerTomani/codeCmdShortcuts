@@ -102,9 +102,25 @@ export function keyboardNav({ e }) {
     const target = matching[newIndex]
     if (!target) return
     if (target.id === 'mainContent'){
-        // console.log('yes')
         scrollTo(0,0)
     }
+    let fZone = focusZones(target)
     target.focus()
     lastLetterPressed = key
+}
+function focusZones(target){
+    const t = target
+    let focusZone
+    if (t.id == 'mainContent'){
+        focusZone = 'mainContent'
+    } else if (t.closest('.side-bar') ){
+        focusZone = 'sideBar'
+    }
+    // switch (t){
+    //     case target.id === 'mainContent':
+    //         return focusZone = 'mainContent'
+    //         break
+        // case target.
+    // }
+    return focusZone
 }

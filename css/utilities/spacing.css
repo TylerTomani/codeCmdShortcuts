@@ -1,3 +1,9 @@
+.page-wrapper > #mainContent{
+}
+.page-wrapper>#mainContent header {
+    margin: 0 2%;
+    
+}
 .main-content>header h2 {
     margin-top: 1%;
     margin-left: 2%;

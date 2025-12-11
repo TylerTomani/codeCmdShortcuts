@@ -1,0 +1,6 @@
+#sideBarBtn{
+    position: absolute;
+    bottom: 15%;
+    z-index: 1;
+    font-size: 3rem;
+}

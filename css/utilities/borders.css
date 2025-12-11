@@ -1,3 +1,10 @@
+.page-wrapper>#mainContent {
+        
+}
+.page-wrapper>#mainContent header{
+    border-bottom: 1px solid blue;
+
+}
 .page-wrapper>.side-bar {
     border-right: 1px solid black;
 }
