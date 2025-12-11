@@ -1,27 +1,11 @@
 /* layout.css */
-.main-content{
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* flex-grow: 1; */
-    /* border: 2px solid blue; */
-}
 .page-wrapper {
     display: flex;
-    /* overflow-x: hidden; */
-    /* overflow-y: scroll; */
 }
-.page-wrapper>.side-bar {
-    /* flex-basis: 10%; */
-    /* flex-shrink: 0; */
-}
-.page-wrapper>.main-content {
-    /* flex-grow: 1; */
-    /* overflow-y: auto; */
-}
-.main-content>nav,
-.main-content>header {
-    /* display: flex; */
-    /* justify-content: flex-end; */
+.main-content{
+    flex-shrink: 1;
 }
 
-
+.code-container>* {
+    overflow-x: scroll;
+}

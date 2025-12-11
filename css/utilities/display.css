@@ -1,13 +1,13 @@
 /* display.css */
 .hide {
-    display: none;
+    /* display: none; */
 }
 .page-wrapper>.side-bar.hidden {
-    display: none;
+    /* display: none; */
 }
 .page-wrapper>.side-bar.collapsed ul li ul {
-    display: none;
+    /* display: none; */
 }
 .side-bar-ul-container>ul>li>a {
-    display: inline-block;
+    /* display: inline-block; */
 }

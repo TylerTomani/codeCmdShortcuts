@@ -1,6 +1,6 @@
 /* sizing.css */
 :root {
-    --sidebar-width: 100vw;
+    --sidebar-width: 15%;
     --main-content-width: calc(1000% - var(--sidebar-width))
 }
 .page-wrapper {
@@ -8,8 +8,16 @@
     /* height: 100vh; */
 }
 .page-wrapper > .side-bar{
-    /* width: var(--sidebar-width); */
 }
 .main-content{
+    width: calc(100% - var(--sidebar-width));
 
+}
+.code-container {
+    width: 90%;
+    /* overflow-x: scroll; */
+}
+.code-container > *{
+    width: 100%;
+    font-size: 80%;
 }

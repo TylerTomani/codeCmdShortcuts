@@ -12,16 +12,6 @@
 @import url('utilities/display.css');
 @import url('utilities/layout.css');
 @import url('utilities/sizing.css');
-
-        /* mainPageContainer-utilities */
-        /* @import url('utilities/mainLandingPage/layout-mainLandPage.css'); */
-        /* sidebar-utilities */
-        @import url('utilities/sidebar/layout-sidebar.css');
-        @import url('utilities/sidebar/sideBarBtn.css');
-
-        /* @import url('utilities/sidebar/sideBar.css'); */
-
-        @import url('utilities/sidebar/text-sidebar.css');
 @import url('utilities/position.css');
 @import url('utilities/text.css');
 @import url('utilities/spacing.css');

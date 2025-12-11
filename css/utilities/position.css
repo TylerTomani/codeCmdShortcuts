@@ -1,8 +1,11 @@
 /* position.css */
 
+.page-wrapper {
+    /* position: relative; */
+}
 .page-wrapper>.side-bar {
-    /* position: sticky; */
-    /* top: 0; */
+    position: sticky;
+    top: 0;
 }
 .page-wrapper>.main-content {
 }

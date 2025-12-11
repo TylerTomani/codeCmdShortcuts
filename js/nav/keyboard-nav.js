@@ -5,7 +5,7 @@ export function keyboardNav({ e }) {
     if (!key.match(/^[a-z]$/)) return // only handle letters
 
     // all visible anchors (same as you had)
-    const allEls = [...document.querySelectorAll('a,#sideBarBtn')].filter(el => {
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent')].filter(el => {
         const rect = el.getBoundingClientRect()
         return rect && rect.width > 0 && rect.height > 0
     })
@@ -101,6 +101,10 @@ export function keyboardNav({ e }) {
 
     const target = matching[newIndex]
     if (!target) return
+    if (target.id === 'mainContent'){
+        // console.log('yes')
+        scrollTo(0,0)
+    }
     target.focus()
     lastLetterPressed = key
 }
