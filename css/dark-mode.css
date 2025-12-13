@@ -1,6 +1,9 @@
 body.dark-mode{
     background: rgb(17, 18, 17) !important;
 }
+body.dark-mode .side-bar{
+    border-right: 1px solid whitesmoke;
+}
 body.dark-mode * {
     color: whitesmoke !important;
     

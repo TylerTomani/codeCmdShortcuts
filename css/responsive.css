@@ -11,9 +11,12 @@
     .side-bar-ul-container>.side-bar-topics {
         margin-top: 80% !important;
     }
-}
-@media screen and (max-width:720px){
     #sideBarBtn {
         bottom: 5% !important;
+    }
+}
+@media screen and (max-width:520px){
+    .main-content>.main-landing-page {
+            margin-left: 0;
     }
 }

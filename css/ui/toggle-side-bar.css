@@ -9,7 +9,11 @@
     transition: var(--toggle-time)
     /* transform: translate(-100%,-100%); */
 }
-.page-wrapper.collapsed >.main-content {
+.page-wrapper.collapsed .main-content {
     width: 100%;
-    transition: var(--toggle-time)
+    transition: all var(--toggle-time) ease;
+}
+.page-wrapper.collapsed .main-landing-page {
+    margin-left: 5%;
+    transition: all var(--toggle-time) ease;
 }
