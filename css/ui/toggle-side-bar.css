@@ -1,6 +1,8 @@
+/* toggle-side-bar.css */
 .page-wrapper.collapsed > .side-bar{
     width: 0;
     opacity: 0;
-    transition: all 3000 ease;
+    transform: translate(0,-25%);
+    transition: all 500ms ease;
     /* transform: translate(-100%,-100%); */
 }

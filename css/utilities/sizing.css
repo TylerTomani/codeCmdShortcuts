@@ -8,6 +8,7 @@
 }
 .page-wrapper > .side-bar{
     width: var(--sidebar-width);
+    transition: all 250ms ease;
 }
 .page-wrapper > .main-content{
     width: calc(100% - var(--sidebar-width));

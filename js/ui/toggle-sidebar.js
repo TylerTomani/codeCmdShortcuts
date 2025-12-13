@@ -1,29 +1,27 @@
+// toggle-sidebar.js
 const sideBar = document.querySelector('.page-wrapper > aside.side-bar')
-const pageWrapper = document.querySelector('.page-wrapper')
+export const pageWrapper = document.querySelector('.page-wrapper')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
-export function initToggleSideBar(){
+
+export function initToggleSideBar() {
     function toggleSidebar(e) {
-        e.preventDefault()
-        console.log('here')
+        const isSidebarClick =
+            e.currentTarget === sideBar && e.target === sideBar
+
+        const isButtonClick =
+            e.currentTarget === sideBarBtn
+
+        if (!isSidebarClick && !isButtonClick) return
+
         pageWrapper.classList.toggle('collapsed')
     }
-    sideBar.addEventListener('click', e => {
-        if(!e.target.tagName != 'ASIDE') return
-        toggleSidebar(e)
-    })
-    sideBarBtn.addEventListener('click', e => {
-        hideSideBar()
-    })
 
+    sideBar.addEventListener('click', toggleSidebar)
+    sideBarBtn.addEventListener('click', toggleSidebar)
     sideBarBtn.addEventListener('keydown', e => {
-        // console.log('here')
-        if (e.key === 'Enter'){
-            console.log(pageWrapper)
-            toggleSidebar(e)
-        } 
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            pageWrapper.classList.toggle('collapsed')
+        }
     })
-
-    function hideSideBar(e){
-        pageWrapper.classList.toggle('hidden')
-    }
 }
