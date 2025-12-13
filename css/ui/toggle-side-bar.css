@@ -5,12 +5,11 @@
 .page-wrapper.collapsed > .side-bar{
     width: 0;
     opacity: 0;
-    transform: translate(0,-25%);
+    transform: translate(-100%,0);
     transition: var(--toggle-time)
     /* transform: translate(-100%,-100%); */
 }
 .page-wrapper.collapsed >.main-content {
-    /* Without This width: below, main-content expands full width window when .page-wrapper.collapsed  */
     width: 100%;
     transition: var(--toggle-time)
 }

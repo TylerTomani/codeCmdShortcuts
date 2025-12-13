@@ -1,12 +1,20 @@
 
+
 .side-bar>header > img {
-    /* display: block; */
-    /* position: fixed; */
-    /* margin: 0; */
-    /* width: 90%; */
-    
-    max-width: 200px;
+    align-self: center;
+    max-width: 100px;
     height: 15vh;
 }
-
-
+.page-wrapper > .main-content > header img{
+    /* opacity: 0; */
+    transform: translate(-100%, 0);
+    transition: all 2.5s ease;
+    /* max-width: 100px; */
+}
+.page-wrapper.collapsed >.main-content>header img{
+    opacity: 1;
+    display: block;
+    height: 15vh;
+    transform: translate(4%, 0);
+    transition: all 2.5s ease;
+}
