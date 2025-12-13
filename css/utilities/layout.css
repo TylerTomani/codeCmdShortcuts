@@ -7,6 +7,9 @@
     overflow-y: scroll;
 }
 
+.code-container{
+    overflow: hidden;
+}
 .code-container>* {
     overflow-x: scroll;
 }

@@ -1,13 +1,13 @@
-
 .side-bar a {
     text-decoration: none;
 }
-
-
-.code-container>* {
-    width: 100%;
-    font-size: 80%;
+.side-bar a:visited {
+    
 }
 .main-content > header{
     
+}
+
+.code-container>* {
+    font-size: 80%;
 }

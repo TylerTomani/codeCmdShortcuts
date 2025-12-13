@@ -7,7 +7,7 @@
     gap: 2rem;
 }
 .side-bar-topics li {
-    margin-bottom: 10%;
+    margin: 25% 0;
 }
 .side-bar-topics ul li {
     margin-left: 12%;
@@ -24,7 +24,11 @@
 .side-bar>header {
     margin-bottom: 10%;
 }
-.code-container > *{
-    width: 100%;
-    font-size: 80%;
+.code-container {
+    margin-top:  1%;
+    margin-left: 1%;
+}
+.code-container * {
+    margin-top:  1.5%;
+    margin-left: 1%;
 }

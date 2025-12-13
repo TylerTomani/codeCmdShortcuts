@@ -1,9 +1,10 @@
 // drop-downs.js
 
 export function initDropDowns() {   
+    const subTopics = document.querySelectorAll('.side-bar-topics > ul')
     hideAllCodeCmds()
+    hideAllSubTopics(subTopics)
     if(!document.listenersAdded){
-
         document.addEventListener("click", handleToggle);
         document.addEventListener("keydown", handleToggle);
         document.listenersAdded = true
@@ -27,11 +28,11 @@ export function initDropDowns() {
         }
 
         // Unified toggle logic
-        const topic = target.closest(".topic");
+        const topic = target.closest(".side-bar-topics li");
         const snip = target.closest(".snip");
         // console.log("Toggled dropdown:", topic);
         // if (!topic || !snip) return;
-        console.log(snip)
+        console.log(topic)
         if (snip){
             toggleCodeSnips(snip)
             return
@@ -49,16 +50,22 @@ function toggleCodeSnips(snip) {
 
 }
 function hideAllCodeCmds() {
-    const codeCmds = document.querySelectorAll('.code-cmd')
+    const codeCmds = document.querySelectorAll('.code-cmd')    
     codeCmds.forEach(el => {
         if(!el.classList.contains('show')){
             el.classList.add('hide')
         }
     })
-    
-
+}
+function hideAllSubTopics(subTopics) {
+    subTopics.forEach(el => {
+        if(!el.classList.contains('show')){
+            el.classList.add('hide')
+        }
+    })
 }
 function toggleTopicSnips(topic) {
-    const topicSnips = topic.querySelector('.topic-snips')
-    topicSnips.classList.toggle("hide"); // example toggle
+    const subTopics = topic.querySelector('ul')
+    subTopics.classList.toggle("hide"); // example toggle
+
 }

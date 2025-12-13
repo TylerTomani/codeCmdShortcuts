@@ -16,6 +16,12 @@
 
 }
 .code-container {
-    width: 90%;
+    width: fit-content;
+    min-width: 50%;
+    min-height: 100px;
+    max-width: 95%;
     /* overflow-x: scroll; */
+}
+.code-container>* {
+    width: 100%;
 }
