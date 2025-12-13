@@ -37,51 +37,33 @@ export function keyboardNav({ e }) {
     let newIndex
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
-        // if there's no active element inside anchors, fallback to first/last
         if (iActiveAll === -1) {
+            // nothing focused: pick first/last
             newIndex = e.shiftKey ? matching.length - 1 : 0
         } else {
-            // find nearest matching element ABOVE the active element (lower index)
-            let aboveEl = null
-            let aboveIdxAll = -1
-            for (let i = iActiveAll - 1; i >= 0; i--) {
-                if (matching.includes(allEls[i])) {
-                    aboveEl = allEls[i]
-                    aboveIdxAll = i
-                    break
-                }
-            }
+            const prevEl = allEls[iActiveAll - 1]  // the element directly before
+            const nextEl = allEls[iActiveAll + 1]  // the element directly after
 
-            // find nearest matching element BELOW the active element (higher index)
-            let belowEl = null
-            let belowIdxAll = -1
-            for (let i = iActiveAll + 1; i < allEls.length; i++) {
-                if (matching.includes(allEls[i])) {
-                    belowEl = allEls[i]
-                    belowIdxAll = i
-                    break
-                }
-            }
-
-            if (aboveEl && belowEl) {
-                // choose whichever is closer; if tie, choose above (you said "directly before" has priority)
-                const distAbove = iActiveAll - aboveIdxAll
-                const distBelow = belowIdxAll - iActiveAll
-                newIndex = (distAbove <= distBelow)
-                    ? matching.indexOf(aboveEl)
-                    : matching.indexOf(belowEl)
-            } else if (aboveEl) {
-                newIndex = matching.indexOf(aboveEl)
-            } else if (belowEl) {
-                newIndex = matching.indexOf(belowEl)
+            // if the previous element matches the letter, go up one
+            if (prevEl && matching.includes(prevEl)) {
+                newIndex = matching.indexOf(prevEl)
             } else {
-                // no above/below found (edge) -> fallback
-                newIndex = e.shiftKey ? matching.length - 1 : 0
+                // otherwise go to the next matching element after current focus
+                let foundNext = false
+                for (let i = iActiveAll + 1; i < allEls.length; i++) {
+                    if (matching.includes(allEls[i])) {
+                        newIndex = matching.indexOf(allEls[i])
+                        foundNext = true
+                        break
+                    }
+                }
+                if (!foundNext) {
+                    // fallback to first matching if nothing found below
+                    newIndex = 0
+                }
             }
         }
-
-        // --- Same letter pressed repeatedly: cycle through matching items ---
-    } else {
+    }else {
         if (iActiveMatching === -1) {
             // currently focused element is not one of the matching elements
             newIndex = e.shiftKey ? matching.length - 1 : 0

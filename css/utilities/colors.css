@@ -1,0 +1,7 @@
+:root {
+    --clr-txt-sidebar: black
+}
+.side-bar a,
+.side-bar a:visited {
+    color: var(--clr-txt-sidebar);
+}
