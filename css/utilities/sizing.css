@@ -19,7 +19,3 @@
     width: 90%;
     /* overflow-x: scroll; */
 }
-.code-container > *{
-    width: 100%;
-    font-size: 80%;
-}
