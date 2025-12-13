@@ -1,8 +1,16 @@
 /* toggle-side-bar.css */
+:root {
+    --toggle-time: all 350ms ease;;
+}
 .page-wrapper.collapsed > .side-bar{
     width: 0;
     opacity: 0;
     transform: translate(0,-25%);
-    transition: all 500ms ease;
+    transition: var(--toggle-time)
     /* transform: translate(-100%,-100%); */
+}
+.page-wrapper.collapsed >.main-content {
+    /* Without This width: below, main-content expands full width window when .page-wrapper.collapsed  */
+    width: 100%;
+    transition: var(--toggle-time)
 }
