@@ -1,7 +1,7 @@
 // inject-page.js
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 export const mainLandingPage = document.querySelector("#mainLandingPage");
-import { sideBarTopicsAs } from "./ui/side-bar-drop-topics.js";
+const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 export function initInjectcontetListeners(){
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
