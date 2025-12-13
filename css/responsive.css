@@ -2,4 +2,10 @@
     :root {
         --sidebar-width: 20% !important;
     }
+    .main-content > header {
+        font-size: 50%;
+    }
+    .side-bar-topics li {
+        font-size: 90%;
+    }
 }
