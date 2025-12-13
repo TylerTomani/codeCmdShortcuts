@@ -4,6 +4,9 @@
 body{
     background-color: rgb(215, 227, 226);
 }
+.code-container{
+    background-color: whitesmoke;
+}
 .side-bar a,
 .side-bar a:visited {
     color: var(--clr-txt-sidebar);
