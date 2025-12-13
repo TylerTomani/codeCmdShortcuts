@@ -2,8 +2,8 @@
     padding:25% 0;
 }
 .side-bar-ul-container>.side-bar-topics {
-    margin-left: 5%;
     margin-top: 20%;
+    margin-left: 5%;
     gap: 2rem;
 }
 .side-bar-topics li {

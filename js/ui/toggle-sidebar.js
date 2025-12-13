@@ -4,6 +4,14 @@ export const pageWrapper = document.querySelector('.page-wrapper')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
 
 export function initToggleSideBar() {
+    sideBar.addEventListener('click', toggleSidebar)
+    sideBarBtn.addEventListener('click', toggleSidebar)
+    sideBarBtn.addEventListener('keydown', e => {
+        if (e.key === 'Enter') {
+            e.preventDefault()
+            pageWrapper.classList.toggle('collapsed')
+        }
+    })
     function toggleSidebar(e) {
         const isSidebarClick =
             e.currentTarget === sideBar && e.target === sideBar
@@ -15,13 +23,4 @@ export function initToggleSideBar() {
 
         pageWrapper.classList.toggle('collapsed')
     }
-
-    sideBar.addEventListener('click', toggleSidebar)
-    sideBarBtn.addEventListener('click', toggleSidebar)
-    sideBarBtn.addEventListener('keydown', e => {
-        if (e.key === 'Enter') {
-            e.preventDefault()
-            pageWrapper.classList.toggle('collapsed')
-        }
-    })
 }

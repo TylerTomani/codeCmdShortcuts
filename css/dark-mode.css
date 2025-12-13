@@ -1,3 +1,7 @@
 body.dark-mode{
-    background: black !important;
+    background: rgb(17, 18, 17) !important;
+}
+body.dark-mode * {
+    color: whitesmoke !important;
+    
 }

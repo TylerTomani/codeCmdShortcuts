@@ -35,6 +35,7 @@ export function keyboardNav({ e }) {
     const iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
+    if(e.metaKey) return
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
         if (iActiveAll === -1) {

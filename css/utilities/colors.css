@@ -1,6 +1,9 @@
 :root {
     --clr-txt-sidebar: black
 }
+body{
+    background-color: rgb(215, 227, 226);
+}
 .side-bar a,
 .side-bar a:visited {
     color: var(--clr-txt-sidebar);
