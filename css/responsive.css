@@ -7,16 +7,23 @@
     }
     .side-bar-topics li {
         font-size: 90%;
+        margin-top: 100%;
     }
     .side-bar-ul-container>.side-bar-topics {
-        margin-top: 80% !important;
+        margin-top: 60% !important;
     }
     #sideBarBtn {
         bottom: 5% !important;
+        /* font-size: 100% !important; */
     }
+    .code-container {
+        max-width: 95%!important;
+    }
+    
+
 }
 @media screen and (max-width:520px){
     .main-content>.main-landing-page {
-            margin-left: 0;
+        margin-left: 0;
     }
 }

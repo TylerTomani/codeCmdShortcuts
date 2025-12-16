@@ -4,6 +4,13 @@
 }
 .page-wrapper>.side-bar>header > .page-links-container >a{
     margin-left: 2.5%;
+}
+.side-bar-ul-container > .side-bar-topics > li > a,
+.side-bar-ul-container>.side-bar-topics>li>ul>li>a{
+    display: inline-block;
+    padding: 2% 0;
+}
+.side-bar-ul-container > .side-bar-topics > li > ul > li > a{
 
 }
 .side-bar-ul-container {
@@ -15,15 +22,19 @@
     gap: 2rem;
 }
 .side-bar-topics li {
-    margin: 25% 0;
+    margin-top: 8%;
+    margin-left: 20% 0;
+}
+.side-bar-topics > li  > a {
+    display: inline-block;
+    padding-left: 50%;
+
 }
 .side-bar-topics ul li {
     margin-left: 12%;
-    margin-top: 6%;
+    /* margin-top: 5%; */
 }
-.page-wrapper>.main-content header {
-    margin: 0 2%;    
-}
+
 .page-wrapper>.main-content nav {
     margin-left: 2.5%;
 }
@@ -33,11 +44,20 @@
 .side-bar>header {
     margin-bottom: 10%;
 }
+/* Topics */
+.topic > header > h3 {
+    padding-top: 2%;
+    margin-left: 0;
+}
+.topic-snips > .snip > h4 {
+    margin: 1%;
+    padding-left: 1%;
+}
 .code-container {
     margin-top:  1%;
     margin-left: 1%;
 }
 .code-container * {
-    margin-top:  1.5%;
-    margin-left: 1%;
+    padding-top:  1.5%;
+    padding-left: 1%;
 }

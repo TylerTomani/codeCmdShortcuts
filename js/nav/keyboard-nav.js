@@ -3,6 +3,7 @@ import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 export function keyboardNav({ e }) {
     const key = (e.key || '').toLowerCase()
     if (!key.match(/^[a-z]$/)) return // only handle letters
+    
     // all visible anchors (same as you had)
     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn')].filter(el => {
         const rect = el.getBoundingClientRect()
@@ -35,6 +36,13 @@ export function keyboardNav({ e }) {
     const iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
+
+    if (key === 'm' && activeEl?.id === 'mainContent') {
+        e.preventDefault()
+        pageWrapper.scrollTo({ top: 0, behavior: 'smooth' })
+        lastLetterPressed = key
+        return
+    }
     if(e.metaKey) return
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
@@ -76,14 +84,13 @@ export function keyboardNav({ e }) {
     }
     const target = matching[newIndex]
     if (!target) return
-    if (target.id === 'mainContent'){
-        scrollTo(0,0)
-    }
+    
     if(target == sideBarBtn && pageWrapper.classList.contains('collapsed')){
         pageWrapper.classList.remove('collapsed')
     }
     // let fZone = focusZones(target)
     // console.log(fZone)
+    
     target.focus()
     lastLetterPressed = key
 }

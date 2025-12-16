@@ -11,19 +11,91 @@
 <body>
     <div id="mainPageContainer" class="page-container">
         <div class="topics-container">
+            <!-- keyboard Navigation -->
+            <div class="topic">
+                <header>
+                    <h3><a id="keyboardNavigation" href="#" class="topic-title drop-down">Keyboard Navigation</a></h3>
+                </header>
+                <!-- Letter Focus Code -->
+                <div class="topic-snips">
+                    <!-- Keyboard-nav -->
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">keyboard-nav.js</a></h4>
+                        <sub>BEST VERSION YET</sub>
+                        <div class="code-cmd show">
+                            <div class="code-container">
+<pre tabindex="0" class="copy-code">
+let lastLetterPressed = null
+import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
+export function keyboardNav({ e }) {
+const key = (e.key || '').toLowerCase()
+if (!key.match(/^[a-z]$/)) return // only handle letters
+// all visible anchors (same as you had)
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn')].filter(el => {
+    const rect = el.getBoundingClientRect()
+    return rect && rect.width > 0 && rect.height > 0
+})
+// helper: return the first alphabetic character of the element's text (or '')
+const firstAlpha = el => {
+// If element is NOT an anchor, use its ID
+if (el.tagName !== 'A') {
+const id = (el.id || '').trim().toLowerCase()
+for (let i = 0; i &lt; id.length; i++) { const ch=id[i] if (/[a-z]/.test(ch)) return ch } return '' } // Regular &lt;a> text
+    logic
+    const s = (el.innerText || '').trim().toLowerCase()
+    for (let i = 0; i &lt; s.length; i++) { if (/[a-z]/.test(s[i])) return s[i] } return '' } // matching anchors whose
+        first alpha char equals the pressed key const matching=allEls.filter(el=> firstAlpha(el) === key)
+        if (matching.length === 0) return
+        const activeEl = document.activeElement
+        const iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
+        const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
+        let newIndex
+        if(e.metaKey) return
+        // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
+        if (key !== lastLetterPressed) {
+        if (iActiveAll === -1) {
+        // nothing focused: pick first/last
+        newIndex = e.shiftKey ? matching.length - 1 : 0
+        } else {
+        const prevEl = allEls[iActiveAll - 1] // the element directly before
+        const nextEl = allEls[iActiveAll + 1] // the element directly after
+
+        // if the previous element matches the letter, go up one
+        if (prevEl && matching.includes(prevEl)) {
+        newIndex = matching.indexOf(prevEl)
+        } else {
+        // otherwise go to the next matching element after current focus
+        let foundNext = false
+        for (let i = iActiveAll + 1; i &lt; allEls.length; i++) { if (matching.includes(allEls[i])) {
+            newIndex=matching.indexOf(allEls[i]) foundNext=true break } } if (!foundNext) { // fallback to first
+            matching if nothing found below newIndex=0 } } } }else { if (iActiveMatching===-1) { // currently focused
+            element is not one of the matching elements newIndex=e.shiftKey ? matching.length - 1 : 0 } else {
+            newIndex=e.shiftKey ? (iActiveMatching - 1 + matching.length) % matching.length : (iActiveMatching + 1) %
+            matching.length } } const target=matching[newIndex] if (!target) return if (target.id==='mainContent' ){
+            scrollTo(0,0) } if(target==sideBarBtn && pageWrapper.classList.contains('collapsed')){
+            pageWrapper.classList.remove('collapsed') } // let fZone=focusZones(target) // console.log(fZone)
+            target.focus() lastLetterPressed=key } function focusZones(target){ const t=target let focusZone if
+            (t.id=='mainContent' ){ focusZone='mainContent' } else if (t.closest('.side-bar') ){ focusZone='sideBar' }
+            // switch (t){ // case target.id==='mainContent' : // return focusZone='mainContent' // break // case
+            target. // } return focusZone 
+        }
+              </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- drop-downs -->
             <div class="topic">
                 <header>
-                    <a id="dropDowns" href="#" class="topic-title drop-down"><h3>drop-downs</h3></a>
+                    <h3><a id="dropDowns" href="#" class="topic-title drop-down">drop-downs</a></h3>
                 </header>
-                <!-- Letter Focus Code -->
+                <!-- drop-downs -->
                 <div class="topic-snips">
                     <div class="snip">
                         <h4><a href="#" class="drop-code-cmd">drop-down.js</a></h4>
                         <div class="code-cmd">
-                            <p>
-                                Best way so far
-                            </p>
+                            <sup>not the best( best is used on this page)</sup>
                             <div class="code-container">
                                 <pre tabindex="0" class="copy-code">
 // drop-downs.js
@@ -97,199 +169,7 @@ function toggleTopicSnips(topic) {
                     </div>
                 </div>
             </div>
-            <!-- keyboard Navigation -->
-            <div class="topic">
-                <header>
-                    <a id="keyboardNavigation" href="#" class="topic-title drop-down"><h3>Keyboard Navigation</h3></a>
-                </header>
-                <!-- Letter Focus Code -->
-                <div class="topic-snips">
-                    <div class="snip">
-                        <h4><a href="#" class="drop-code-cmd">keyboard-nav-letter-nums.js</a></h4>
-                        <sub>BEST VERSION YET</sub>
-                        <div class="code-cmd show">
-                            <div class="txt-container">
-                                <sup class="r">
-                                    Keyboard Navigation letter nums Script
-                                    <br>
-                                    This script allows quick keyboard-based navigation through visible focusable elements
-                                    on the page (links and elements with an ID) using single letters or numbers.
-                                </sup>
-                                <h5>Features:</h5>
-                                <ul>
-                                    <li>- Focus moves to elements whose text starts with the pressed letter or number.</li>
-                                    <li>- Pressing the same key cycles forward or backward through matching elements (Shift+key for backward).</li>
-                                    <li>- On a fresh key press, the closest matching element to the currently focused element is chosen.</li>
-                                    <li>- Invisible elements or those with no size are automatically ignored.</li>
-                                    <li>- The currently pressed key is tracked to manage cycling behavior.</li>
-                                </ul>
-                                <h5>Usage:</h5>
-                                <sup>Include this script on a page to enhance keyboard accessibility and quick navigation.
-                                    */</sup>
-                            </div>
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-// keyboard-nav.js
-addEventListener('keydown', e => {
-    // const activeEl = document.activeElement
-    const key = e.key.toLowerCase();
-
-    // Only single alphanumeric characters (letters + numbers)
-    if (key.length !== 1 || !/^[a-z0-9]$/.test(key)) return;
-
-    // Get all visible focusable elements
-    const focusableEls = [...document.querySelectorAll('a, [id]')].filter(el => {
-        const rect = el.getBoundingClientRect();
-        return el.offsetParent !== null && rect.width > 0 && rect.height > 0;
-    });
-
-    if (!focusableEls.length) return;
-
-    // Filter by first number OR first letter in the element text
-    const matchingEls = focusableEls.filter(el => {
-        const text = el.innerText.trim().toLowerCase();
-        const numMatch = text.match(/[0-9]/);
-        const letterMatch = text.match(/[a-z]/);
-
-        return (numMatch && numMatch[0] === key) ||
-            (letterMatch && letterMatch[0] === key);
-    });
-
-    if (matchingEls.length === 0) return;
-
-    const activeEl = document.activeElement;
-    let target;
-
-    if (window.lastLetterPressed === key) {
-        // Cycle within the same letter group
-        const iMatchingEls = matchingEls.indexOf(activeEl);
-
-        if (e.shiftKey) {
-            // backwards in the group
-            target = matchingEls[(iMatchingEls - 1 + matchingEls.length) % matchingEls.length];
-        } else {
-            // forwards in the group
-            target = matchingEls[(iMatchingEls + 1) % matchingEls.length];
-        }
-    } else {
-        // Fresh letter press → pick closest match (prefer below if equal)
-        const currentIndex = focusableEls.indexOf(activeEl);
-
-        const nextBelow = matchingEls.find(el => focusableEls.indexOf(el) > currentIndex);
-        const candidatesAbove = matchingEls.filter(el => focusableEls.indexOf(el) < currentIndex);
-        const nextAbove = candidatesAbove.length ? candidatesAbove[candidatesAbove.length - 1] : null;
-
-        if (nextBelow && nextAbove) {
-            const distBelow = focusableEls.indexOf(nextBelow) - currentIndex;
-            const distAbove = currentIndex - focusableEls.indexOf(nextAbove);
-            target = (distBelow <= distAbove) ? nextBelow : nextAbove;
-        } else {
-            target = nextBelow || nextAbove;
-        }
-    }
-
-    target?.focus();
-    window.lastLetterPressed = key;
-});                             </pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="snip">
-                        <h4><a href="#" class="drop-code-cmd">Letter Focus Code</a></h4>
-                        <div class="code-cmd">
-                            <sup class="r">
-                                **create pop up with extra info on <code>filter()</code> and <code>findIndex()</code>
-                            </sup>
-                            <sup class="r">
-                                **make a dropCode like dropTopic so each code example can collapse... great job keep going, 
-                                you're doing great with implementing the new letterFocus incrementation !!😎
-                            </sup>
-                            <p>
-                                <strong>Chat Question: does <code class="y">filter()</code> work the same as <code class="y">findIndex()</code>?</strong>
-                                <br>
-                                ChatGPT said:
-                                Awesome question filter is similar to findIndex, but with one big difference in what it returns.
-                                <br>
-                                ✅ Both:
-                            </p>
-                            <ul>
-                                <li>* Take a <span class="mcy">callback</span> function that checks a condition.</li>
-                                <li>* Go through the array element by element.</li>
-                                <li>* Use the callback to test each item.</li>
-                            </ul>
-                            <p>
-                                🔍 Difference:
-                                Method Returns
-                                findIndex The index of the first matching item
-                                filter A new array of all matching items
-                            </p>
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-
-    const as = document.querySelectorAll('a')
-    let asTxtArr = [...as]
-    let lastPressedLetter = "";
-    let iLetter = 0;
-    function updateAsTxtArr(){
-        asTxtArr = Array.from(document.querySelectorAll('a'))
-    }
-    addEventListener('keydown', e => {
-        let letter = e.key.toLowerCase()
-        let letteredAs = asTxtArr.<span class="y">filter(</span><span class="mcy">(el) => el.innerText.toLowerCase().startsWith(letter)</span><span class="y">)</span>
-        let activeEl = document.activeElement // current focused element
-        let activeIndex = [...asTxtArr].indexOf(activeEl)
-        if(letter != lastPressedLetter){
-            let closestIndex = letteredAs.<span class="y">findIndex(</span>(el) => asTxtArr.indexOf(el) > activeIndex)
-            iLetter = closestIndex !== -1 ? closestIndex : 0
-        } else {
-            iLetter = (letteredAs.indexOf(activeEl) + 1) % letteredAs.length
-        }
-        if(e.shiftKey){
-            iLetter = (letteredAs.indexOf(activeEl) - 1 + letteredAs.length)  % letteredAs.length
-        }
-        if(letteredAs[iLetter]){
-            letteredAs[iLetter].focus()
-        }
-        lastPressedLetter = letter
-    })</pre>
-                            </div>
-                            
-                        </div>
-                    </div>
-                    <div class="snip ">
-                        <h4><a href="#" class="drop-code-cmd">Incrementing / Decrements Letter Focus</a></h4>
-                        <div class="code-cmd hide ">
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-    // This page has really good letter focus cycle
-    if(letter == 'c' && !e.metaKey){
-        if(!e.shiftKey){
-        copyCodes[iCopyCodes].focus()
-        iCopyCodes = (iCopyCodes + 1) % copyCodes.length
-        } else{
-            iCopyCodes = (iCopyCodes - 1 + copyCodes.length) % copyCodes.length
-        }
-        copyCodes[iCopyCodes].focus()
-        console.log(iLetter)
-    }</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="snip">
-                        <h4><a href="#" class="drop-code-cmd">CamelCase </a></h4>
-                        <div class="code-cmd">
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-    function toCamelCase(str) {
-        return str
-        .toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
-    }</pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
             <div class="topic">
                 <header>
                     <h3><a href="#" class="topic-title drop-down">Drop</a></h3>
