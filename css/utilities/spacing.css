@@ -1,3 +1,11 @@
+.page-wrapper>.side-bar>header {
+    margin-bottom: 5%;
+    padding-bottom: 5%;
+}
+.page-wrapper>.side-bar>header > .page-links-container >a{
+    margin-left: 2.5%;
+
+}
 .side-bar-ul-container {
     padding:25% 0;
 }
@@ -14,8 +22,7 @@
     margin-top: 6%;
 }
 .page-wrapper>.main-content header {
-    margin: 0 2%;
-    
+    margin: 0 2%;    
 }
 .page-wrapper>.main-content nav {
     margin-left: 2.5%;

@@ -1,17 +1,18 @@
 body {
     font-weight: 999;
 }
+.page-wrapper>.side-bar>header>.page-links-container>a{
+    box-shadow: 0px 2px 0 whitesmoke;
+}
 .side-bar a {
     text-decoration: none;
 }
 .side-bar a:visited {
-    
+
 }
 .main-content > header{
-    
+   
 }
-
 .code-container>* {
-    font-size: 80%;
     font-family: monospace;
 }

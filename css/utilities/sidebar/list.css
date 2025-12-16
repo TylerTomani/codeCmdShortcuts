@@ -1,4 +1,7 @@
 .side-bar-topics li {
     list-style-type: none;
 }
+.side-bar-topics li > ul > li{
+    font-size: 75%;
+}
 

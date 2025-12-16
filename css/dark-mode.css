@@ -18,6 +18,9 @@ body.dark-mode .code-container *{
 body.dark-mode #darkModeBtn{
     color: black !important;
 }
+body.dark-mode #darkModeBtn{
+    color: whitesmoke;
+}
 #darkModeBtn{
     position: absolute;
     bottom: 5%;
