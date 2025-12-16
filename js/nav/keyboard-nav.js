@@ -3,7 +3,6 @@ import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 export function keyboardNav({ e }) {
     const key = (e.key || '').toLowerCase()
     if (!key.match(/^[a-z]$/)) return // only handle letters
-    
     // all visible anchors (same as you had)
     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn')].filter(el => {
         const rect = el.getBoundingClientRect()
@@ -83,17 +82,23 @@ export function keyboardNav({ e }) {
     if(target == sideBarBtn && pageWrapper.classList.contains('collapsed')){
         pageWrapper.classList.remove('collapsed')
     }
-    // let fZone = focusZones(target)
-    // console.log(fZone)
+    let fZone = focusZones(target)
+    console.log(fZone)
     target.focus()
     if (key === 'm' && activeEl?.id === 'mainContent') {
         e.preventDefault()
         console.log('here')
-        mainContent.scrollTo({ top: 0, behavior: 'smooth' })
+        pageWrapper.scrollTo({ top: 0, behavior: 'smooth' })
         lastLetterPressed = key
         return
     }   
-    
+    if(target.classList.contains('drop-code-cmd'))   {
+        const snip = target.closest('.snip')
+        const copyCode1st = snip.querySelector('.copy-code')
+        console.log(copyCode1st)
+        // copyCode1st.focus()
+
+    }
     lastLetterPressed = key
 }
 function focusZones(target){
