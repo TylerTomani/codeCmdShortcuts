@@ -1,4 +1,7 @@
 /* layout.css */
+body{
+    overflow: hidden;
+}
 .side-bar{
     overflow-y: hide;
 }

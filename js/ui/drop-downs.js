@@ -14,11 +14,18 @@ export function initDropDowns() {
     function handleToggle(e) {
         let target;        
         if (e.type === "keydown") {
-            if ((e.key === "Enter" || e.key === " ") && (document.activeElement.classList.contains("drop-down") || document.activeElement.classList.contains("drop-code-cmd"))) {
-                e.preventDefault();
-                target = document.activeElement;
+            if (e.shiftKey){
+                if (e.key === "Enter"){
+                    e.preventDefault();
+                    target = document.activeElement;
+                }
             } else {
-                return; // ignore other keys
+                if ((e.key === "Enter" || e.key === " ") && (document.activeElement.classList.contains("drop-down") || document.activeElement.classList.contains("drop-code-cmd"))) {
+                    
+                    target = document.activeElement;
+                } else {
+                    return; // ignore other keys
+                }
             }
         } else if (e.type === "click") {
             // Ignore clicks triggered by keyboard
@@ -26,21 +33,12 @@ export function initDropDowns() {
             target = e.target.closest(".drop-down") || e.target.closest(".drop-code-cmd");
             if (!target) return;
         }
-
-        // Unified toggle logic
-        const topic = target.closest(".side-bar-topics li");
-        const snip = target.closest(".snip");
-        // console.log("Toggled dropdown:", topic);
-        // if (!topic || !snip) return;
+        if(!target) return
+        const topic = target.closest(".topic");
         console.log(topic)
-        if (snip){
-            toggleCodeSnips(snip)
-            return
-        } 
-        if(topic){
-            toggleTopicSnips(topic)
-            return 
-        } 
+        const topicSnips = topic.querySelector('.topic-snips')
+        toggleSnips(topicSnips)
+        
     }
 }
 
@@ -64,8 +62,6 @@ function hideAllSubTopics(subTopics) {
         }
     })
 }
-function toggleTopicSnips(topic) {
-    const subTopics = topic.querySelector('ul')
-    subTopics.classList.toggle("hide"); // example toggle
-
+function toggleSnips(snips){
+    snips.classList.toggle('hide')
 }
