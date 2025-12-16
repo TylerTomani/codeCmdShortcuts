@@ -1,4 +1,7 @@
 /* layout.css */
+.side-bar{
+    overflow-y: hide;
+}
 .side-bar>header {
     display: flex;
     flex-direction: column;

@@ -37,12 +37,7 @@ export function keyboardNav({ e }) {
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
 
-    if (key === 'm' && activeEl?.id === 'mainContent') {
-        e.preventDefault()
-        pageWrapper.scrollTo({ top: 0, behavior: 'smooth' })
-        lastLetterPressed = key
-        return
-    }
+    
     if(e.metaKey) return
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
@@ -90,8 +85,15 @@ export function keyboardNav({ e }) {
     }
     // let fZone = focusZones(target)
     // console.log(fZone)
-    
     target.focus()
+    if (key === 'm' && activeEl?.id === 'mainContent') {
+        e.preventDefault()
+        console.log('here')
+        mainContent.scrollTo({ top: 0, behavior: 'smooth' })
+        lastLetterPressed = key
+        return
+    }   
+    
     lastLetterPressed = key
 }
 function focusZones(target){
