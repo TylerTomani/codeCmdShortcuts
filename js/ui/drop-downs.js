@@ -2,8 +2,7 @@
 
 export function initDropDowns() {   
     const subTopics = document.querySelectorAll('.side-bar-topics > ul')
-    hideAllCodeCmds()
-    hideAllSubTopics(subTopics)
+
     if(!document.listenersAdded){
         document.addEventListener("click", handleToggle);
         document.addEventListener("keydown", handleToggle);
@@ -36,31 +35,18 @@ export function initDropDowns() {
         if(!target) return
         const topic = target.closest(".topic");
         console.log(topic)
+        if(!topic) return
         const topicSnips = topic.querySelector('.topic-snips')
+        if(!topicSnips) return
         toggleSnips(topicSnips)
         
     }
 }
 
-function toggleCodeSnips(snip) {
-    const codeCmd = snip.querySelector('.code-cmd')
-    codeCmd.classList.toggle('hide')
 
-}
-function hideAllCodeCmds() {
-    const codeCmds = document.querySelectorAll('.code-cmd')    
-    codeCmds.forEach(el => {
-        if(!el.classList.contains('show')){
-            el.classList.add('hide')
-        }
-    })
-}
-function hideAllSubTopics(subTopics) {
-    subTopics.forEach(el => {
-        if(!el.classList.contains('show')){
-            el.classList.add('hide')
-        }
-    })
+
+function hideAllSnips(subTopics) {
+    
 }
 function toggleSnips(snips){
     snips.classList.toggle('hide')

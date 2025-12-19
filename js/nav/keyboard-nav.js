@@ -1,6 +1,8 @@
+// keyboard-nav.js
 let lastLetterPressed = null
 import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
-export function keyboardNav({ e }) {
+
+export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     if (!key.match(/^[a-z]$/)) return // only handle letters
     
