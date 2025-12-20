@@ -30,6 +30,6 @@ body.dark-mode #darkModeBtn{
 
 }
 
-body.dark-mode *:focus {
+body.dark-mode *:focus *,body.dark-mode *:focus {
     color: black !important;
 }
