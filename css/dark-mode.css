@@ -29,3 +29,7 @@ body.dark-mode #darkModeBtn{
     border-radius: 5px;
 
 }
+
+body.dark-mode *:focus {
+    color: black !important;
+}

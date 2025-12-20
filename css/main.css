@@ -1,8 +1,6 @@
 /* main.css */
-
 @import url('responsive.css');
 @import url('dark-mode.css');
-
 
 /* componets */
 @import url('components/imgsVids.css');
@@ -14,6 +12,7 @@
 @import url('utilities/borders.css');
 @import url('utilities/colors.css');
 @import url('utilities/display.css');
+@import url('utilities/effects.css');
 @import url('utilities/layout.css');
 @import url('utilities/sizing.css');
 @import url('utilities/position.css');
