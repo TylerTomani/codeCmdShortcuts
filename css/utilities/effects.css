@@ -22,7 +22,7 @@
     color: black;
     border-bottom: 1px solid blue;
 }
-.main-content:active,
+
 .main-content:focus {
     background-color: rgba(0,0,0,0) !important;
 }

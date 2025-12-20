@@ -39,11 +39,13 @@ export function initDropDowns() {
 }
 function hideEls(els) {   
     els.forEach(el => {
-        console.log(el)
-        el.classList.add('hide')
+        if(!el.classList.contains('show')){
+
+            el.classList.add('hide')
+        }
     })
 }
-// send 
+// This all needs to be fixed
 function toggleSnips(target){
     const dropParent = target.closest('.drop-parent')
     // if(!dropParent) return
