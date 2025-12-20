@@ -15,8 +15,14 @@
 .side-bar-ul-container>ul>li>a>sub {
     transform: translate(0, -20%);
 }
+
 *:focus {
     outline: none;
     background-color: white;
+    color: black;
     border-bottom: 1px solid blue;
+}
+.main-content:active,
+.main-content:focus {
+    background-color: rgba(0,0,0,0) !important;
 }
