@@ -5,6 +5,9 @@
 .code-cmd.hide {
     display: none !important;
 }
+.code-cmd.collapsed {
+    /* height: 25%; */
+}
 .drop-down,.drop-code-cmd {
     text-decoration: none;
     color: black;

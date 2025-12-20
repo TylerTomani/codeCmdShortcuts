@@ -2,6 +2,7 @@
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
+import { initDropDowns } from "./ui/drop-downs.js";
 export function initInjectcontetListeners(){
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
@@ -28,6 +29,7 @@ export async function injectPage({href}){
         const response = await fetch(href)
         const html = await response.text()
         mainLandingPage.innerHTML = html
+        initDropDowns()
     }catch {
         console.log('error try ')
     }

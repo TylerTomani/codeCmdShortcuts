@@ -1,12 +1,15 @@
 // drop-downs.js
 export function initDropDowns() {   
-    const subTopics = document.querySelectorAll('.side-bar-topics > ul')
+    const snips = document.querySelectorAll('.snip')
+    const codeCmds = document.querySelectorAll('.code-cmd')
+    hideEls(codeCmds)
+    // hideEls(snips)
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
         document.addEventListener("keydown", handleDropDown);
         document.listenersAdded = true
     }
-    // const dropChilds = document.querySelectorAll('.code-cmd') ? document.querySelectorAll('.code-cmd') : document.querySelectorAll('.topic-snips')
+    // hideElsSnips(snips)
     function handleDropDown(e) {
         let target;        
         if (e.type === "keydown") {
@@ -31,13 +34,21 @@ export function initDropDowns() {
         if(!target) return
         toggleSnips(target)
     }
+    
+    
 }
-function hideAllSnips(subTopics) {   
+function hideEls(els) {   
+    els.forEach(el => {
+        console.log(el)
+        el.classList.add('hide')
+    })
 }
 // send 
 function toggleSnips(target){
     const dropParent = target.closest('.drop-parent')
+    // if(!dropParent) return
     const snips = dropParent.querySelector('.topic-snips') ? dropParent.querySelector('.topic-snips') : dropParent.querySelector('.code-cmd')
-    snips.classList.toggle('hide')
+    snips?.classList.toggle('hide')
+    console.log(snips)
     
 }
