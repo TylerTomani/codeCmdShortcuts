@@ -20,6 +20,7 @@ body{
     overflow: hidden;
 }
 .main-content{
+    overflow-x: hidden;
     overflow-y: scroll;
 }
 .main-content header{
