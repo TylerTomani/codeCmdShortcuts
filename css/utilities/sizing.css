@@ -15,6 +15,20 @@
     width: calc(100% - var(--sidebar-width));
 
 }
+.topic header>.topic-title{
+    width: 100% !important;
+    
+}
+.snip header h4{
+    width: 90% !important;
+    
+}
+.topic header>.topic-title,
+.snip header h4{
+    text-wrap: none;
+    display: inline-block;
+    /* border: 2px solid blue; */
+}
 .code-container {
     width: fit-content;
     /* min-width: 50%; */
@@ -28,5 +42,3 @@
     font-size: 70%;
     line-height: .92;
 }
-
-

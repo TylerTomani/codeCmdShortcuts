@@ -7,7 +7,7 @@ export function keyboardNav({ e, mainContentEls }) {
     if (!key.match(/^[a-z]$/)) return // only handle letters
     
     // all visible anchors (same as you had)
-    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn')].filter(el => {
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn,[id]')].filter(el => {
         const rect = el.getBoundingClientRect()
         return rect && rect.width > 0 && rect.height > 0
     })

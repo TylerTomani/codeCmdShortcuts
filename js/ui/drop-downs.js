@@ -3,6 +3,9 @@ export function initDropDowns() {
     const snips = document.querySelectorAll('.snip')
     const codeCmds = document.querySelectorAll('.code-cmd')
     hideEls(codeCmds)
+    codeCmds.forEach(el => {
+        el.classList.add('collapsed')
+    })
     // hideEls(snips)
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
