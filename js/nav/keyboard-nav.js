@@ -4,8 +4,7 @@ import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
-    if (!key.match(/^[a-z]$/)) return // only handle letters
-    
+    if (!key.match(/^[a-z]$/)) return // only handle letters    
     // all visible anchors (same as you had)
     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn,[id]')].filter(el => {
         const rect = el.getBoundingClientRect()
@@ -35,7 +34,7 @@ export function keyboardNav({ e, mainContentEls }) {
     const matching = allEls.filter(el => firstAlpha(el) === key)
     if (matching.length === 0) return
     const activeEl = document.activeElement
-    const iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
+    let iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
 
@@ -84,16 +83,30 @@ export function keyboardNav({ e, mainContentEls }) {
                 : (iActiveMatching + 1) % matching.length
         }
     }
-    const target = matching[newIndex]
+    let target = matching[newIndex]
     if (!target) return
-    
-    target.focus()
     lastLetterPressed = key
+    
     let fZone = focusZones(target)
-    if(target == sideBarBtn){
+    if (target == sideBarBtn) {
         fZone = 'sidebar'
         pageWrapper.classList.remove('collapsed')
     }
+
+
+    // if(e.shiftKey && !e.target.classList.contains('copy-code')){
+    //     console.log(allEls[iActiveAll].innerText[0])
+    //     console.log()
+    //     target.focus()
+    //     if (key == allEls[iActiveAll].innerText[0].toLowerCase()){
+    //         console.log('here', iActiveAll)
+    //         iActiveAll += 1
+            
+    //     }
+    //     target = allEls[iActiveAll]
+    // }
+    target.focus()
+    
     
     
 }

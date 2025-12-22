@@ -2,9 +2,10 @@
 export function initDropDowns() {   
     const snips = document.querySelectorAll('.snip')
     const codeCmds = document.querySelectorAll('.code-cmd')
-    hideEls(codeCmds)
+    // hideEls(codeCmds)
     codeCmds.forEach(el => {
         el.classList.add('collapsed')
+        // console.log(el)
     })
     // hideEls(snips)
     if(!document.listenersAdded){
@@ -51,7 +52,7 @@ function hideEls(els) {
 // This all needs to be fixed
 function toggleSnips(target){
     const dropParent = target.closest('.drop-parent')
-    // if(!dropParent) return
+    if(!dropParent) return
     const snips = dropParent.querySelector('.topic-snips') ? dropParent.querySelector('.topic-snips') : dropParent.querySelector('.code-cmd')
     snips?.classList.toggle('hide')
     console.log(snips)
