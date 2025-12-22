@@ -2,12 +2,18 @@
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
+const homeAside = document.querySelector('#homeAside')
 import { initDropDowns } from "./ui/drop-downs.js";
 export function initInjectcontetListeners(){
+    let href
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
-            const href = el.href
-            injectPage({href })
+            href = el.href
+            injectPage({href})
+        } else {
+            href = homeAside.href
+            injectPage({href})
+            return
         }
         el.addEventListener('click', e => {
             e.preventDefault()
