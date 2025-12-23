@@ -6,15 +6,16 @@ const homeAside = document.querySelector('#homeAside')
 import { initDropDowns } from "./ui/drop-downs.js";
 export function initInjectcontetListeners(){
     let href
+    href = homeAside.href
+    injectPage({ href })
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
             href = el.href
             injectPage({href})
         } else {
-            href = homeAside.href
             injectPage({href})
-            return
         }
+        
         el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
