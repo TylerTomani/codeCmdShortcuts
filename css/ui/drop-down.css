@@ -9,7 +9,7 @@
 
 .drop-down,.drop-code-cmd {
     text-decoration: none;
-    color: black;
+    /* color: black; */
 }
 
 .code-cmd.collapsed {

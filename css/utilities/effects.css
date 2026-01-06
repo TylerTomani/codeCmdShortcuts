@@ -4,7 +4,6 @@
     font-weight: 999;
     margin-left: 3%;
     transition: all 200ms;
-    /* color: blue; */
     color: black;
     text-shadow: 1px 1px 1px whitesmoke;
     border: 1px solid black !important;
@@ -24,10 +23,9 @@ a:focus {
     background-color: white;
     padding: 0 1%;
     border: 2px solid whitesmoke;
-    color: black;
     border-bottom: 1px solid blue;
 }
 
 .main-content:focus {
-    background-color: rgba(0,0,0,0) !important;
+    /* background-color: rgba(0,0,0,0) !important; */
 }
