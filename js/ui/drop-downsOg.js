@@ -1,6 +1,7 @@
 // drop-downs.js
 export function initDropDowns() {   
     const dropDown = document.querySelectorAll('.drop-down')
+    
     // const snips = document.querySelectorAll('.snip')
     // const codeCmds = document.querySelectorAll('.code-cmd')
     // collapseCode(codeCmds)
@@ -38,16 +39,9 @@ function handleDropDown(e) {
 }
 function toggleSnips(dropDown) {
     // This is a mess, i need to think of how to handle .topic-title drop down and .snip > .drop-down
-    if(dropDown.closest('li')){
-        const dropParentLi = dropDown.closest('li')
-        const dropChilsUl = dropParentLi.querySelector('ul')
-        dropChilsUl.classList.toggle('hide')
-    }
-    if(dropDown.closest('snip')){
-        const dropParentLi = dropDown.closest('li')
-        const dropChilsUl = dropParentLi.querySelector('ul')
-        dropChilsUl.classList.toggle('hide')
-    }
+    const dropParentLi = dropDown.closest('li')
+    const dropChilsUl = dropParentLi.querySelector('ul')
+    dropChilsUl.classList.toggle('hide')
 
 
 
@@ -60,6 +54,6 @@ function hideEls(els) {
         }
     })
 }
-// function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
+function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed
 

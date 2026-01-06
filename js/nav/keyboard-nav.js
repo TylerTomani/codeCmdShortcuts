@@ -40,7 +40,7 @@ export function keyboardNav({ e, mainContentEls }) {
     const matching = allEls.filter(el =>{ 
         return firstAlpha(el) === key
     })
-    matching.forEach(el => console.log(el))
+    // matching.forEach(el => console.log(el))
     if (matching.length === 0) return
     const activeEl = document.activeElement
     let iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors

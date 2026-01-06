@@ -8,33 +8,53 @@
 <body>
     <div id="mainPageContainer" class="page-container">
         <h2>github</h2>
-        <div class="topics-container">      
-            <div class="topic">
+        <ul class="topics-container">      
+            <li class="topic">
                 <header>
                     <h3><a href="#" class="topic-title drop-down">git</a></h3>
                 </header>
                 <!-- 2 -->
-                <div class="topic-snips show">
-                    <div class="snip">
-                        <h4><a href="#" class="drop-code-cmd">1. pull directory from github</a></h4>
-                        <div class="vide-container" style="border:1px solid red; width: 50%; justify-self: flex-end;">
-                            <p>I think i should add video of screen recording of this in top right --></p>
-                        </div>
-                        <p>1️⃣ Switch to main</p>                        
-                        <div class="code-cmd show">
-                            <div class="code-container">
-                                <pre id="pullGitDirectory" tabindex="0" class="copy-code">
+                <ul class="topic-snips show">
+                    <li class="snip">
+                        <header>
+                            <h4><a href="#" class="drop-down">1. pull directory from github</a></h4>
+                            <div class="vid-container" style="border:1px solid red; width: 50%; justify-self: flex-end;">
+                                <p>I think i should add video of screen recording of this in top right </p>
+                            </div>
+                        </header>
+                        <ul class="snip-content">
+                            <!-- <li><a href="#" class="drop-down">
+                                <p>1️⃣ Switch to main</p></a> -->
+                            <li>
+                                <p>1️⃣ Switch to main</p></a>
+                                <ul>
+                                    <li>
+                                        <div class="code-cmd show">
+                                            <div class="code-container">
+                                            <pre id="pullGitDirectory" tabindex="0" class="copy-code">
 git checkout main</pre>
-                            </div>
-                        </div>
-                        <p>1️2️⃣ Bring the directory from draft into main</p>                        
-                        <div class="code-cmd show">
-                            <div class="code-container">
-                                <pre id="pullGitDirectory" tabindex="0" class="copy-code">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <p>2️⃣ Bring the directory from draft into main</p>                        
+                                <ul>
+                                    <li>
+                                        <div class="code-cmd show">
+                                            <div class="code-container">
+                                                <pre id="pullGitDirectory" tabindex="0" class="copy-code">
 git checkout draft -- path/to/your-directory</pre>
-                            </div>
-                        </div>
-                    </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
                     <div class="snip">
                         <h4><a href="#" class="drop-code-cmd">2. thing</a></h4>
                         <div class="code-cmd">
@@ -45,8 +65,8 @@ Snip</pre>
                         </div>
                     </div>
                     
-                </div>
-            </div>
-        </div>        
+                </ul>
+            </li>
+        </ul>        
     </div>
 </body>
