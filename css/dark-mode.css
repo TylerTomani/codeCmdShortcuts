@@ -4,14 +4,17 @@ body.dark-mode{
 body.dark-mode .side-bar{
     border-right: 1px solid whitesmoke;
 }
-body.dark-mode * {
+body.dark-mode .main-content * {
+    color: whitesmoke !important;    
+}
+body.dark-mode .side-bar * {
     color: whitesmoke !important;    
 }
 body.dark-mode .code-container {
     background-color: rgb(179, 174, 174);
 }
 body.dark-mode .code-container *{
-    /* color: black  !important; */
+    color: black  !important;
 }
 
 body.dark-mode #darkModeBtn{
