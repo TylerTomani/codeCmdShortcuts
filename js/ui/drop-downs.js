@@ -43,11 +43,11 @@ function toggleSnips(dropDown) {
         const dropChilsUl = dropParentLi.querySelector('ul')
         dropChilsUl.classList.toggle('hide')
     }
-    if(dropDown.closest('snip')){
-        const dropParentLi = dropDown.closest('li')
-        const dropChilsUl = dropParentLi.querySelector('ul')
-        dropChilsUl.classList.toggle('hide')
-    }
+    // if(dropDown.closest('snip')){
+    //     const dropParentLi = dropDown.closest('li')
+    //     const dropChilsUl = dropParentLi.querySelector('ul')
+    //     dropChilsUl.classList.toggle('hide')
+    // }
 
 
 

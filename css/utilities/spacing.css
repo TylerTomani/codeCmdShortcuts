@@ -38,11 +38,11 @@
 .page-wrapper>.main-content nav {
     margin-left: 2.5%;
 }
-.main-content> .main-landing-page{
-    margin-left: 2%;
-}
 .side-bar>header {
     margin-bottom: 10%;
+}
+.main-content>.main-landing-page {
+    padding: 2%;
 }
 /* Topics */
 .topic > header > h3 {
@@ -66,3 +66,4 @@
     width: 100%;
     display: inline-block;
 }
+
