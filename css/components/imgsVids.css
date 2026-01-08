@@ -1,17 +1,23 @@
-
-
-.side-bar>header > img {
+.side-bar>header>  a {
+    display: block;
     align-self: center;
     max-width: 100px;
     height: 15vh;
 }
-.page-wrapper > .main-content > header img{
+.side-bar>header>  a img {
+    max-width: 100px;
+    height: 15vh;
+
+}
+
+.page-wrapper>.main-content>header img {
     /* opacity: 0; */
     transform: translate(-100%, 0);
     transition: all 2.5s ease;
     /* max-width: 100px; */
 }
-.page-wrapper.collapsed >.main-content>header img{
+
+.page-wrapper.collapsed>.main-content>header img {
     opacity: 1;
     display: block;
     height: 15vh;

@@ -7,7 +7,10 @@ export function keyboardNav({ e, mainContentEls }) {
     if (!key.match(/^[a-z]$/)) return // only handle letters    
     // all visible anchors (same as you had)
     if(e.metaKey && e.shiftKey && key === 's'){sideBarBtn.focus()}
-    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn')].filter(el => {
+    // const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn,#findSearchBar')].filter(el => {
+    // // // // // // // // // // // // // // // // // // // 
+    //** make command shift + f , focus to #findSearchBar */
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
         const rect = el.getBoundingClientRect()
         if(!el.hasAttribute('tabindex')){
             el.setAttribute('tabindex', '0')

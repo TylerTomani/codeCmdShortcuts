@@ -21,7 +21,7 @@ a:visited {
 a:focus {
     outline: none;
     background-color: white;
-    padding: 0 1%;
+    
     border: 2px solid whitesmoke;
     border-bottom: 1px solid blue;
 }

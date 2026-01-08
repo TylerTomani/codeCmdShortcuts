@@ -30,3 +30,9 @@ body{
 .main-content img{
     display: none;
 }
+.side-bar-topics .drop-down,
+.topic .drop-down{
+    display: inline-block;
+    white-space: none;
+    text-wrap: none;
+}

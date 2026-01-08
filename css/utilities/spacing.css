@@ -44,6 +44,9 @@
 .main-content>.main-landing-page {
     padding: 2%;
 }
+.drop-down{
+    padding: 0 1%;
+}
 /* Topics */
 .topic > header > h3 {
     padding-top: 2%;
@@ -52,6 +55,7 @@
 .topic-snips > .snip > h4 {
     margin: 1%;
     padding-left: 1%;
+    /* padding: 0 1%; */
 }
 .code-container {
     /* margin-top:  1%; */
