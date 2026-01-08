@@ -5,69 +5,71 @@
 .page-wrapper>.side-bar>header > .page-links-container >a{
     margin-left: 2.5%;
 }
-.side-bar-ul-container > .side-bar-topics > li > a,
-.side-bar-ul-container>.side-bar-topics>li>ul>li>a{
-    display: inline-block;
-    padding: 2% 0;
-}
-.side-bar-ul-container > .side-bar-topics > li > ul > li > a{
+
+.side-bar{
+    header {
+        margin-bottom: 10%;
+    }
+    .side-bar-ul-container>.side-bar-topics {
+        /* margin-top: 20%; */
+        /* margin-left: 5%; */
+        gap: 2rem;
+    }
+    
+    .side-bar-topics  a {
+        display: inline-block;
+        padding: 1% 4%;
+        border-radius: 4px;
+    }
+    /* List indentation*/
+    .side-bar-topics li {
+        margin-top: 8%;
+    }
+    .side-bar-topics > li > ul {
+        margin-left: 12%;
+    }
+    .side-bar-topics > li > ul > li > ul{
+        margin-left: 16%;
+        padding: 0 5%;
+
+    }
+    .side-bar-topics > li > ul > li > ul> li{
+        list-style-type: num;
+
+    }
+
+
 
 }
-.side-bar-ul-container {
-    /* padding:25% 0; */
-}
-.side-bar-ul-container>.side-bar-topics {
-    /* margin-top: 20%; */
-    margin-left: 5%;
-    gap: 2rem;
-}
-.side-bar-topics li {
-    margin-top: 8%;
-    margin-left: 20% 0;
-}
-.side-bar-topics > li  > a {
-    display: inline-block;
-    padding-left: 50%;
 
-}
-.side-bar-topics ul li {
-    margin-left: 12%;
-    /* margin-top: 5%; */
-}
-
-.page-wrapper>.main-content nav {
-    margin-left: 2.5%;
-}
-.side-bar>header {
-    margin-bottom: 10%;
-}
+.page-wrapper>.main-content nav {margin-left: 2.5%;}
 .main-content>.main-landing-page {
     padding: 2%;
 }
-.drop-down{
-    padding: 0 1%;
-}
+
 /* Topics */
-.topic > header > h3 {
-    padding-top: 2%;
-    margin-left: 0;
-}
-.topic-snips > .snip > h4 {
-    margin: 1%;
-    padding-left: 1%;
-    /* padding: 0 1%; */
-}
-.code-container {
-    /* margin-top:  1%; */
-    /* margin-left: 1%; */
-}
-.code-container * {
-    /* padding-top:  1.5%; */
-    /* padding-left: 1%; */
-}
-.snip .drop-down{
-    margin-left: 5%;
-    width: 100%;
-    display: inline-block;
+.topic {
+    header>h3 {
+        padding-top: 2%;
+        margin-left: 0;
+    }
+    .topic-snips > .snip > h4 {
+        margin: 1%;
+        padding-left: 1%;
+        /* padding: 0 1%; */
+    }
+    .code-container {
+        /* margin-top:  1%; */
+        /* margin-left: 1%; */
+    }
+    .code-container * {
+        /* padding-top:  1.5%; */
+        /* padding-left: 1%; */
+    }
+    .snip .drop-down{
+        margin-left: 5%;
+        width: 100%;
+        display: inline-block;
+    }
 }
 

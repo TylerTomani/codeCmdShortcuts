@@ -9,3 +9,11 @@
     border: 1px solid black;
     border-radius: 4px;   
 }
+.topic {
+}
+
+
+.topic .topic-snips > .snip {
+    
+    border:  2px dashed magenta;
+}
