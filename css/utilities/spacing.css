@@ -46,7 +46,9 @@
 .main-content>.main-landing-page {
     padding: 2%;
 }
+.topics-container{
 
+}
 /* Topics */
 .topic {
     header>h3 {
@@ -68,8 +70,22 @@
     }
     .snip .drop-down{
         margin-left: 5%;
-        width: 100%;
+        /* width: 100%; */
         display: inline-block;
     }
 }
 
+.topic {
+    .topic-snips {
+        
+    }
+
+    .topic-snips>.snip {
+        
+
+    }
+
+    .topic-snips>.snip.grid-col-3 {
+        
+    }
+}

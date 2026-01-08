@@ -9,11 +9,13 @@
     border: 1px solid black;
     border-radius: 4px;   
 }
-.topic {
-}
-
-
-.topic .topic-snips > .snip {
-    
-    border:  2px dashed magenta;
+.topics-container{
+    border: 1px solid blue;
+    padding: 2.5% 1%;
+    .topic {
+    }   
+    .topic .topic-snips > .snip {
+        
+        border:  1px solid black;
+    }
 }

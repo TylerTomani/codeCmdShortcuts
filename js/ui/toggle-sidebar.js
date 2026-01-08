@@ -1,6 +1,7 @@
 // toggle-sidebar.js
 const sideBar = document.querySelector('.page-wrapper > aside.side-bar')
 export const pageWrapper = document.querySelector('.page-wrapper')
+export const main = document.querySelector('.page-wrapper')
 export const sideBarBtn = document.querySelector('#sideBarBtn')
 
 export function initToggleSideBar() {

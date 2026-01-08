@@ -10,7 +10,7 @@ export function keyboardNav({ e, mainContentEls }) {
     // const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn,#findSearchBar')].filter(el => {
     // // // // // // // // // // // // // // // // // // // 
     //** make command shift + f , focus to #findSearchBar */
-    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
         const rect = el.getBoundingClientRect()
         if(!el.hasAttribute('tabindex')){
             el.setAttribute('tabindex', '0')
@@ -52,7 +52,7 @@ export function keyboardNav({ e, mainContentEls }) {
 
     if (key === 'm' && activeEl?.id === 'mainLandingPage') {
         e.preventDefault()
-        pageWrapper.scrollIntoView({ top: 0, behavior: 'smooth' })
+        // topicsContainer.scrollIntoView({ top: 0, behavior: 'smooth' })
         lastLetterPressed = key
         return
     }
