@@ -1,13 +1,13 @@
 // drop-downs.js
+// Almost Done fix toggling subSideBarTopics
+const sub2SideBarTopics = document.querySelectorAll('.sub-2-side-bar-topics')
 export function initDropDowns() {   
     const dropDown = document.querySelectorAll('.drop-down')
-    // const snips = document.querySelectorAll('.snip')
-    // const codeCmds = document.querySelectorAll('.code-cmd')
-    // collapseCode(codeCmds)
-    // hideEls(snips)
+    
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
         document.addEventListener("keydown", handleDropDown);
+        hideEls(sub2SideBarTopics)
         document.listenersAdded = true
     }
     
@@ -48,9 +48,6 @@ function toggleSnips(dropDown) {
     //     const dropChilsUl = dropParentLi.querySelector('ul')
     //     dropChilsUl.classList.toggle('hide')
     // }
-
-
-
 }
 function hideEls(els) {   
     els.forEach(el => {

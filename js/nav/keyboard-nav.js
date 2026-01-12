@@ -1,16 +1,16 @@
 // keyboard-nav.js
 let lastLetterPressed = null
-import { pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
+import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     if (!key.match(/^[a-z]$/)) return // only handle letters    
     // all visible anchors (same as you had)
-    if(e.metaKey && e.shiftKey && key === 's'){sideBarBtn.focus()}
-    // const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainLandingPage,#darkModeBtn,#findSearchBar')].filter(el => {
+    
+    // const allEls = [...document.querySelectorAll('a,#sideBarBtn,.main-topics-container,#darkModeBtn,#findSearchBar')].filter(el => {
     // // // // // // // // // // // // // // // // // // // 
     //** make command shift + f , focus to #findSearchBar */
-    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainContent,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
+    const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
         const rect = el.getBoundingClientRect()
         if(!el.hasAttribute('tabindex')){
             el.setAttribute('tabindex', '0')
@@ -19,8 +19,11 @@ export function keyboardNav({ e, mainContentEls }) {
     })
     
     // helper: return the first alphabetic character of the element's text (or '')
+    /** this with add tabinddex above in allEls makes this Future Full Proof (FFP) */
     const firstAlpha = el => {
         // If element is NOT an anchor, use its ID  
+        // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
+        
         if (el.tagName !== 'A') {
             const id = (el.id || '').trim().toLowerCase()
             for (let i = 0; i < id.length; i++) {
@@ -31,11 +34,9 @@ export function keyboardNav({ e, mainContentEls }) {
         }
         // Regular <a> text logic
         const s = (el.innerText || '').trim().toLowerCase()
-        
         for (let i = 0; i < s.length; i++) {
             if (/[a-z]/.test(s[i])) return s[i]
         }
-        
         return ''
     }
     // matching anchors whose first alpha char equals the pressed key
@@ -50,12 +51,33 @@ export function keyboardNav({ e, mainContentEls }) {
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
 
-    if (key === 'm' && activeEl?.id === 'mainLandingPage') {
+    if (e.metaKey && e.shiftKey && key === 's') {
+        if (e.target != sideBarBtn) {
+            sideBarBtn.focus()
+        } 
+        if(e.target === sideBarBtn){
+            /** This is NOT WORKING */
+            // e.preventDefault()
+            
+            const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+            console.log(mainTopicsContainer)
+            mainTopicsContainer.focus()
+            
+            // const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+            // console.log(mainTopicsContainer)
+            // mainTopicsConttainer?.focus()
+        }
+        return
+    }
+    if (key === 'm' && activeEl?.id === 'mainTopicsContainer') {
         e.preventDefault()
-        // topicsContainer.scrollIntoView({ top: 0, behavior: 'smooth' })
+        // mainTopicsContainer.scrollIntoView({ top: 0, behavior: 'smooth' })
+        console.log(allEls.findIndex('mainTopicsContainer'))
         lastLetterPressed = key
         return
     }
+
+
     if(e.metaKey) return
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
@@ -98,12 +120,6 @@ export function keyboardNav({ e, mainContentEls }) {
     let target = matching[newIndex]
     if (!target) return
     lastLetterPressed = key
-    
-    // let fZone = focusZones(target)
-    // if (target == sideBarBtn) {
-    //     fZone = 'sidebar'
-    //     pageWrapper.classList.remove('collapsed')
-    // }
     // if(e.shiftKey && !e.target.classList.contains('copy-code')){
     //     console.log(allEls[iActiveAll].innerText[0])
     //     console.log()
@@ -114,29 +130,11 @@ export function keyboardNav({ e, mainContentEls }) {
             
     //     }
     //     target = allEls[iActiveAll]
-    // }
-    
+    // }   
     target.focus()
 }
-// function focusZones(target){
-//     const t = target
-//     let focusZone
-//     if (t.id == 'mainContent'){
-//         // focusZone = 'mainContent'
-//     } else if (t.closest('.side-bar') ){
-//         // focusZone = 'sidmeBar'
-//     }
-//     // switch (t){
-//     //     case target.id === 'mainContent':
-//     //         return focusZone = 'mainContent'
-//     //         break
-//         // case target.
-//     // }
-//     return focusZone
-// } 
 function isActuallyVisible(el) {
     if (!el) return false;
-
     // 1. Sidebar collapsed → block ALL sidebar descendants
     if (
         pageWrapper.classList.contains('collapsed') &&
