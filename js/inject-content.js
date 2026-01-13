@@ -12,21 +12,25 @@ export function initInjectcontetListeners(){
         if(el.hasAttribute('autofocus')){
             href = el.href
             injectPage({href})
-        } else {
-            injectPage({href})
         }
         
         el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
             const href = e.target.href
-            injectPage({href})
+            // injectPage({href})
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
+            
             if(key === 'enter'){
-                const href = e.target.href
-                injectPage({href})
+                if (!e.shiftKey){
+                    const href = e.target.href
+                    injectPage({href})
+                } else {
+                    const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+                    mainTopicsContainer.focus()
+                }
             }
         });
     })

@@ -59,9 +59,9 @@ export function keyboardNav({ e, mainContentEls }) {
             /** This is NOT WORKING */
             // e.preventDefault()
             
-            const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
-            console.log(mainTopicsContainer)
-            mainTopicsContainer.focus()
+            // const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+            // console.log(mainTopicsContainer)
+            // mainTopicsContainer.focus()
             
             // const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
             // console.log(mainTopicsContainer)
@@ -70,11 +70,11 @@ export function keyboardNav({ e, mainContentEls }) {
         return
     }
     if (key === 'm' && activeEl?.id === 'mainTopicsContainer') {
-        e.preventDefault()
+        // e.preventDefault()
         // mainTopicsContainer.scrollIntoView({ top: 0, behavior: 'smooth' })
-        console.log(allEls.findIndex('mainTopicsContainer'))
-        lastLetterPressed = key
-        return
+        // console.log(allEls.findIndex('mainTopicsContainer'))
+        // lastLetterPressed = key
+        // return
     }
 
 

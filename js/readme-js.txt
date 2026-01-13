@@ -4,7 +4,7 @@ js/
 ├── nav/
 │   └── keyboard-nav.js     # All keyboard navigation logic
 ├── ui/
-│   ├── index.js            # Exports all UI modules
+│   ├── index-ul.js            # Exports all UI modules
 │   ├── toggle-sidebar.js
 │   ├── drop-downs.js
 │   └── drag-hide-sidebar.js
