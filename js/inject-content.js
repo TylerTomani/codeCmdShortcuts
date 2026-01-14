@@ -21,6 +21,10 @@ export function initInjectcontetListeners(){
             handleDropDown(e)
             injectPage({href})
         });
+        el.addEventListener('pointerdown', e => {
+            
+            handleDropDown(e)
+        });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             
