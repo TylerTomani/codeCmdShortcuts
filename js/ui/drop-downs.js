@@ -11,7 +11,7 @@ export function initDropDowns() {
         document.addEventListener("keydown", handleDropDown);
         document.listenersAdded = true
     }
-    // hideEls(sub2SideBarTopics)
+    hideEls(sub2SideBarTopics)
     
 }
 export function handleDropDown(e) {
