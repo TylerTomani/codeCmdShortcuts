@@ -14,16 +14,19 @@ export function initInjectcontetListeners(){
             injectPage({href})
         }
         
-        el.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            const href = e.target.href
-            handleDropDown(e)
-            injectPage({href})
-        });
+        // Unified pointer event for desktop & mobile
         el.addEventListener('pointerdown', e => {
-            
-            handleDropDown(e)
+            // Only primary pointer (mouse left button or finger)
+            if (e.pointerType === 'mouse' || e.pointerType === 'touch') {
+                e.preventDefault();      // prevent default navigation
+                e.stopPropagation();     // stop bubbling
+
+                handleDropDown(e);       // toggle the dropdown
+
+                if (el.href) {           // inject page for this link
+                    injectPage({ href: el.href });
+                }
+            }
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
