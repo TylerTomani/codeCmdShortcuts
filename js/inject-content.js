@@ -18,7 +18,7 @@ export function initInjectcontetListeners(){
             e.preventDefault()
             e.stopPropagation()
             const href = e.target.href
-            // injectPage({href})
+            injectPage({href})
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
@@ -28,20 +28,34 @@ export function initInjectcontetListeners(){
                     const href = e.target.href
                     injectPage({href})
                 } else {
-                    const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
-                    mainTopicsContainer.focus()
+                    e.preventDefault()
+
+                    const href = e.target.href
+                    injectPage({
+                        href,
+                        focusMain: e.shiftKey
+                    })
                 }
             }
         });
     })
 }
-export async function injectPage({href}){
+export async function injectPage({ href, focusMain = false }) {
     try {
         const response = await fetch(href)
         const html = await response.text()
         mainLandingPage.innerHTML = html
         initDropDowns()
-    }catch {
-        console.log('error try ')
+
+        if (focusMain) {
+            requestAnimationFrame(() => {
+                const mainTopics = document.querySelector('#mainTopicsContainer')
+                if (mainTopics) {
+                    mainTopics.focus()
+                }
+            })
+        }
+    } catch {
+        console.log('error try')
     }
 }

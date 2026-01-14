@@ -17,15 +17,7 @@
 .topic header>.topic-title{
     width: 100% !important;
 }
-.snip header h4{
-    width: 90% !important;   
-}
-.topic header>.topic-title,
-.snip header h4{
-    text-wrap: none;
-    display: inline-block;
-    /* border: 2px solid blue; */
-}
+
 .code-cmd{
     /* height: 50% !important; */
     /* border: 2px solid green; */
@@ -44,4 +36,14 @@
 }
 .main-content .main-landing-page {
     height: 100vh;
+}
+.snip header h4 {
+    width: 90% !important;
+}
+
+.topic header>.topic-title,
+.snip header h4 {
+    text-wrap: none;
+    display: inline-block;
+    /* border: 2px solid blue; */
 }

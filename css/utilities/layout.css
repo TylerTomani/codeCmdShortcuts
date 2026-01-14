@@ -42,7 +42,7 @@ body{
         .topic-snips {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-auto-rows: auto;
+            grid-auto-rows: 1fr;
         }
         .topic-snips > .snip{
             max-height: 20vh;

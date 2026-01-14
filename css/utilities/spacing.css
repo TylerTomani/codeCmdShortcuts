@@ -41,10 +41,11 @@
 
 
 }
-
 .page-wrapper>.main-content nav {margin-left: 2.5%;}
 .main-content>.main-landing-page {
-    padding: 2%;
+}
+#mainTopicsContainer{
+        padding: 0 2%;
 }
 .topics-container{
 

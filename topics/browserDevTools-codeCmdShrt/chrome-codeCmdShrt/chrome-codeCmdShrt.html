@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser Dev Tools-codeCmdShrt</title>
+</head>
+<body>
+    <div id="githubcodeCmdShrtPage" class="page-container">
+        <h2>Browser Dev Tools-codeCmdShrt</h2>
+        <ul tabindex="0" id="mainTopicsContainer">      
+            <li class="topic">
+                <h3><a href="#" class="topic-title drop-down">Browser Dev Tools</a></h3>
+                <ul class="topic-snips show">
+                    <!-- 1. create branch -->
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">1. create branch</a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+git checkout -b &lt;branchname></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 2. delete branch -->
+                    <div class="snip">
+                        <h4><a href="#" class="drop-code-cmd">2. delete branch</a></h4>
+                        <div class="code-cmd">
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+git branch -d &lt;branchname></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. pull directory from github -->
+                    <li class="snip grid-col-3">
+                        <header>
+                            <h4><a href="#" class="drop-down">3. pull directory from github</a></h4>
+                            <div class="vid-container" style="border:1px solid red; width: 50%; justify-self: flex-end;">
+                                <p>I think i should add video of screen recording of this in top right </p>
+                            </div>
+                        </header>
+                        <ul class="snip-content">
+                            <li>
+                                <!-- <a href="#" class="drop-down"><p>1️⃣ Switch to main</p></a> -->
+                                <a href="#" class=""><p>1️⃣ Switch to main</p></a>
+                                <ul>
+                                    <li>
+                                        <div class="code-cmd show">
+                                            <div class="code-container">
+                                            <pre id="pullGitDirectory" tabindex="0" class="copy-code">
+git checkout main</pre>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <p>2️⃣ Bring the directory from draft into main</p>                        
+                                <ul>
+                                    <li>
+                                        <div class="code-cmd show">
+                                            <div class="code-container">
+                                                <pre id="pullGitDirectory" tabindex="0" class="copy-code">
+git checkout draft -- path/to/your-directory</pre>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    
+                    
+                </ul>
+            </li>
+        </ul>        
+    </div>
+</body>

@@ -4,12 +4,36 @@ import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
+    if (/^[1-9]$/.test(e.key)) { // number handling
+        const active = document.activeElement
+
+        const topic = active.closest('.topic')
+        console.log(topic)
+        if (!topic) return
+
+        const snipsContainer = topic.querySelector('.topic-snips')
+        if (!snipsContainer || snipsContainer.classList.contains('hide')) return
+
+        const snips = [...snipsContainer.querySelectorAll('.snip')]
+            .filter(isActuallyVisible)
+
+        const index = Number(e.key) - 1
+        const snip = snips[index]
+        if (!snip) return
+
+        // prefer link → fallback to code
+        const target =
+            snip.querySelector('a, [tabindex]') ||
+            snip.querySelector('.copy-code')
+
+        if (target) {
+            e.preventDefault()
+            target.focus()
+        }
+
+        return
+    }
     if (!key.match(/^[a-z]$/)) return // only handle letters    
-    // all visible anchors (same as you had)
-    
-    // const allEls = [...document.querySelectorAll('a,#sideBarBtn,.main-topics-container,#darkModeBtn,#findSearchBar')].filter(el => {
-    // // // // // // // // // // // // // // // // // // // 
-    //** make command shift + f , focus to #findSearchBar */
     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
         const rect = el.getBoundingClientRect()
         if(!el.hasAttribute('tabindex')){
@@ -23,7 +47,6 @@ export function keyboardNav({ e, mainContentEls }) {
     const firstAlpha = el => {
         // If element is NOT an anchor, use its ID  
         // This makes sense, in FUTURE, if element is NOT an 'A' tag, add Id and use on elements
-        
         if (el.tagName !== 'A') {
             const id = (el.id || '').trim().toLowerCase()
             for (let i = 0; i < id.length; i++) {
@@ -40,32 +63,28 @@ export function keyboardNav({ e, mainContentEls }) {
         return ''
     }
     // matching anchors whose first alpha char equals the pressed key
-    // const matching = allEls.filter(el => firstAlpha(el) === key)
     const matching = allEls.filter(el =>{ 
         return firstAlpha(el) === key
     })
-    // matching.forEach(el => console.log(el))
     if (matching.length === 0) return
+    
     const activeEl = document.activeElement
     let iActiveAll = allEls.indexOf(activeEl) // position of focused element among all anchors
     const iActiveMatching = matching.indexOf(activeEl) // -1 if focused element is not one of the matches
     let newIndex
-
     if (e.metaKey && e.shiftKey && key === 's') {
         if (e.target != sideBarBtn) {
             sideBarBtn.focus()
         } 
         if(e.target === sideBarBtn){
             /** This is NOT WORKING */
-            // e.preventDefault()
+            e.preventDefault()
             
-            // const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+            const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
             // console.log(mainTopicsContainer)
-            // mainTopicsContainer.focus()
+            mainTopicsContainer.focus()
             
-            // const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
-            // console.log(mainTopicsContainer)
-            // mainTopicsConttainer?.focus()
+            
         }
         return
     }
@@ -132,6 +151,7 @@ export function keyboardNav({ e, mainContentEls }) {
     //     target = allEls[iActiveAll]
     // }   
     target.focus()
+    
 }
 function isActuallyVisible(el) {
     if (!el) return false;

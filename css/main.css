@@ -8,6 +8,8 @@
 @import url('ui/drop-down.css');
 @import url('ui/sideBarBtn.css');
 @import url('ui/toggle-side-bar.css');
+/* media */
+@import url('media/videos.css');
 /* utilities */
 @import url('utilities/borders.css');
 @import url('utilities/colors.css');
