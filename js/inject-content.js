@@ -14,7 +14,7 @@ export function initInjectcontetListeners(){
             injectPage({href})
         }
         
-        // Unified pointer event for desktop & mobile
+     // Unified pointer event for desktop & mobile
         el.addEventListener('pointerdown', e => {
             // Only primary pointer (mouse left button or finger)
             if (e.pointerType === 'mouse' || e.pointerType === 'touch') {

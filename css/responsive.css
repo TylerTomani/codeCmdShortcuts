@@ -26,4 +26,10 @@
     .main-content>.main-landing-page {
         margin-left: 0;
     }
+        .side-bar-topics li {
+            font-size: 88%;
+            margin-top: 90%;
+            margin-bottom: 10%;
+
+        }
 }

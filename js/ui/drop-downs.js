@@ -9,9 +9,9 @@ export function initDropDowns() {
         //     console.log('why')
         // });
         document.addEventListener("keydown", handleDropDown);
+        hideEls(sub2SideBarTopics)
         document.listenersAdded = true
     }
-    hideEls(sub2SideBarTopics)
     
 }
 export function handleDropDown(e) {
