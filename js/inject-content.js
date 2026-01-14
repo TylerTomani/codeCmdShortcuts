@@ -3,7 +3,7 @@
 export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeAside = document.querySelector('#homeAside')
-import { initDropDowns } from "./ui/drop-downs.js";
+import { initDropDowns,handleDropDown } from "./ui/drop-downs.js";
 export function initInjectcontetListeners(){
     let href
     href = homeAside.href
@@ -18,6 +18,7 @@ export function initInjectcontetListeners(){
             e.preventDefault()
             e.stopPropagation()
             const href = e.target.href
+            handleDropDown(e)
             injectPage({href})
         });
         el.addEventListener('keydown', e => {

@@ -5,49 +5,62 @@ export function initDropDowns() {
     const dropDown = document.querySelectorAll('.drop-down')
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
+        // document.addEventListener("click", e => {
+        //     console.log('why')
+        // });
         document.addEventListener("keydown", handleDropDown);
         document.listenersAdded = true
     }
-    hideEls(sub2SideBarTopics)
+    // hideEls(sub2SideBarTopics)
     
 }
-function handleDropDown(e) {
+export function handleDropDown(e) {
     let target;
     if (e.type === "keydown") {
-        if (e.shiftKey) {
-            if (e.key === "Enter") {
-                e.preventDefault();
-                target = document.activeElement;
-                return
-            }
+        if ((e.key === "Enter" || e.key === " ") &&
+            document.activeElement.classList.contains("drop-down")) {
+
+            e.preventDefault(); // THIS stops the synthetic click
+            target = document.activeElement;
         } else {
-            if ((e.key === "Enter" || e.key === " ") && document.activeElement.classList.contains("drop-down") && !e.shiftKey) {
-                target = document.activeElement;
-            } else {
-                return; // ignore other keys
-            }
+            return;
         }
     } else if (e.type === "click") {
-        // Ignore clicks triggered by keyboard
-        if (e.detail === 0) return;
-        target = e.target.closest(".drop-down");
+        console.log('why')
+        console.log('NOT FIRING HERE')
+        let target = e.target;
+        // check if clicked element is drop-down or inside one
+        if (!target.classList.contains("drop-down")) {
+            target = target.closest(".drop-down");
+        }
         if (!target) return;
+
+        // prevent navigation for sidebar dropdowns
+        if (target.closest('.side-bar')) e.preventDefault();
+
+        toggleSnips(target);
     }
+
     if (!target) return
     toggleSnips(target)
 }
 function toggleSnips(dropDown) {
-    // This is a mess, i need to think of how to handle .topic-title drop down and .snip > .drop-down
-    if(dropDown.closest('li')){
-        const dropParentLi = dropDown.closest('li')
-        const dropChilsUl = dropParentLi.querySelector('ul')
-        dropChilsUl.classList.toggle('hide')
+    // SIDEBAR DROPDOWN
+    if (dropDown.closest('.side-bar')) {
+        const li = dropDown.parentElement;
+        const ul = li?.querySelector(':scope > ul');
+        if (!ul) return;
+
+        ul.classList.toggle('hide');
+        return;
     }
-    // if(dropDown.closest('snip')){
-    //     const dropParentLi = dropDown.closest('li')
-    //     const dropChilsUl = dropParentLi.querySelector('ul')
-    //     dropChilsUl.classList.toggle('hide')
-    // }
+
+    // CONTENT DROPDOWN (github page etc.)
+    const li = dropDown.closest('li');
+    const ul = li?.querySelector(':scope > ul');
+    if (!ul) return;
+
+    ul.classList.toggle('hide');
 }
 function hideEls(els) {   
     els.forEach(el => {
