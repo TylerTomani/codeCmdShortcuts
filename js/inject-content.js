@@ -14,19 +14,16 @@ export function initInjectcontetListeners(){
             injectPage({href})
         }
         
-     // Unified pointer event for desktop & mobile
+        el.addEventListener('click', e => {
+            e.preventDefault()
+            e.stopPropagation()
+            const href = e.target.href
+            handleDropDown(e)
+            injectPage({href})
+        });
         el.addEventListener('pointerdown', e => {
-            // Only primary pointer (mouse left button or finger)
-            if (e.pointerType === 'mouse' || e.pointerType === 'touch') {
-                e.preventDefault();      // prevent default navigation
-                e.stopPropagation();     // stop bubbling
-
-                handleDropDown(e);       // toggle the dropdown
-
-                if (el.href) {           // inject page for this link
-                    injectPage({ href: el.href });
-                }
-            }
+            
+            handleDropDown(e)
         });
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
