@@ -10,6 +10,9 @@ body.dark-mode .main-content * {
 body.dark-mode .side-bar * {
     color: whitesmoke !important;    
 }
+body.dark-mode .main-content *:active,body.dark-mode .main-content *:focus {
+    color:black !important;
+}
 body.dark-mode .code-container {
     background-color: rgb(179, 174, 174);
 }
