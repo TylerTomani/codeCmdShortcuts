@@ -41,6 +41,7 @@ export function keyboardNav({ e, mainContentEls }) {
         }
         return isActuallyVisible(el)
     })
+    console.log(lastLetterPressed)
     
     // helper: return the first alphabetic character of the element's text (or '')
     /** this with add tabinddex above in allEls makes this Future Full Proof (FFP) */
@@ -98,6 +99,26 @@ export function keyboardNav({ e, mainContentEls }) {
 
 
     if(e.metaKey) return
+
+    // --- SPECIAL CASE: 'm' first jump into injected content ---
+    if (key === 'm') {
+        const mainTopics = document.querySelector('#mainTopicsContainer')
+
+        if (mainTopics && activeEl !== mainTopics) {
+            const prevEl = allEls[iActiveAll - 1]
+
+            const prevIsM =
+                prevEl && firstAlpha(prevEl) === 'm'
+
+            if (!prevIsM) {
+                e.preventDefault()
+                mainTopics.focus()
+                lastLetterPressed = key
+                return
+            }
+        }
+    }
+
     // --- NEW letter press: choose closest match below unless one is directly before (closer) ---
     if (key !== lastLetterPressed) {
         if (iActiveAll === -1) {
@@ -106,7 +127,6 @@ export function keyboardNav({ e, mainContentEls }) {
         } else {
             const prevEl = allEls[iActiveAll - 1]  // the element directly before
             const nextEl = allEls[iActiveAll + 1]  // the element directly after
-
             // if the previous element matches the letter, go up one
             if (prevEl && matching.includes(prevEl)) {
                 newIndex = matching.indexOf(prevEl)

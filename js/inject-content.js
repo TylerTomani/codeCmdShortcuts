@@ -14,7 +14,7 @@ export function initInjectcontetListeners(){
             injectPage({href})
         }
         
-        el.addEventListener('click', e => {
+ {       el.addEventListener('click', e => {
             e.preventDefault()
             e.stopPropagation()
             const href = e.target.href
@@ -24,7 +24,7 @@ export function initInjectcontetListeners(){
         el.addEventListener('pointerdown', e => {
             
             handleDropDown(e)
-        });
+        });}
         el.addEventListener('keydown', e => {
             let key = e.key.toLowerCase()
             
