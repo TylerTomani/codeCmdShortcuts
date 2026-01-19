@@ -56,8 +56,8 @@ function toggleSnips(dropDown) {
     }
 
     // CONTENT DROPDOWN (github page etc.)
-    const li = dropDown.closest('li');
-    const ul = li?.querySelector(':scope > ul');
+    const dropParent = dropDown.closest('.drop-parent');
+    const ul = dropParent?.querySelector('.topic-snips');
     if (!ul) return;
 
     ul.classList.toggle('hide');
