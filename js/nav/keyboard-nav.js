@@ -4,11 +4,14 @@ import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
+    // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
+    if(key === 'enter'){
+        return
+    }
     if (/^[1-9]$/.test(e.key)) { // number handling
         const active = document.activeElement
 
         const topic = active.closest('.topic')
-        console.log(topic)
         if (!topic) return
 
         const snipsContainer = topic.querySelector('.topic-snips')
@@ -41,7 +44,6 @@ export function keyboardNav({ e, mainContentEls }) {
         }
         return isActuallyVisible(el)
     })
-    console.log(lastLetterPressed)
     
     // helper: return the first alphabetic character of the element's text (or '')
     /** this with add tabinddex above in allEls makes this Future Full Proof (FFP) */
