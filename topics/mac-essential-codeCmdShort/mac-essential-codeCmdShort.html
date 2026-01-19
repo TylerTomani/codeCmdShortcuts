@@ -9,31 +9,193 @@
 
 </head>
 <body>
-    <div id="mainPageContainer" class="page-container">
+    <div id="macEssentialCodeCmdShrtPage" class="page-container">
         <div tabindex="0" id="mainTopicsContainer"  class="topics-container">
+            <!-- Recovery Mode -->
+            <div class="topic drop-parent">
+                <header>
+                    <h3 class="topic-title"><a id="restartRecoveryMode" href="#" class="drop-down">Restart into Recovery and erase the internal drive
+                    </a></h3>
+                </header>
+                <div class="topic-snips drop-snips  ">
+                    <div class="snip ">
+                        <div class="code-cmd drop-parent">
+                            <h4><a href="#" class="drop-down">1 Recovery Mode</a></h4>
+                            <header class="drop-parent drop-snips">                                
+                                <h5><a href="#" class="drop-down">Intel Mac steps for a 2014 Mac.</a></h5>
+                                <div class="drop-snips">
+                                    <p>restart, power button, then immediately hold</p>
+                                    <h6><code>Option (⌥) + Command (⌘) + R</code></h6>
+                                    <div class="code-container">
+                                        <pre tabindex="0" class="copy-code">
+Option (⌥) + Command (⌘) + R</pre>
+                                    </div>
+                                    <p>
+                                        Shut down the Mac.
+                                    </p>
+                                    <ul>
+                                        <li>Start Internet Recovery (recommended so you can reinstall a fresh macOS):</li>
+                                        <li>Press the power button, then immediately hold Option (⌥) + Command (⌘) + R until you see a spinning globe or
+                                            Apple logo.</li>
+                                        <li>(If you want the latest compatible macOS, use Option+Command+R. To reinstall the macOS that came with the Mac,
+                                            use
+                                            Shift+Option+Command+R.)</li>
+                                    </ul>
+
+                                </div>
+                            </header>
+
+                        </div>
+                        <div class="code-cmd drop-parent">
+                            <header class="drop-parent drop-snips">
+                                
+                                <h5><a href="#" class="drop-down">new Macs, figure out </a></h5>
+                                
+                                <!-- <h6><code>Option (⌥) + Command (⌘) + R</code></h6> -->
+                                <div class="code-container">
+                                    <pre tabindex="0" class="copy-code">
+TBD</pre>
+                                </div>
+                            </header>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Delete Disks -->
+            <div class="topic drop-parent">
+                <header>
+                    <h3 class="topic-title"><a id="deleteDisks" href="#" class="drop-down">Delete Disks</a></h3>
+                </header>
+                <div class="topic-snips drop-snips drop-parent ">
+                    <div class="snip">
+                        <div class="code-cmd">
+                            <h4><a href="#" class="drop-down">1. Open terminal in Recovery Mode</a></h4>
+                            <h6><code>Option (⌥) + Command (⌘) + R</code></h6>
+                            <p>
+                                <span class="r">Recovery didn't work with Big Sur, gonna try to delete disc</span>
+                            </p>
+                            <p>
+                                Open terminal Run
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+diskutil list</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-down">delete extra disk unmount loop</a></h4>
+                        <div class="code-cmd">
+                            <p>
+                                <span class="r">I have so many discs!!</span>
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+                            
+for i in {1..20}; do sudo diskutil unmountDisk force /dev/disk$i; sudo hdiutil detach /dev/disk$i; done
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-down">replace disk with zeros</a></h4>
+                        <div class="code-cmd">
+                            <p>
+                            Step 2: Unmount the Disk (Force)
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+                            
+sudo diskutil unmountDisk force /dev/disk0
+</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="snip">
+                        <h4><a href="#" class="drop-down">replace disk with zeros</a></h4>
+                        <div class="code-cmd">
+                            <p>
+                            If it still says “busy,” don’t worry — we can overwrite it anyway.
+                            
+                            Step 3: Zero Out the Disk (Optional, but ensures a clean slate)
+                            
+                            You can overwrite the disk with zeros or random data. This ensures no leftover partitions or containers block the
+                            install:
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+                            
+sudo dd if=/dev/zero of=/dev/disk0 bs=1m
+</pre>
+                            </div>
+                        </div>
+                        <div class="txt-content">
+if=/dev/zero writes zeros.
+
+bs=1m writes 1 MB at a time (faster).
+
+Press Control + T to check progress.
+
+This will take some time (a few minutes to an hour depending on SSD size).
+
+After it finishes, your SSD will be completely blank.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recovery Mode -->
+            <div class="topic drop-parent">
+                <header>
+                    <h3 class="topic-title"><a id="restartRecoveryMode" href="#" class="drop-down">Restart into Recovery and erase the internal drive
+                    </a></h3>
+                </header>
+                <div class="topic-snips drop-snips drop-parent ">
+                    <div class="snip">
+                        <div class="code-cmd">
+                            <h4><a href="#" class="drop-down">1</a></h4>
+                            <p>
+                                Put Explanation text here
+                            </p>
+                            <h4>Intel Mac steps for a 2014 Mac.</h4>
+                            <p>
+                                Shut down the Mac.
+                            </p>
+                            <div class="code-container">
+                                <pre tabindex="0" class="copy-code">
+                function hideTopics(){
+
+                }</pre>
+                            </div>
+                        </div>
+                        <div class="txt-content">
+                            <ul>
+                                <li>Start Internet Recovery (recommended so you can reinstall a fresh macOS):</li>
+                                <li>Press the power button, then immediately hold Option (⌥) + Command (⌘) + R until you see a spinning globe or
+                                    Apple logo.</li>
+                                <li>(If you want the latest compatible macOS, use Option+Command+R. To reinstall the macOS that came with the Mac,
+                                    use
+                                    Shift+Option+Command+R.)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
 
             <div class="topic drop-parent">
                 <header>
-                    <h3 class="topic-title"><a href="#" class="drop-down">Drop</a></h3>
+                    <h3 class="topic-title"><a href="#" class="drop-down">Restore</a></h3>
                 </header>
                 <!-- 2 -->
-                <div class="topic-snips drop-parent ">
+                <div class="topic-snips drop-snips drop-parent ">
                     <div class="snip">
-                        <h4><a href="#" class="drop-down">2</a></h4>
+                        <h4><a href="#" class="drop-down">1</a></h4>
                         <div class="code-cmd">
                             <div class="code-container">
                                 <pre tabindex="0" class="copy-code">
-    // This page has really good letter focus cycle
-    if(letter == 'c' && !e.metaKey){
-        if(!e.shiftKey){
-        copyCodes[iCopyCodes].focus()
-        iCopyCodes = (iCopyCodes + 1) % copyCodes.length
-        } else{
-            iCopyCodes = (iCopyCodes - 1 + copyCodes.length) % copyCodes.length
-        }
-        copyCodes[iCopyCodes].focus()
-        console.log(iLetter)
-    }</pre>
+FIND CODE IN CONVO</pre>
                             </div>
                         </div>
                     </div>
@@ -52,38 +214,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Drop Downs -->
-            <div class="topic drop-parent">
-                <header>
-                    <h3 class="topic-title"><a id="dropDowns" href="#" class="drop-down">Drop downs</a></h3>
-                </header>
-                <div class="topic-snips drop-parent ">
-                    <div class="snip">
-                        <div class="code-cmd">
-                            <h4><a href="#" class="drop-down">Incrementing / Decrements Letter Focus</a></h4>
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-    function hideTopics(){
-
-    }</pre>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="snip">
-                        <h4><a href="#" class="drop-down">CamelCase function</a></h4>
-                        <div class="code-cmd">
-                            <div class="code-container">
-                                <pre tabindex="0" class="copy-code">
-    function toCamelCase(str) {
-        return str
-        .toLowerCase()
-        .replace(/[^a-zA-Z0-9]+(.)/g, (match, chr) => chr.toUpperCase());
-    }</pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
 
             
         </div>        

@@ -4,7 +4,7 @@
 }
 
 .code-cmd.hide {
-    display: none !important;
+    /* display: none !important; */
 }
 
 .drop-down,.drop-code-cmd {

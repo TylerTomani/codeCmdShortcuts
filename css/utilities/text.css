@@ -16,3 +16,7 @@ body {
 .code-container>* {
     font-family: monospace;
 }
+.snip p,
+.snip ul {
+    font-size: 70%;
+}

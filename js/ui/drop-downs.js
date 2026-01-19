@@ -3,15 +3,17 @@
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
 export function initDropDowns() {   
     const dropDown = document.querySelectorAll('.drop-down')
+    const dropSnips = document.querySelectorAll('.drop-snips')
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
         // document.addEventListener("click", e => {
         //     console.log('why')
         // });
         document.addEventListener("keydown", handleDropDown);
-        hideEls(sub2SideBarTopics)
         document.listenersAdded = true
     }
+    hideEls(sub2SideBarTopics)
+    hideEls(dropSnips)
     
 }
 export function handleDropDown(e) {
@@ -19,7 +21,6 @@ export function handleDropDown(e) {
     if (e.type === "keydown") {
         if ((e.key === "Enter" || e.key === " ") &&
             document.activeElement.classList.contains("drop-down")) {
-                console.log('here')
             e.preventDefault(); // THIS stops the synthetic click
             target = document.activeElement;
         } else {
@@ -57,14 +58,15 @@ function toggleSnips(dropDown) {
 
     // CONTENT DROPDOWN (github page etc.)
     const dropParent = dropDown.closest('.drop-parent');
-    const ul = dropParent?.querySelector('.topic-snips');
-    if (!ul) return;
+    const dropSnips = dropParent?.querySelector('.drop-snips');
+    if (!dropSnips) return;
 
-    ul.classList.toggle('hide');
+    dropSnips.classList.toggle('hide');
 }
 function hideEls(els) {   
     els.forEach(el => {
         if(!el.classList.contains('show')){
+            console.log(el)
             el.classList.add('hide')
         } else {
         }
