@@ -1,3 +1,7 @@
+:root {
+    --bg-primary-db: #201d1d;
+    --font-primary-db: whitesmoke;
+}
 body.dark-mode{
     background: rgb(17, 18, 17) !important;
 }
@@ -5,13 +9,13 @@ body.dark-mode .side-bar{
     border-right: 1px solid whitesmoke;
 }
 body.dark-mode .main-content * {
-    color: whitesmoke !important;    
+    color: var(--font-primary-db) !important;    
 }
 body.dark-mode .side-bar * {
-    color: whitesmoke !important;    
+    color: var(--font-primary-db) !important;    
 }
 body.dark-mode .main-content *:active,body.dark-mode .main-content *:focus {
-    color:black !important;
+    color:bvar(--font-primary-db) !important;
 }
 body.dark-mode .code-container {
     background-color: rgb(179, 174, 174);
@@ -21,10 +25,10 @@ body.dark-mode .code-container *{
 }
 
 body.dark-mode #darkModeBtn{
-    color: black !important;
+    color: var(--font-primary-db) !important;
 }
 body.dark-mode #darkModeBtn{
-    color: whitesmoke;
+    color: var(--font-primary-db);
 }
 #darkModeBtn{
     position: absolute;
@@ -32,7 +36,4 @@ body.dark-mode #darkModeBtn{
     right: 5%;
     width: 100px;
     border-radius: 5px;
-}
-body.dark-mode *:focus *,body.dark-mode *:focus {
-    /* color: black !important; */
 }

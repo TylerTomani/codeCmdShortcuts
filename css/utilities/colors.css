@@ -13,3 +13,9 @@ body{
 .side-bar a:visited {
     color: var(--clr-txt-sidebar);
 }
+#mainContent a,
+#mainContent a:visited {
+    color: rgb(50, 49, 49) ;
+    box-shadow: -8px 8px -8px 8px rgb(50, 49, 49) !important;
+    /* text-shadow: 1px 1px 1px whitesmoke; */
+}
