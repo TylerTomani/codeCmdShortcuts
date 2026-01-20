@@ -39,8 +39,15 @@
 
 body.dark-mode #mainContent *:focus *,
 body.dark-mode #mainContent *:focus {
-    color: var(--font-primary-db) !important;
-    border: 1px solid var(--font-primary-db) !important;
-    box-shadow: 0 -12px 12px rgb(50, 49, 49) !important;
+    color: var(--bg-primary-db) !important;
+    /* border: 1px solid var(--font-primary-db) !important; */
+    background-color: var(--font-primary-db) !important;
+    /* box-shadow: 0 -12px 12px rgb(50, 49, 49) !important; */
+    /* box-shadow:none !important; */
     outline: none;
+}
+
+body.dark-mode .side-bar *:focus{
+    color: black !important;   
+    background-color: var(--font-primary-db) !important;
 }

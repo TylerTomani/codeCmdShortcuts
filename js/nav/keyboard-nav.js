@@ -6,8 +6,13 @@ export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     if(key === 'enter'){
-        if (key === 'enter' && e.target.id === 'mainTopicsContainer' ){
-            scrollTo(0,0)
+        console.log(e.target)
+        if (e.target.id === 'mainTopicsContainer' ){
+            const mainContent = document.querySelector('#mainContent')
+            mainContent.scrollIntoView({ 
+                behavior: 'smooth' , 
+                block: 'nearest',
+                inline: 'start'})
         }
         return
     }

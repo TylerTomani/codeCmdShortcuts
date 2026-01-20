@@ -13,7 +13,7 @@ export function initDropDowns() {
         document.listenersAdded = true
     }
     hideEls(sub2SideBarTopics)
-    hideEls(dropSnips)
+    // hideEls(dropSnips)
     
 }
 export function handleDropDown(e) {
@@ -24,17 +24,15 @@ export function handleDropDown(e) {
             e.preventDefault(); // THIS stops the synthetic click
             target = document.activeElement;
         } else {
-            return;
+            // return;
         }
     } else if (e.type === "click") {
-        console.log('why')
-        console.log('NOT FIRING HERE')
         let target = e.target;
         // check if clicked element is drop-down or inside one
         if (!target.classList.contains("drop-down")) {
             target = target.closest(".drop-down");
         }
-        if (!target) return;
+        // if (!target) return;
 
         // prevent navigation for sidebar dropdowns
         if (target.closest('.side-bar')) e.preventDefault();
@@ -66,7 +64,6 @@ function toggleSnips(dropDown) {
 function hideEls(els) {   
     els.forEach(el => {
         if(!el.classList.contains('show')){
-            console.log(el)
             el.classList.add('hide')
         } else {
         }

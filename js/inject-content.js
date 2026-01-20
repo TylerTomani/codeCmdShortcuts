@@ -6,7 +6,7 @@ const homeAside = document.querySelector('#homeAside')
 import { initDropDowns,handleDropDown } from "./ui/drop-downs.js";
 export function initInjectcontetListeners(){
     let href
-    href = homeAside.href
+    // href = homeAside.href
     injectPage({ href })
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
@@ -45,21 +45,38 @@ export function initInjectcontetListeners(){
         });
     })
 }
-export async function injectPage({ href, focusMain = false }) {
+ async function injectPage({ href, focusMain = false }) {
+     if(!href ){
+        // href = 'home.html'
+         href = 'topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html'
+
+    }
     try {
         const response = await fetch(href)
         const html = await response.text()
         mainLandingPage.innerHTML = html
         initDropDowns()
 
-        if (focusMain) {
-            requestAnimationFrame(() => {
-                const mainTopics = document.querySelector('#mainTopicsContainer')
-                if (mainTopics) {
-                    mainTopics.focus()
+        const mainTopics = document.querySelector('#mainTopicsContainer')
+        const mainTopicEls = mainTopics.querySelectorAll('a,[id]')
+        if(mainTopicEls){
+            mainTopicEls.forEach(el => {
+                if(el.classList.contains('FocusEL')){
+                    console.log(el)
+                    el.focus()
+                    // return
                 }
             })
         }
+        // if (focusMain) {
+        //     requestAnimationFrame(() => {
+        //         const mainTopics = document.querySelector('#mainTopicsContainer')
+        //         if (mainTopics) {
+        
+        //             mainTopics.focus()
+        //         }
+        //     })
+        // }
     } catch {
         console.log('error try')
     }

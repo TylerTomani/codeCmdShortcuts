@@ -5,29 +5,31 @@
 }
 .page-wrapper {
     height: 100vh;
+    .side-bar {
+        width: var(--sidebar-width);
+        transition: all 130ms ease;
+    }
 }
-.page-wrapper > .side-bar{
-    width: var(--sidebar-width);
-    transition: all 130ms ease;
-}
-.page-wrapper > .main-content{
-    /* Without This width: below, main-content expands full width window when .page-wrapper.collapsed  */
-    width: calc(100% - var(--sidebar-width));
-}
+
+
 .topic header>.topic-title{
     width: 100% !important;
 }
-.main-content .main-landing-page {
-    height: 100vh;
+.main-content {
+    /* Without This width: below, main-content expands full width window when .page-wrapper.collapsed  */
+    width: calc(100% - var(--sidebar-width));
+    .main-landing-page {
+        height: 100vh;
+    }
+    .topic header>.topic-title,
+    .snip header h4 {
+        text-wrap: none;
+        width: 100%;
+        display: inline-block;
+        /* border: 2px solid blue; */
+    }
 }
 
-
-.topic header>.topic-title,
-.snip header h4 {
-    text-wrap: none;
-    display: inline-block;
-    /* border: 2px solid blue; */
-}
 
 .code-cmd {
     /* height: 50% !important; */
@@ -46,7 +48,6 @@
 .code-container>* {
     /* height: 100%; */
     width: 100%;
-    font-size: 70%;
     line-height: .92;
 }
 .snip header h4 {
