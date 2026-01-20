@@ -19,7 +19,12 @@
     .code-container {
         max-width: 95%!important;
     }
-    
+    .main-content{
+        padding-top: 8%;
+    }
+    .page-container {
+        padding-top: 4%;
+    }
 
 }
 @media screen and (max-width:520px){
