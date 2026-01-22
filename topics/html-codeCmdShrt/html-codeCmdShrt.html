@@ -9,30 +9,22 @@
 
 </head>
 <body>
-    <div id="mainPageContainer" class="page-container">
-        <div class="topics-container">
+    <div id="mainPageContainer" class="page-container drop-parent">
+        <h2><a href="#" class="drop-down">html</a></h2>
+        <div tabindex="0" id="mainTopicsContainer" class="main-topics-container drop-snips">
             <div class="topic drop-parent">
                 <header>
-                    <h3 class="topic-title"><a href="#" class="drop-down">Drop</a></h3>
+                    <h3 class="topic-title"><a href="#" class="drop-down"><code>&lt;img></code> images</a></h3>
                 </header>
                 <!-- 2 -->
-                <div class="topic-snips drop-parent ">
+                <div class="topic-snips drop-parent drop-snips">
                     <div class="snip">
-                        <h4><a href="#" class="drop-down">2</a></h4>
+                        <h4><a href="#" class="drop-down">1. <code>loading="lazy"</code></a></h4>
+                        <p>Thi ensures image loading doesn't lag, and cause the page to blink</p>
                         <div class="code-cmd">
                             <div class="code-container">
                                 <pre tabindex="0" class="copy-code">
-    // This page has really good letter focus cycle
-    if(letter == 'c' && !e.metaKey){
-        if(!e.shiftKey){
-        copyCodes[iCopyCodes].focus()
-        iCopyCodes = (iCopyCodes + 1) % copyCodes.length
-        } else{
-            iCopyCodes = (iCopyCodes - 1 + copyCodes.length) % copyCodes.length
-        }
-        copyCodes[iCopyCodes].focus()
-        console.log(iLetter)
-    }</pre>
+    &lt;img loading="lazy" src="" alt="">&lt;/pre>
                             </div>
                         </div>
                     </div>
