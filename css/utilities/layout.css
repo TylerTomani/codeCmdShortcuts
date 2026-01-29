@@ -76,11 +76,11 @@ body{
         flex-basis: 50%;
         flex-grow: 1;
     }
-    .code-cmd {
+    .shortcut {
         display: flex;
         flex-direction: column;
     }
-    .code-cmd > header {
+    .shortcut > header {
         display: flex;
         flex-direction: column;
 

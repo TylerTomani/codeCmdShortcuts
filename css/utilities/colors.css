@@ -1,4 +1,6 @@
+.b {color: blue;}
 .r {color: red;}
+.m {color: magenta;}
 :root {
     --clr-txt-sidebar: black
 }

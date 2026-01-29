@@ -5,6 +5,7 @@ export function initDropDowns() {
     const dropDown = document.querySelectorAll('.drop-down')
     const dropSnips = document.querySelectorAll('.drop-snips')
     if(!document.listenersAdded){
+        console.log(document.listenerAdded)
         document.addEventListener("click", handleDropDown);
         // document.addEventListener("click", e => {
         //     console.log('why')
@@ -13,7 +14,7 @@ export function initDropDowns() {
         document.listenersAdded = true
     }
     hideEls(sub2SideBarTopics)
-    // hideEls(dropSnips)
+    hideEls(dropSnips)
     
 }
 export function handleDropDown(e) {

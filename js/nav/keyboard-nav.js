@@ -5,6 +5,8 @@ import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
+
+    // **** Special Cases For This Script
     if(key === 'enter'){
         console.log(e.target)
         if (e.target.id === 'mainTopicsContainer' ){
@@ -45,14 +47,16 @@ export function keyboardNav({ e, mainContentEls }) {
         return
     }
     if (!key.match(/^[a-z]$/)) return // only handle letters    
+    // *****
+    
     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
         const rect = el.getBoundingClientRect()
+        
         if(!el.hasAttribute('tabindex')){
             el.setAttribute('tabindex', '0')
         }
         return isActuallyVisible(el)
     })
-    
     // helper: return the first alphabetic character of the element's text (or '')
     /** this with add tabinddex above in allEls makes this Future Full Proof (FFP) */
     const firstAlpha = el => {

@@ -57,23 +57,26 @@ export function initInjectcontetListeners(){
         mainLandingPage.innerHTML = html
         initDropDowns()
 
-        const mainTopics = document.querySelector('#mainTopicsContainer')
-        const mainTopicEls = mainTopics.querySelectorAll('a,[id]')
+        const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+        const mainTopicEls = mainTopicsContainer.querySelectorAll('a,[id]')
+        if(mainTopicsContainer){
+            // mainTo
+        }
         if(mainTopicEls){
             mainTopicEls.forEach(el => {
                 if(el.classList.contains('FocusEL')){
-                    console.log(el)
                     el.focus()
                     // return
                 }
             })
         }
+
         // if (focusMain) {
         //     requestAnimationFrame(() => {
-        //         const mainTopics = document.querySelector('#mainTopicsContainer')
-        //         if (mainTopics) {
+        //         const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
+        //         if (mainTopicsContainer) {
         
-        //             mainTopics.focus()
+        //             mainTopicsContainer.focus()
         //         }
         //     })
         // }
