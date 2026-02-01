@@ -17,7 +17,7 @@ body{
     overflow: hidden;
 }
 .snip .code-container>* {
-    overflow-x: scroll;
+    overflow: scroll;
 }
 .page-wrapper {
     display: flex;
