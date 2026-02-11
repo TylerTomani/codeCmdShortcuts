@@ -2,38 +2,47 @@
     --bg-primary-db: #201d1d;
     --font-primary-db: whitesmoke;
 }
-body.dark-mode{
-    background: rgb(17, 18, 17) !important;
-}
-body.dark-mode .side-bar{
-    border-right: 1px solid whitesmoke;
-}
-body.dark-mode .main-content * {
-    color: var(--font-primary-db) !important;    
-}
-body.dark-mode .side-bar * {
-    color: var(--font-primary-db) !important;    
-}
-body.dark-mode .main-content *:active,body.dark-mode .main-content *:focus {
-    color:bvar(--font-primary-db) !important;
-}
-body.dark-mode .code-container {
-    background-color: rgb(179, 174, 174);
-}
-body.dark-mode .code-container *{
-    color: black  !important;
-}
 
-body.dark-mode #darkModeBtn{
-    color: var(--font-primary-db) !important;
-}
-body.dark-mode #darkModeBtn{
-    color: var(--font-primary-db);
-}
-#darkModeBtn{
+#darkModeBtn {
     position: absolute;
     bottom: 5%;
     right: 5%;
     width: 100px;
     border-radius: 5px;
 }
+
+body.dark-mode {
+    background: rgb(17, 18, 17);
+}
+
+body.dark-mode .side-bar {
+    border-right: 1px solid whitesmoke;
+}
+
+body.dark-mode .main-content * {
+    /* color: var(--font-primary-db) !important;     */
+}
+
+body.dark-mode .side-bar * {
+    color: var(--font-primary-db) !important;
+}
+
+body.dark-mode .main-content *:active,
+body.dark-mode .main-content *:focus {
+    /* color: var(--font-primary-db) !important; */
+}
+
+body.dark-mode .code-container {
+    /* background-color: rgb(179, 174, 174); */
+}
+
+body.dark-mode .code-container * {
+    color: black !important;
+}
+
+body.dark-mode #darkModeBtn {
+    /* color: var(--font-primary-db) !important; */
+    /* color: var(--font-primary-db); */
+}
+
+body.dark-mode #darkModeBtn {}

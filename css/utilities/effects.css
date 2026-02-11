@@ -37,8 +37,8 @@
 
 }
 
-body.dark-mode #mainContent *:focus *,
-body.dark-mode #mainContent *:focus {
+body.dark-mode #mainContent .page-container *:focus *,
+body.dark-mode #mainContent .page-container *:focus {
     color: var(--bg-primary-db) !important;
     /* border: 1px solid var(--font-primary-db) !important; */
     background-color: var(--font-primary-db) !important;

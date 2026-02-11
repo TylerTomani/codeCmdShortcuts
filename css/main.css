@@ -12,7 +12,7 @@
 @import url('media/videos.css');
 /* utilities */
 @import url('utilities/borders.css');
-@import url('utilities/colors.css');
+/* @import url('utilities/colors.css'); */
 @import url('utilities/display.css');
 @import url('utilities/effects.css');
 @import url('utilities/layout.css');
