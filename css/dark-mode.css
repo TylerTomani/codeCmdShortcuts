@@ -2,7 +2,6 @@
     --bg-primary-db: #201d1d;
     --font-primary-db: whitesmoke;
 }
-
 #darkModeBtn {
     position: absolute;
     bottom: 5%;
@@ -10,22 +9,19 @@
     width: 100px;
     border-radius: 5px;
 }
-
+body.dark-mode .side-bar * {
+    color: var(--font-primary-db) !important;}
 body.dark-mode {
     background: rgb(17, 18, 17);
 }
-
 body.dark-mode .side-bar {
     border-right: 1px solid whitesmoke;
 }
-
-body.dark-mode .main-content * {
-    /* color: var(--font-primary-db) !important;     */
+body.dark-mode .main-content #mainTopicsContainer {
+    color: var(--font-primary-db) !important;    
 }
 
-body.dark-mode .side-bar * {
-    color: var(--font-primary-db) !important;
-}
+
 
 body.dark-mode .main-content *:active,
 body.dark-mode .main-content *:focus {
