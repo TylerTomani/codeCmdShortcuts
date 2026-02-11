@@ -1,6 +1,10 @@
 :root {
-    --bg-primary-db: #201d1d;
-    --font-primary-db: whitesmoke;
+    --bg-primary-dm: #201d1d;
+    --font-primary-dm: whitesmoke;
+}
+.body.dark-mode > .page-wrapper > .main-content > header,
+.main-landing-page > .page-container h2 {
+    color: var(--font-primary-dm);
 }
 #darkModeBtn {
     position: absolute;
@@ -9,8 +13,18 @@
     width: 100px;
     border-radius: 5px;
 }
-body.dark-mode .side-bar * {
-    color: var(--font-primary-db) !important;}
+body.dark-mode .side-bar a{
+    color:whitesmoke;
+    border: var(--font-primary-dm);
+    /* background-color: var(--font-primary-dm) !important; */
+}
+body.dark-mode .side-bar a:focus,
+body.dark-mode .side-bar a:active {
+    color:black;
+    border: var(--font-primary-dm);
+    background-color: var(--font-primary-dm) !important;
+
+}
 body.dark-mode {
     background: rgb(17, 18, 17);
 }
@@ -18,14 +32,19 @@ body.dark-mode .side-bar {
     border-right: 1px solid whitesmoke;
 }
 body.dark-mode .main-content #mainTopicsContainer {
-    color: var(--font-primary-db) !important;    
+    /* color: var(--font-primary-dm) !important;     */
 }
 
 
-
+body.dark-mode #mainContent a,
+body.dark-mode #mainContent a:visited {
+    color: var(--font-primary-dm);
+    box-shadow: -8px 8px -8px 8px rgb(50, 49, 49) !important;
+    /* text-shadow: 1px 1px 1px whitesmoke; */
+}
 body.dark-mode .main-content *:active,
 body.dark-mode .main-content *:focus {
-    /* color: var(--font-primary-db) !important; */
+    /* color: var(--font-primary-dm) !important; */
 }
 
 body.dark-mode .code-container {
@@ -33,12 +52,12 @@ body.dark-mode .code-container {
 }
 
 body.dark-mode .code-container * {
-    color: black !important;
+    /* color: black !important; */
 }
 
 body.dark-mode #darkModeBtn {
-    /* color: var(--font-primary-db) !important; */
-    /* color: var(--font-primary-db); */
+    /* color: var(--font-primary-dm) !important; */
+    /* color: var(--font-primary-dm); */
 }
 
 body.dark-mode #darkModeBtn {}
