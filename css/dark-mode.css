@@ -31,8 +31,8 @@ body.dark-mode {
 body.dark-mode .side-bar {
     border-right: 1px solid whitesmoke;
 }
-#sideBarBtn {
-    color: var(--font-primary-dm);
+body.dark-mode  #sideBarBtn {
+    color: var(--font-primary-dm) ;
 }
 body.dark-mode #mainContent a,
 body.dark-mode #mainContent a:visited {
