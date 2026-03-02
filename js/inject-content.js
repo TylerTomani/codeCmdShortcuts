@@ -65,7 +65,7 @@ export function initInjectcontetListeners(){
         if(mainTopicEls){
             mainTopicEls.forEach(el => {
                 if(el.classList.contains('FocusEL')){
-                    el.focus()
+                    // el.focus()
                     // return
                 }
             })

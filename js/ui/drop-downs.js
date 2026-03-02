@@ -1,25 +1,48 @@
 // drop-downs.js
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
+import { mainLandingPage } from "../inject-content.js";
 export function initDropDowns() {   
     const dropDown = document.querySelectorAll('.drop-down')
     const dropSnips = document.querySelectorAll('.drop-snips')
     if(!document.listenersAdded){
-        console.log(document.listenerAdded)
         document.addEventListener("click", handleDropDown);
         // document.addEventListener("click", e => {
         //     console.log('why')
         // });
         document.addEventListener("keydown", handleDropDown);
         document.listenersAdded = true
+        hideEls(sub2SideBarTopics)
     }
-    hideEls(sub2SideBarTopics)
-    hideEls(dropSnips)
+    // hideEls(dropSnips)
     
 }
+
 export function handleDropDown(e) {
+    const snip = e.target.closest('.snip')
+    if(e.type === 'click'){
+        if (snip) {
+            console.log('has')
+            const codeContainer = snip.querySelector('.code-container')
+            console.log(codeContainer)
+            codeContainer.classList.toggle('hide')
+        }
+    }
     let target;
+    
+    if(e.target.classList.contains('.side-bar')) {
+        if (e.type === "keydown") {
+            if (e.shiftKey && e.key.toLowerCase() === 'enter') {
+                // mainC
+                mainLandingPage.focus()
+                mainLandingPage.scrollTo(0,0)
+                
+            }
+        }
+        return
+    }
     if (e.type === "keydown") {
+        if(snip){ return}
         if ((e.key === "Enter" || e.key === " ") &&
             document.activeElement.classList.contains("drop-down")) {
             e.preventDefault(); // THIS stops the synthetic click
@@ -36,7 +59,10 @@ export function handleDropDown(e) {
         // if (!target) return;
 
         // prevent navigation for sidebar dropdowns
-        if (target.closest('.side-bar')) e.preventDefault();
+        // if (target.closest('.side-bar')) {
+
+        //     e.preventDefault();
+        // }
 
         toggleSnips(target);
     }
@@ -46,6 +72,7 @@ export function handleDropDown(e) {
 }
 function toggleSnips(dropDown) {
     // SIDEBAR DROPDOWN
+    if(!dropDown) return
     if (dropDown.closest('.side-bar')) {
         const li = dropDown.parentElement;
         const ul = li?.querySelector(':scope > ul');
