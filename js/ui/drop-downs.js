@@ -2,9 +2,10 @@
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
 import { mainLandingPage } from "../inject-content.js";
+// const codeContainer
 export function initDropDowns() {   
-    const dropDown = document.querySelectorAll('.drop-down')
-    const dropSnips = document.querySelectorAll('.drop-snips')
+    // const dropDown = document.querySelectorAll('.drop-down')
+    // const dropSnips = document.querySelectorAll('.drop-snips')
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
         // document.addEventListener("click", e => {
@@ -21,37 +22,11 @@ export function initDropDowns() {
 export function handleDropDown(e) {
     const snip = e.target.closest('.snip')
     if(e.type === 'click'){
+        let target = e.target;
         if (snip) {
-            console.log('has')
             const codeContainer = snip.querySelector('.code-container')
-            console.log(codeContainer)
             codeContainer.classList.toggle('hide')
         }
-    }
-    let target;
-    
-    if(e.target.classList.contains('.side-bar')) {
-        if (e.type === "keydown") {
-            if (e.shiftKey && e.key.toLowerCase() === 'enter') {
-                // mainC
-                mainLandingPage.focus()
-                mainLandingPage.scrollTo(0,0)
-                
-            }
-        }
-        return
-    }
-    if (e.type === "keydown") {
-        if(snip){ return}
-        if ((e.key === "Enter" || e.key === " ") &&
-            document.activeElement.classList.contains("drop-down")) {
-            e.preventDefault(); // THIS stops the synthetic click
-            target = document.activeElement;
-        } else {
-            // return;
-        }
-    } else if (e.type === "click") {
-        let target = e.target;
         // check if clicked element is drop-down or inside one
         if (!target.classList.contains("drop-down")) {
             target = target.closest(".drop-down");
@@ -65,6 +40,37 @@ export function handleDropDown(e) {
         // }
 
         toggleSnips(target);
+        
+    }
+    if (e.shiftKey && e.metaKey && 
+        e.key.toLowerCase() === 'enter'){
+            e.preventDefault()
+            collapsedCode(e.target)
+    }
+
+    let target;
+    if(e.target.classList.contains('.side-bar')) {
+        if (e.type === "keydown") {
+            if (e.shiftKey && e.key.toLowerCase() === 'enter') {
+                // mainC
+                mainLandingPage.focus()
+                mainLandingPage.scrollTo(0,0)
+                
+            }
+        }
+        return
+    }
+    if (e.type === "keydown" && !e.shiftKey || !e.metaKey) {
+        if(snip){ return}
+        if ((e.key === "Enter" || e.key === " ") &&
+            document.activeElement.classList.contains("drop-down")) {
+            e.preventDefault(); // THIS stops the synthetic click
+            target = document.activeElement;
+        } else {
+            // return;
+        }
+    } else if (e.type === "click") {
+      
     }
 
     if (!target) return
@@ -100,3 +106,12 @@ function hideEls(els) {
 // function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed
 
+function collapsedCode(target){
+    const snip = target.closest('.snip')
+    const codeContainer = snip.querySelector('.code-container')
+    const copyCode = snip.querySelector('.copy-code')
+    if(codeContainer.classList.contains('hide')){
+        codeContainer.classList.remove('hide')
+    }
+    copyCode.classList.toggle('collapse')
+}
