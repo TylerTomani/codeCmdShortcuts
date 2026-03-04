@@ -17,12 +17,12 @@ export function initCopyCodes(){
             animate(e)
         })
         copycode.addEventListener('focusin', e  => {
-            // if(e.target.classList.contains('long-code')){
-            //     e.target.scrollIntoView({ block: "end", inline: "nearest" });
-            //     if(e.target.classList.contains('long-code')){
-            //         e.target.scrollIntoView({ block: "start", inline: "nearest" });
-            //     }
-            // }
+            if(e.target.classList.contains('long-code')){
+                e.target.scrollIntoView({ block: "end", inline: "nearest" });
+                if(e.target.classList.contains('long-code')){
+                    e.target.scrollIntoView({ block: "start", inline: "nearest" });
+                }
+            }
         });
     })
     function animate(e){

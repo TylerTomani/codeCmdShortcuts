@@ -37,30 +37,30 @@ export function handleDropDown(e) {
             toggleVisiblitiy(ul)
             return;
         }        
-        
+        if(e.target.closest('.drop-parent')){
+            const dropParent = e.target.closest('.drop-parent')
+            const target = dropParent.querySelector('.drop-snips')
+            toggleVisiblitiy(target)
+        }
         // prevent navigation for sidebar dropdowns
         if (target.closest('.side-bar')) {
             e.preventDefault();
             toggleVisiblitiy(target);    
         }
+        return
     }
-    
-
-    let target;
     if (e.type === "keydown") {
+        let target;
         const key = e.key.toLowerCase()
         if (e.shiftKey && e.metaKey && key === 'enter') {
             e.preventDefault()
             collapsedCode(e.target)
         }
         if(key === 'enter'){
-            
-        
             if(e.target.classList.contains('.side-bar')) {
                 if (e.shiftKey && key === 'enter') {
                     mainLandingPage.focus()
                     mainLandingPage.scrollTo(0,0)
-                    
                 }
                 if (!e.shiftKey || !e.metaKey) {
                     if (snip) { return }
@@ -71,17 +71,12 @@ export function handleDropDown(e) {
                     } 
                 } 
             }
-            if(e.target.closest('.drop-parent')){
-                const dropParent = e.target.closest('.drop-parent')
-                const dropSnips = dropParent.querySelector('.drop-snips')
-                toggleVisiblitiy(dropSnips)
-            }
         }
+        if (!target) return
+        toggleVisiblitiy(target)
     }
     
 
-    if (!target) return
-    toggleVisiblitiy(target)
 }
 function toggleVisiblitiy(target){
     target.classList.toggle('hide');
