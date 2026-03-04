@@ -20,18 +20,12 @@ export function initDropDowns() {
 }
 
 export function handleDropDown(e) {
+    const snip = e.target.closest('.snip')
     if(e.type === 'click'){
         let target = e.target;
-        console.log('click')
-        
-        const snip = e.target.closest('.snip')
         if (snip) {
             const codeContainer = snip.querySelector('.code-container')
-            target = codeContainer
-        }
-        const topic = e.target.closest('.topic')
-        if(topic){
-            target = snip
+            codeContainer.classList.toggle('hide')
         }
         // check if clicked element is drop-down or inside one
         if (!target.classList.contains("drop-down")) {
@@ -41,8 +35,9 @@ export function handleDropDown(e) {
 
         // prevent navigation for sidebar dropdowns
         if (target.closest('.side-bar')) {
+// 
             e.preventDefault();
-            toggleSnips(target);    
+        toggleSnips(target);    
         }
     }
     if (e.shiftKey && e.metaKey && 
