@@ -4,6 +4,7 @@ export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeAside = document.querySelector('#homeAside')
 import { initDropDowns,handleDropDown } from "../ui/drop-downs/drop-downs.js";
+import { initCopyCodes } from "../copy-code.js";
 export function initInjectcontetListeners(){
     let href
     // href = homeAside.href
@@ -55,6 +56,7 @@ export function initInjectcontetListeners(){
         const response = await fetch(href)
         const html = await response.text()
         mainLandingPage.innerHTML = html
+        initCopyCodes()
         initDropDowns()
 
         const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
