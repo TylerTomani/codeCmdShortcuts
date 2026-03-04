@@ -1,7 +1,7 @@
 // drop-downs.js
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
-import { mainLandingPage } from "../inject-content.js";
+import { mainLandingPage } from "../../core/inject-content.js";
 // const codeContainer
 export function initDropDowns() {   
     // const dropDown = document.querySelectorAll('.drop-down')
