@@ -10,8 +10,8 @@
     border-radius: 4px;   
 }
 .topics-container{
+
     border: 1px solid blue;
-    padding: 2.5% 1%;
     .topic {
     }   
     .topic .topic-snips > .snip {

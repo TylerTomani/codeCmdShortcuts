@@ -3,6 +3,10 @@ let lastLetterPressed = null
 import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 import { letterNav } from "./letter-nav.js"
 import { numNav } from "./number-nav.js"
+const navState = {
+    focusZone : null,
+
+}
 export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
@@ -21,8 +25,35 @@ export function keyboardNav({ e, mainContentEls }) {
         numNav({e})
     }
     if (!key.match(/^[a-z]$/)) {return} // only handle letters    
-    // *****
-    
+    // ***** Below is working but shoul NOT go here
+    if( e.target.closest('.snip') 
+    ){
+        const snip = e.target.closest('.snip')
+        const snipTitle = snip.querySelector('.snip-title')
+        const copyCode = snip.querySelector('.copy-code')
+        // k.log(snipTitle.innerText)
+        if (!e.shiftKey) {
+            if(key === snipTitle.innerText[0] && e.target === snipTitle){
+                e.preventDefault()
+                if(copyCode.classList.contains('collapse')){
+                    copyCode.classList.remove('collapse')
+                }
+                copyCode.focus()
+                return
+            }
+        
+            
+            if(key === snipTitle.innerText[0] && e.target === copyCode){
+                e.preventDefault()
+                if(copyCode.classList.contains('collapse')){
+                    copyCode.classList.remove('collapse')
+                }
+                snipTitle.focus()
+                return
+            }
+        }
+    } 
+
     letterNav({e})    
 }
 export function isActuallyVisible(el) {

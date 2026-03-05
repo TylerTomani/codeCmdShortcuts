@@ -108,7 +108,6 @@ function toggleVisiblity(target) {
 // function toggleD
 function hideEls(els) {   
     els.forEach(el => {
-        console.log(els)
         if(!el.classList.contains('show')){
             el.classList.add('hide')
         } else {

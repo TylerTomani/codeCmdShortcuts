@@ -4,10 +4,7 @@ export function letterNav({ e }) {
     const key = e.key.toLowerCase()
      const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
             const rect = el.getBoundingClientRect()
-
-            if(!el.hasAttribute('tabindex')){
-                el.setAttribute('tabindex', '0')
-            }
+            if(!el.hasAttribute('tabindex')){el.setAttribute('tabindex', '0')}
             return isActuallyVisible(el)
         })
         // helper: return the first alphabetic character of the element's text (or '')
