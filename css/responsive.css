@@ -28,7 +28,8 @@
 
 }
 @media screen and (max-width:520px){
-    /* .main-content>.main-landing-page {
-        margin-left: 0;
-    } */
+    .snip > header {
+        margin-top: 1%;
+        margin-bottom: 2%;
+    }
 }
