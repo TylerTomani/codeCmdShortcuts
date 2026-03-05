@@ -2,7 +2,6 @@
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
 import { mainLandingPage } from "../../core/inject-content.js";
-// const codeContainer
 export function initDropDowns() {   
     // const dropDown = document.querySelectorAll('.drop-down')
     const dropSnips = document.querySelectorAll('.drop-snips')
@@ -18,7 +17,6 @@ export function initDropDowns() {
     hideEls(dropSnips)
     
 }
-
 export function handleDropDown(e) {
     if(e.type === 'click'){
         let target = e.target;
@@ -115,6 +113,9 @@ function hideEls(els) {
         } else {
         }
     })
+}
+function collapseAll(els){
+
 }
 // function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed
