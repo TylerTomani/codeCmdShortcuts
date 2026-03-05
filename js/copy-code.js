@@ -34,7 +34,7 @@ export function initCopyCodes(){
         // console.log(el.parentElement)
         setTimeout(() =>{
             el.classList.remove('copied')
-            el.classList.add('decopied')
+            // el.classList.add('decopied')
         },250)
         if(e.target.tagName == 'TEXTAREA'){
             let txt = e.target.value

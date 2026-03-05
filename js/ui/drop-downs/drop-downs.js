@@ -52,7 +52,7 @@ export function handleDropDown(e) {
         const key = e.key.toLowerCase()
         if (e.shiftKey && e.metaKey && key === 'enter') {
             e.preventDefault()
-            collapsedCode(e.target)
+            toggleCollapsedCode(e.target)
         }
         if(key === 'enter'){
             if(e.target.classList.contains('.side-bar')) {
@@ -120,7 +120,7 @@ function collapseAll(els){
 }
 // function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed
-function collapsedCode(target){
+export function toggleCollapsedCode(target){
     const snip = target.closest('.snip')
     const codeContainer = snip.querySelector('.code-container')
     const copyCode = snip.querySelector('.copy-code')
