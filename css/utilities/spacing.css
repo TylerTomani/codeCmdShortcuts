@@ -31,17 +31,8 @@
         }
     }
 }
-.page-wrapper>.side-bar>header {
-    /* margin-bottom: 5%; */
-    /* padding-bottom: 5%; */
-}
 .page-wrapper>.main-content nav {margin-left: 2.5%;}
-.main-content>.main-landing-page {
-}
-
-.topics-container{
-    padding: 2.5% 1%;
-}
+.topics-container{padding: 2.5% 1%;}
 /* Topics */
 .topic {
     header>h3 {
@@ -51,34 +42,10 @@
     .topic-snips > .snip > h4 {
         margin: 1%;
         padding-left: 1%;
-        /* padding: 0 1%; */
-    }
-    .code-container {
-        /* margin-top:  1%; */
-        /* margin-left: 1%; */
-    }
-    .code-container * {
-        /* padding-top:  1.5%; */
-        /* padding-left: 1%; */
     }
     .snip .drop-down{
         margin-left: 5%;
-        /* width: 100%; */
         display: inline-block;
     }
 }
 
-.topic {
-    .topic-snips {
-        
-    }
-
-    .topic-snips>.snip {
-        
-
-    }
-
-    .topic-snips>.snip.grid-col-3 {
-        
-    }
-}

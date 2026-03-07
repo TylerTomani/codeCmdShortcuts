@@ -29,10 +29,9 @@
 .code-container {
     width: fit-content;
     height: fit-content;
-    max-height: 50vh;
+    max-height: 90vh;
 }
-.code-container>* {
-    width: 100%;
+.code-container>.copy-code {
     line-height: .92;
 }
 .snip header h4 {

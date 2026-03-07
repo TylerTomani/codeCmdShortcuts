@@ -38,7 +38,6 @@ export function keyboardNav({ e, mainContentEls }) {
                 if (codeContainer.classList.contains('collapse')){
                     codeContainer.classList.remove('collapse')
                 }
-                
                 copyCode.focus()
                 return
             }
