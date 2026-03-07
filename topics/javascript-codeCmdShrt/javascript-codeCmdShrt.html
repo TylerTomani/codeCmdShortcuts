@@ -52,16 +52,16 @@ export function keyboardNav({ e, mainContentEls }) {
         // If element is NOT an anchor, use its ID  
         if (el.tagName !== 'A') {
             const id = (el.id || '').trim().toLowerCase()
-            for (let i = 0; i < id.length; i++) {
+            for (let i = 0; i &lt; id.length; i++) {
                 const ch = id[i]
                 if (/[a-z]/.test(ch)) return ch
             }
             return ''
         }
-        // Regular <a> text logic
+        // Regular &lt;a> text logic
         const s = (el.innerText || '').trim().toLowerCase()
         
-        for (let i = 0; i < s.length; i++) {
+        for (let i = 0; i &lt; s.length; i++) {
             if (/[a-z]/.test(s[i])) return s[i]
         }
         
@@ -101,7 +101,7 @@ export function keyboardNav({ e, mainContentEls }) {
             } else {
                 // otherwise go to the next matching element after current focus
                 let foundNext = false
-                for (let i = iActiveAll + 1; i < allEls.length; i++) {
+                for (let i = iActiveAll + 1; i &lt; allEls.length; i++) {
                     if (matching.includes(allEls[i])) {
                         newIndex = matching.indexOf(allEls[i])
                         foundNext = true
