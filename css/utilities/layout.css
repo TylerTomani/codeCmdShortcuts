@@ -35,7 +35,8 @@ body{
     white-space: none;
     text-wrap: none;
 }
-
+/* I think i found crazy work around, to control x and y overflow, 
+innner choose x axis outer y */
 .snip .code-container {
     /* overflow: visible; */
     overflow: hidden;
