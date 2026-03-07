@@ -13,13 +13,3 @@ body {
 .code-container{
     position: relative;
 }
-
-.popup-btn {
-    position: absolute;
-    /* bottom: 100%; */
-    top: -5px;
-    right: 0;
-    width: 50px;
-    border-radius: 10px;
-    border: 2px solid blue;
-}

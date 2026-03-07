@@ -5,7 +5,6 @@ import { mainLandingPage } from "../../core/inject-content.js";
 export function initDropDowns() {   
     // const dropDown = document.querySelectorAll('.drop-down')
     const dropSnips = document.querySelectorAll('.drop-snips')
-    const codeContainers = document.querySelectorAll('.code-container')
     if(!document.listenersAdded){
         document.addEventListener("click", handleDropDown);
         // document.addEventListener("click", e => {
@@ -16,7 +15,6 @@ export function initDropDowns() {
         hideEls(sub2SideBarTopics)
     }
     hideEls(dropSnips)
-    collapseAll(codeContainers)
     
 }
 export function handleDropDown(e) {
@@ -111,7 +109,6 @@ function toggleVisiblity(target) {
 // function toggleD
 function hideEls(els) {   
     els.forEach(el => {
-        
         if(!el.classList.contains('show')){
             el.classList.add('hide')
         } else {
@@ -119,9 +116,7 @@ function hideEls(els) {
     })
 }
 function collapseAll(els){
-    els.forEach(el => {
-        el.classList.add('collapse')
-    })
+
 }
 // function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed

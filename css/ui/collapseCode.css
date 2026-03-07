@@ -4,3 +4,12 @@
 }
 
 
+.popup-btn {
+    position: fixed;
+    /* bottom: 100%; */
+    top: 0px;
+    right: -10px;
+    width: 50px;
+    border-radius: 10px;
+    border: 2px solid blue;
+}
