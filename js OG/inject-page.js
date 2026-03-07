@@ -3,6 +3,7 @@
 import { keyboardNav } from "./nav/keyboard-nav.js";
 import { addCopyCodes } from "./copy-code.js";
 import { initDropDowns } from "./ui/drop-downs.js";
+import { initCollapseCode } from "../js/ui/collapse-code.js";
 export const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeHref = './home-codeCmdShrt.html'
 let loaded = false;
@@ -16,6 +17,7 @@ export function injectPage(href) {
             mainLandingPage.innerHTML = html;
             addCopyCodes()
             initDropDowns()
+            initCollapseCode()
             // Find the first focusable element in the injected content
             const firstFocusable = mainLandingPage.querySelector("a,[id],input,textarea,[tabindex]:not([tabindex='-1'])");
             firstFocusable?.focus();

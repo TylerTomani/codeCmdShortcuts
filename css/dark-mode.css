@@ -44,6 +44,7 @@ body.dark-mode #mainContent a.topic-title:focus {
 
 body.dark-mode #mainContent a:active,
 body.dark-mode #mainContent a:focus {
+    color: black;
     background-color: white;
     outline: none;
     display: inline-block;
