@@ -1,6 +1,14 @@
 @media screen and (max-width:1400px){
-.code-container {
-        max-width: 100% !important;
+    
+    .code-container {
+        width: 90% !important;
+        margin-top: 2%;
+        margin-left: 2%;
+        margin-bottom: 1%;
+        
+    }
+    .code-container > .copy-code{
+        font-size: 120% !important;
     }
 }
 @media screen and (max-width:720px){
