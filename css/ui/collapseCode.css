@@ -5,10 +5,6 @@
 
 
 .popup-btn {
-    position: sticky;
-    left: 100%;
-    /* bottom: 101%; */
-    top: 0%;
     width: 50px;
     border-radius: 10px;
     border: 2px solid black;

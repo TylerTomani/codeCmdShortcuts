@@ -1,12 +1,18 @@
 // drop-downs.js
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
+function updateDropSnips() {
+    return document.querySelectorAll('.drop-snips')
+}
 import { mainLandingPage } from "../../core/inject-content.js";
 export function initDropDowns() {   
     // const dropDown = document.querySelectorAll('.drop-down')
-    const dropSnips = document.querySelectorAll('.drop-snips')
+    const codeContainers = document.querySelectorAll('.code-container')
+    const dropSnips = updateDropSnips()
     if(!document.listenersAdded){
-        document.addEventListener("click", handleDropDown);
+        document.addEventListener("click", e => {
+            handleDropDown(e,dropSnips)
+        });
         // document.addEventListener("click", e => {
         //     console.log('why')
         // });
@@ -14,6 +20,7 @@ export function initDropDowns() {
         document.listenersAdded = true
         hideEls(sub2SideBarTopics)
     }
+    collapseAll(codeContainers)
     hideEls(dropSnips)
     
 }
@@ -41,11 +48,13 @@ export function handleDropDown(e) {
             const target = dropParent.querySelector('.drop-snips')
             toggleVisiblitiy(target)
         }
-        // prevent navigation for sidebar dropdowns
-        if (target.closest('.side-bar')) {
-            // e.preventDefault();
-            // toggleVisiblitiy(target);    
+        // Meaning it's a topic drop down
+        if(!target.closest('.snip')){
+            hideEls
+            console.log('.topic not snip')
         }
+        // prevent navigation for sidebar dropdowns
+
         return
     }
     if (e.type === "keydown") {
@@ -108,15 +117,18 @@ function toggleVisiblity(target) {
 }
 // function toggleD
 function hideEls(els) {   
+    if(!els) return
     els.forEach(el => {
         if(!el.classList.contains('show')){
             el.classList.add('hide')
-        } else {
         }
     })
 }
 function collapseAll(els){
-
+    if(!els) return
+    els.forEach(el => {
+        el.classList.add('collapse')
+    })
 }
 // function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
 // This all needs to be fixed

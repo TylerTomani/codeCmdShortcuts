@@ -8,6 +8,7 @@ const navState = {
 
 }
 export function keyboardNav({ e, mainContentEls }) {
+    
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
@@ -26,7 +27,8 @@ export function keyboardNav({ e, mainContentEls }) {
     }
     if (!key.match(/^[a-z]$/)) {return} // only handle letters    
     // ***** Below is working but shoul NOT go here
-    if( e.target.closest('.snip') 
+    
+     if( e.target.closest('.snip') 
     ){
         const snip = e.target.closest('.snip')
         const snipTitle = snip.querySelector('.snip-title')
@@ -52,15 +54,11 @@ export function keyboardNav({ e, mainContentEls }) {
                 if(codeContainer.classList.contains('collapse')){
                     codeContainer.classList.remove('collapse')
                 }
-                copyCode.scrollTop = 0;
-                copyCode.scrollLeft = 0;
                 snipTitle.focus()
-            
                 return
             }
         }
     } 
-
     letterNav({e})    
 }
 export function isActuallyVisible(el) {

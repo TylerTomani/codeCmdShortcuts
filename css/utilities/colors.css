@@ -15,6 +15,15 @@ body{
 .side-bar a:visited {
     color: var(--clr-txt-sidebar);
 }
-body.dark-mode #mainTopicsContainer .topic .topic-title{
-/* color: black; */
+ #mainContent header a,
+ .page-container h2 a,
+ #mainTopicsContainer .topic .topic-title,
+ #mainTopicsContainer .topic .snip-title{
+    color: black;
+}
+#mainContent header a,
+#mainContent header a:visited,
+.page-container h2 a,
+.page-container h2 a:visited{
+    color: black;
 }

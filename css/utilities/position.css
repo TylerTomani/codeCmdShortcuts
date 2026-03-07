@@ -10,6 +10,12 @@ body {
 .main-content {
     /* position: relative; */
 }
-.code-container{
+.snip{
     position: relative;
+}
+.popup-btn {   
+    position: absolute;
+    /* left: 100%; */
+    right: 2%;
+    top: -1%;
 }
