@@ -11,6 +11,7 @@
     bottom: 5%;
     right: 5%;
     width: 100px;
+    z-index: 10;
     border-radius: 5px;
 }
 body.dark-mode .side-bar a{
