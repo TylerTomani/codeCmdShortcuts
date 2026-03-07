@@ -2,10 +2,12 @@
     --bg-primary-dm: #201d1d;
     --font-primary-dm: whitesmoke;
 }
+body.dark-mode {background: rgb(17, 18, 17);}
+body.dark-mode .side-bar {border-right: 1px solid whitesmoke;}
+body.dark-mode #sideBarBtn {color: var(--font-primary-dm);}
 .body.dark-mode > .page-wrapper > .main-content > header,
-.main-landing-page > .page-container h2 {
-    color: var(--font-primary-dm);
-}
+.main-landing-page > .page-container h2 {color: var(--font-primary-dm);}
+
 #darkModeBtn {
     position: absolute;
     bottom: 5%;
@@ -16,7 +18,6 @@
 body.dark-mode .side-bar a{
     color:whitesmoke;
     border: var(--font-primary-dm);
-    /* background-color: var(--font-primary-dm) !important; */
 }
 body.dark-mode .side-bar a:focus,
 body.dark-mode .side-bar a:active {
@@ -25,18 +26,12 @@ body.dark-mode .side-bar a:active {
     background-color: var(--font-primary-dm) !important;
 
 }
-body.dark-mode {
-    background: rgb(17, 18, 17);
-}
-body.dark-mode .side-bar {
-    border-right: 1px solid whitesmoke;
-}
-body.dark-mode  #sideBarBtn {
-    color: var(--font-primary-dm) ;
-}
-body.dark-mode #mainContent a,
-body.dark-mode #mainContent a:visited {
-    /* color: var(--font-primary-dm); */
-    /* box-shadow: -8px 8px -8px 8px rgb(50, 49, 49) !important; */
+body.dark-mode #mainContent a:active,
+body.dark-mode #mainContent a:focus {
+    
+    color: black !important;
+    background-color: white !important;
+    /* border: 2px solid magenta; */
+    
 }
 

@@ -53,6 +53,7 @@ export function keyboardNav({ e, mainContentEls }) {
                     codeContainer.classList.remove('collapse')
                 }
                 snipTitle.focus()
+                snipTitle.scrollIntoView({behavior:'instant',block: 'center'})
                 return
             }
         }

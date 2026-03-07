@@ -22,3 +22,6 @@ body {
 .snip ul {
     font-size: 70%;
 }
+.code-container>.copy-code {
+    line-height: 1.05;
+}

@@ -8,7 +8,7 @@
         
     }
     .code-container > .copy-code{
-        font-size: 120% !important;
+        font-size: .58rem !important;
     }
 }
 @media screen and (max-width:720px){
