@@ -34,6 +34,10 @@ export function keyboardNav({ e, mainContentEls }) {
         const copyCode = snip.querySelector('.copy-code')
         if (!e.shiftKey) {
             if(key === snipTitle.innerText[0] && e.target === snipTitle){
+                if(!isActuallyVisible(copyCode)){
+                    letterNav({e})
+                    return
+                }
                 e.preventDefault()
                 if (codeContainer.classList.contains('collapse')){
                     codeContainer.classList.remove('collapse')

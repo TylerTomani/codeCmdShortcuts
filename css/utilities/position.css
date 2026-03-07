@@ -1,12 +1,15 @@
 /* position.css */
-.page-wrapper {
-    /* display: flex; */
+body {
+    position: relative;
 }
 .page-wrapper>.side-bar {
     position: sticky;
     top: 0;
     left: 0       
 }
-.code-cmd {
+.main-content {
+    position: relative;
+}
+.code-container{
     position: relative;
 }

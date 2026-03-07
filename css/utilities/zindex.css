@@ -1,3 +1,10 @@
+/* zindex.css */
 .page-wrapper>.side-bar {
-    z-index: 0;
+    z-index: 1;
+}
+.main-content {
+    z-index: 2;
+}
+.popup-btn {
+    z-index: 10;
 }

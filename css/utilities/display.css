@@ -1,13 +1,4 @@
 /* display.css */
 .hide {
-    /* display: none; */
-}
-.page-wrapper>.side-bar.hidden {
-    /* display: none; */
-}
-.page-wrapper>.side-bar.collapsed ul li ul {
-    /* display: none; */
-}
-.side-bar-ul-container>ul>li>a {
-    /* display: inline-block; */
+    display: none;
 }
