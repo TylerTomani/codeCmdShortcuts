@@ -5,6 +5,7 @@ const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeAside = document.querySelector('#homeAside')
 import { initDropDowns,handleDropDown } from "../ui/drop-downs/drop-downs.js";
 import { initCopyCodes } from "../copy-code.js";
+import { initCollapseCode } from "../ui/collapse-code.js";
 export function initInjectcontetListeners(){
     let href
     // href = homeAside.href
@@ -58,7 +59,7 @@ export function initInjectcontetListeners(){
         mainLandingPage.innerHTML = html
         initCopyCodes()
         initDropDowns()
-
+        initCollapseCode()
         const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
         const mainTopicEls = mainTopicsContainer.querySelectorAll('a,[id]')
         if(mainTopicsContainer){

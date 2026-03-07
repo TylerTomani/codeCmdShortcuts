@@ -1,6 +1,6 @@
 /* position.css */
 body {
-    position: relative;
+    /* position: relative; */
 }
 .page-wrapper>.side-bar {
     position: sticky;
@@ -8,7 +8,7 @@ body {
     left: 0       
 }
 .main-content {
-    position: relative;
+    /* position: relative; */
 }
 .code-container{
     position: relative;

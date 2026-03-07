@@ -5,11 +5,12 @@
 
 
 .popup-btn {
-    position: absolute;
-    /* bottom: 100%; */
-    top: -5px;
-    right: 0;
+    position: sticky;
+    left: 100%;
+    /* bottom: 101%; */
+    top: 0%;
     width: 50px;
     border-radius: 10px;
-    border: 2px solid blue;
+    border: 2px solid black;
+    box-shadow: 0 0 2px 2px green;
 }

@@ -52,7 +52,10 @@ export function keyboardNav({ e, mainContentEls }) {
                 if(codeContainer.classList.contains('collapse')){
                     codeContainer.classList.remove('collapse')
                 }
+                copyCode.scrollTop = 0;
+                copyCode.scrollLeft = 0;
                 snipTitle.focus()
+            
                 return
             }
         }
