@@ -38,6 +38,8 @@ body{
 
 .snip .code-container {
     /* overflow: visible; */
+    overflow: hidden;
+    /* overflow-y: scroll; */
 }
 .snip .code-container .copy-code {
     /* overflow: auto; */
