@@ -29,6 +29,7 @@ export function handleDropDown(e) {
         
         if (!target) return
         if (target.closest('.side-bar')) {
+            e.preventDefault()
             const li = target.parentElement;
             const ul = li?.querySelector(':scope > ul');
             if (!ul) return;
@@ -42,8 +43,8 @@ export function handleDropDown(e) {
         }
         // prevent navigation for sidebar dropdowns
         if (target.closest('.side-bar')) {
-            e.preventDefault();
-            toggleVisiblitiy(target);    
+            // e.preventDefault();
+            // toggleVisiblitiy(target);    
         }
         return
     }
@@ -126,5 +127,5 @@ export function toggleCollapsedCode(target){
     if(codeContainer.classList.contains('hide')){
         codeContainer.classList.remove('hide')
     }
-    copyCode.classList.toggle('collapse')
+    codeContainer.classList.toggle('collapse')
 }
