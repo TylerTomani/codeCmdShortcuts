@@ -40,7 +40,8 @@ export function handleDropDown(e,codeContainers) {
             // hideEls()
         }
         if (e.target.classList.contains('topic-title')) {
-            console.log(codeContainers.length)
+            const codeContainers = updateCodeContainers()
+            // console.log(codeContainers.length)
             collapseAll(codeContainers)
 
         }

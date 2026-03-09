@@ -27,3 +27,7 @@ body{
 .page-container h2 a:visited{
     color: black;
 }
+.popup-btn,
+#darkModeBtn {
+    opacity: .5;
+}

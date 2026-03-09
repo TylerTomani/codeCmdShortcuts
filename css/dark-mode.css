@@ -62,9 +62,7 @@ body.dark-mode #mainContent a{
      /* color: white; */
     }
 
-#darkModeBtn {
-    
-    opacity: .5;
+#darkModeBtn {    
     width: 100px;
     border-radius: 5px;
 }

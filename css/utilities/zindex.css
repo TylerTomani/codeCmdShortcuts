@@ -15,12 +15,10 @@
 .popup-btn {
     z-index: 11;
 }
-
 #sideBarBtn,
 #darkModeBtn{
     z-index: var(--z-ui);
 }
-
 .copy-code.copied{
     z-index: var(--z-overlay);
 }

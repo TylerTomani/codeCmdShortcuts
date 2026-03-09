@@ -40,3 +40,8 @@
 .snip header h4 {
     width: 90% !important;
 }
+
+.popup-btn{
+    width: 30px;
+    padding: .5% 0;
+}
