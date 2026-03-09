@@ -17,14 +17,13 @@ export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
+    
     if(key === 'enter'){
         if(e.shiftKey && key === 'enter'){
             if(e.target.classList.contains('copy-code')){
-
                 const snip = e.target.closest('.snip')
                 const snipTitle = snip.querySelector('.snip-title')
                 snipTitle.focus()
-                // return
             }
         }
         if (e.target.classList.contains('snip-title')) {
