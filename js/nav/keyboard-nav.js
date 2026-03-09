@@ -24,7 +24,7 @@ export function keyboardNav({ e, mainContentEls }) {
                 const snip = e.target.closest('.snip')
                 const snipTitle = snip.querySelector('.snip-title')
                 snipTitle.focus()
-                return
+                // return
             }
         }
         if (e.target.classList.contains('snip-title')) {
@@ -75,10 +75,8 @@ export function keyboardNav({ e, mainContentEls }) {
             }
             if(key === snipTitle.innerText[0] && e.target === copyCode ){
                 e.preventDefault()
-                if(codeContainer.classList.contains('collapse')){
-                    // codeContainer.classList.remove('collapse')
-                }
-                // snipTitle.focus()
+                
+                snipTitle.focus()
                 return
             }
         }
