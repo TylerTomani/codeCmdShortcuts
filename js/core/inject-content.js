@@ -3,7 +3,7 @@
 export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
 const homeAside = document.querySelector('#homeAside')
-import { initDropDowns,handleDropDown } from "../ui/drop-downs/drop-downs.js";
+import { initDropDowns,handleDropDown } from "../ui/drop-downs.js";
 import { initCopyCodes } from "../copy-code.js";
 import { initCollapseCode } from "../ui/collapse-code.js";
 export function initInjectcontetListeners(){

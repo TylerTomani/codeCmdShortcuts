@@ -10,12 +10,6 @@
 .snip{
     position: relative;
 }
-.popup-btn {
-    position: absolute;
-    /* left: 100%; */
-    right: 2%;
-    /* top: 10%; */
-}
 #sideBarBtn,
 #darkModeBtn{
     position: fixed;
@@ -27,4 +21,14 @@
 #darkModeBtn{
     right: 1.5%;
     bottom: 5%;
+}
+
+.code-cmd {
+    position: relative;
+}
+
+.popup-btn {
+    position: absolute;
+    left: -1%;
+    top: -2%;
 }

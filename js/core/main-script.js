@@ -3,7 +3,7 @@ import { initDarkMode } from "../dark-mode.js";
 import { keyboardNav } from "../nav/keyboard-nav.js"
 import { initInjectcontetListeners } from "./inject-content.js";
 import { initToggleSideBar } from "../ui/toggle-sidebar.js";
-import { initDropDowns } from "../ui/drop-downs/drop-downs.js";
+import { initDropDowns } from "../ui/drop-downs.js";
 import { initCopyCodes } from "../copy-code.js";
 addEventListener("DOMContentLoaded",initMain)
 function initMain(){

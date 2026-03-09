@@ -3,6 +3,11 @@ let lastLetterPressed = null
 import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 import { letterNav } from "./letter-nav.js"
 import { numNav } from "./number-nav.js"
+/** IMPLEMENT FOCUS ZONE FOR :
+ *          - side-bar,page-title, topic-title, snip-title
+ */
+// 
+
 const navState = {
     focusZone : null,
 
@@ -12,21 +17,23 @@ export function keyboardNav({ e, mainContentEls }) {
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
+    
     if(key === 'enter'){
-        if (e.target.classList.contains('snip-title')) {
-            if (key === 'enter') {
-                console.log('enter')
+        if(e.shiftKey && key === 'enter'){
+            if(e.target.classList.contains('copy-code')){
+                const snip = e.target.closest('.snip')
+                const snipTitle = snip.querySelector('.snip-title')
+                snipTitle.focus()
             }
+        }
+        if (e.target.classList.contains('snip-title')) {
             if (e.shiftKey && key === 'enter') {
                 e.preventDefault()
                 e.stopPropagation()
-                console.log('here')
                 const snip = e.target.closest('.snip')
                 const copyCode = snip.querySelector('.copy-code')
                 copyCode.focus()
-                if(e.target.classList.contains('.copy-code')){
-                    const snipTitle = snip.querySelector('snip-title')
-                }
+                
                 return
 
             }
@@ -45,7 +52,6 @@ export function keyboardNav({ e, mainContentEls }) {
     }
     if (!key.match(/^[a-z]$/)) {return} // only handle letters    
     // ***** Below is working but shoul NOT go here
-    console.log(e.target)
     
     if( e.target.closest('.snip')){
         const snip = e.target.closest('.snip')
@@ -66,33 +72,23 @@ export function keyboardNav({ e, mainContentEls }) {
                 copyCode.focus()
                 return
             }
-        
-            
             if(key === snipTitle.innerText[0] && e.target === copyCode ){
                 e.preventDefault()
-                if(codeContainer.classList.contains('collapse')){
-                    // codeContainer.classList.remove('collapse')
-                }
+                
                 snipTitle.focus()
                 return
             }
         }
-        
         if (e.shiftKey && key === 'enter' && e.target === copyCode){
-            console.log('here')
-            snipTitle.focus()
+            // snipTitle.focus()
         }
     } 
-    
     letterNav({e})    
 }
 export function isActuallyVisible(el) {
     if (!el) return false;
     // 1. Sidebar collapsed → block ALL sidebar descendants
-    if (
-        pageWrapper.classList.contains('collapsed') &&
-        el.closest('.side-bar')
-    ) {
+    if (pageWrapper.classList.contains('collapsed') && el.closest('.side-bar')) {
         return false;
     }
     // 2. CSS visibility checks

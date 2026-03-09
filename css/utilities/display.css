@@ -1,4 +1,8 @@
 /* display.css */
-.hide {
+.main-content img,
+.hide{
     display: none;
+}
+body.collapsed .main-content img {
+    /* display: static; */
 }

@@ -1,12 +1,12 @@
 .side-bar>header>  a {
-    display: block;
-    align-self: center;
-    max-width: 100px;
-    height: 15vh;
+    display: inline-flex;
+    /* align-self: center; */
+    /* max-width: 100px; */
+    /* height: 15vh; */
 }
 .side-bar>header>  a img {
     max-width: 100px;
-    height: 15vh;
+    /* height: 15vh; */
 
 }
 

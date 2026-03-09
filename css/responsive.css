@@ -5,12 +5,14 @@
     .main-content > header {
         font-size: 50%;
     }
+    .side-bar header .page-links-container{
+    }
     .side-bar-topics li {
         font-size: 80%;
         /* margin-top: 100%; */
     }
     .side-bar-ul-container>.side-bar-topics {
-        /* margin-top: 60% !important; */
+        margin-top: 50% !important;
     }
     #sideBarBtn {
         bottom: 5% !important;
@@ -24,6 +26,9 @@
     }
     .page-container {
         padding-top: 3%;
+    }
+    .snip .code-container {
+        margin-left: .24% !important;
     }
 
 }
