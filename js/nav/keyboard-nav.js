@@ -18,20 +18,23 @@ export function keyboardNav({ e, mainContentEls }) {
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
     if(key === 'enter'){
-        if (e.target.classList.contains('snip-title')) {
-            if (key === 'enter') {
-                console.log('enter')
+        if(e.shiftKey && key === 'enter'){
+            if(e.target.classList.contains('copy-code')){
+
+                const snip = e.target.closest('.snip')
+                const snipTitle = snip.querySelector('.snip-title')
+                snipTitle.focus()
+                return
             }
+        }
+        if (e.target.classList.contains('snip-title')) {
             if (e.shiftKey && key === 'enter') {
                 e.preventDefault()
                 e.stopPropagation()
-                console.log('here')
                 const snip = e.target.closest('.snip')
                 const copyCode = snip.querySelector('.copy-code')
                 copyCode.focus()
-                if(e.target.classList.contains('.copy-code')){
-                    const snipTitle = snip.querySelector('snip-title')
-                }
+                
                 return
 
             }
@@ -50,7 +53,6 @@ export function keyboardNav({ e, mainContentEls }) {
     }
     if (!key.match(/^[a-z]$/)) {return} // only handle letters    
     // ***** Below is working but shoul NOT go here
-    console.log(e.target)
     
     if( e.target.closest('.snip')){
         const snip = e.target.closest('.snip')
@@ -71,24 +73,19 @@ export function keyboardNav({ e, mainContentEls }) {
                 copyCode.focus()
                 return
             }
-        
-            
             if(key === snipTitle.innerText[0] && e.target === copyCode ){
                 e.preventDefault()
                 if(codeContainer.classList.contains('collapse')){
                     // codeContainer.classList.remove('collapse')
                 }
-                snipTitle.focus()
+                // snipTitle.focus()
                 return
             }
         }
-        
         if (e.shiftKey && key === 'enter' && e.target === copyCode){
-            console.log('here')
-            snipTitle.focus()
+            // snipTitle.focus()
         }
     } 
-    
     letterNav({e})    
 }
 export function isActuallyVisible(el) {

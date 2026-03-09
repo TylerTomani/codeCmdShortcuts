@@ -29,7 +29,6 @@ export function initDropDowns() {
     const dropSnips = updateDropSnips()
     const codeCmds = updateCodeCmds()
     addShow(codeCmds)
-    console.log(codeContainers.length)
     if(!document.listenersAdded){
         document.addEventListener("click", e => {
             handleDropDown(e,codeContainers)
@@ -47,6 +46,7 @@ export function handleDropDown(e,codeContainers) {
     if(e.type === 'click'){
         let target = e.target;
         if(e.target.classList.contains('copy-code')){return}
+        
         // Find way to collapse all .topic  drop-snips
         if (!e.target.classList.contains('.page-title')){
             // hideEls()
@@ -76,6 +76,7 @@ export function handleDropDown(e,codeContainers) {
             const target = dropParent.querySelector('.drop-snips')
             toggleVisiblitiy(target)
         }
+        
         // Meaning it's a topic drop down
         
         // prevent navigation for sidebar dropdowns
@@ -89,6 +90,15 @@ export function handleDropDown(e,codeContainers) {
             toggleCollapsedCode(e.target)
         }
         if(key === 'enter'){
+            if(e.shiftKey && key === 'enter'){
+                if (e.target.classList.contains('snip-title')) {
+                    e.preventDefault()
+                    const snip = e.target.closest('.snip')
+                    const copyCode = snip.querySelector('.copy-code')
+                    copyCode.focus()
+                    return
+                }
+            }
             if(e.target.classList.contains('.side-bar')) {
                 if (e.shiftKey && key === 'enter') {
                     mainLandingPage.focus()
