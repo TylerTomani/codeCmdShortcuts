@@ -8,5 +8,11 @@
     width: 50px;
     border-radius: 10px;
     border: 2px solid black;
+    
+}
+.popup-btn:active,
+.popup-btn:focus{
     box-shadow: 0 0 2px 2px green;
+    outline: none;
+    border: 1px solid darkcyan;
 }

@@ -13,6 +13,24 @@ export function keyboardNav({ e, mainContentEls }) {
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
     if(key === 'enter'){
+        if (e.target.classList.contains('snip-title')) {
+            if (key === 'enter') {
+                console.log('enter')
+            }
+            if (e.shiftKey && key === 'enter') {
+                e.preventDefault()
+                e.stopPropagation()
+                console.log('here')
+                const snip = e.target.closest('.snip')
+                const copyCode = snip.querySelector('.copy-code')
+                copyCode.focus()
+                if(e.target.classList.contains('.copy-code')){
+                    const snipTitle = snip.querySelector('snip-title')
+                }
+                return
+
+            }
+        }
         if (e.target.id === 'mainTopicsContainer' ){
             const mainContent = document.querySelector('#mainContent')
             mainContent.scrollIntoView({ 
@@ -27,14 +45,15 @@ export function keyboardNav({ e, mainContentEls }) {
     }
     if (!key.match(/^[a-z]$/)) {return} // only handle letters    
     // ***** Below is working but shoul NOT go here
+    console.log(e.target)
     
-     if( e.target.closest('.snip') 
-    ){
+    if( e.target.closest('.snip')){
         const snip = e.target.closest('.snip')
         const snipTitle = snip.querySelector('.snip-title')
         const codeContainer = snip.querySelector('.code-container')
         const copyCode = snip.querySelector('.copy-code')
         if (!e.shiftKey) {
+            if(!snipTitle)return
             if(key === snipTitle.innerText[0] && e.target === snipTitle){
                 if(!isActuallyVisible(copyCode)){
                     letterNav({e})
@@ -49,16 +68,22 @@ export function keyboardNav({ e, mainContentEls }) {
             }
         
             
-            if(key === snipTitle.innerText[0] && e.target === copyCode){
+            if(key === snipTitle.innerText[0] && e.target === copyCode ){
                 e.preventDefault()
                 if(codeContainer.classList.contains('collapse')){
-                    codeContainer.classList.remove('collapse')
+                    // codeContainer.classList.remove('collapse')
                 }
                 snipTitle.focus()
                 return
             }
         }
+        
+        if (e.shiftKey && key === 'enter' && e.target === copyCode){
+            console.log('here')
+            snipTitle.focus()
+        }
     } 
+    
     letterNav({e})    
 }
 export function isActuallyVisible(el) {

@@ -10,7 +10,7 @@ function initMain(){
     initCopyCodes()
     initInjectcontetListeners()
     initToggleSideBar()
-    initDropDowns()
+    // initDropDowns()
     initDarkMode()
     setupGlobalListeners()
 }

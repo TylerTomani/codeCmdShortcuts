@@ -3,6 +3,9 @@
     --sidebar-width: 15%;
     --main-content-width: calc(100% - var(--sidebar-width))
 }
+#sideBarBtn{
+    transform: scale(2.5);
+}
 .page-wrapper {height: 100vh;}
 .side-bar {
     width: var(--sidebar-width);

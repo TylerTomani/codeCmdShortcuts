@@ -1,9 +1,6 @@
 /* position.css */
-body {
-    /* position: relative; */
-}
 .page-wrapper>.side-bar {
-    position: sticky;
+    /* position: sticky; */
     top: 0;
     left: 0       
 }
@@ -13,9 +10,21 @@ body {
 .snip{
     position: relative;
 }
-.popup-btn {   
+.popup-btn {
     position: absolute;
     /* left: 100%; */
     right: 2%;
     top: -1%;
+}
+#sideBarBtn,
+#darkModeBtn{
+    position: fixed;
+}
+#sideBarBtn{
+    left: 3%;
+    bottom: 5%;
+}
+#darkModeBtn{
+    right: 1.5%;
+    bottom: 5%;
 }

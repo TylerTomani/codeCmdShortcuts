@@ -20,7 +20,7 @@ body{
     overflow: hidden;
 }
 .main-content{
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
     overflow-y: scroll;
 }
 .main-content header{
@@ -41,6 +41,7 @@ innner choose x axis outer y */
     overflow: visible;
     overflow-y: scroll;
 }
+
 .snip .code-container .copy-code {
     overflow: hidden;
     overflow-x: scroll;

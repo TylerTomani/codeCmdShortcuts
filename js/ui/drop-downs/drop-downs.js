@@ -4,18 +4,25 @@ const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > u
 function updateDropSnips() {
     return document.querySelectorAll('.drop-snips')
 }
+function updateCodeContainers() {
+    return document.querySelectorAll('.code-container')
+}
 import { mainLandingPage } from "../../core/inject-content.js";
+function collapseAll(els) {
+    if (!els) return
+    els.forEach(el => {        
+        el.classList.add('collapse')
+    })
+}
 export function initDropDowns() {   
-    // const dropDown = document.querySelectorAll('.drop-down')
-    const codeContainers = document.querySelectorAll('.code-container')
+    const codeContainers = updateCodeContainers()
     const dropSnips = updateDropSnips()
+    console.log(codeContainers.length)
     if(!document.listenersAdded){
         document.addEventListener("click", e => {
-            handleDropDown(e,dropSnips)
-        });
-        // document.addEventListener("click", e => {
-        //     console.log('why')
-        // });
+            handleDropDown(e,codeContainers)
+        })
+        
         document.addEventListener("keydown", handleDropDown);
         document.listenersAdded = true
         hideEls(sub2SideBarTopics)
@@ -24,12 +31,20 @@ export function initDropDowns() {
     hideEls(dropSnips)
     
 }
-export function handleDropDown(e) {
+export function handleDropDown(e,codeContainers) {
     if(e.type === 'click'){
         let target = e.target;
-        if(e.target.classList.contains('copy-code')){
-            return
+        if(e.target.classList.contains('copy-code')){return}
+        // Find way to collapse all .topic  drop-snips
+        if (!e.target.classList.contains('.page-title')){
+            // hideEls()
         }
+        if (e.target.classList.contains('topic-title')) {
+            console.log(codeContainers.length)
+            collapseAll(codeContainers)
+
+        }
+        
         if (!e.target.classList.contains("drop-down")) {
             target = e.target.closest(".drop-down");
         }
@@ -49,12 +64,8 @@ export function handleDropDown(e) {
             toggleVisiblitiy(target)
         }
         // Meaning it's a topic drop down
-        if(!target.closest('.snip')){
-            hideEls
-            console.log('.topic not snip')
-        }
+        
         // prevent navigation for sidebar dropdowns
-
         return
     }
     if (e.type === "keydown") {
@@ -83,39 +94,10 @@ export function handleDropDown(e) {
         if (!target) return
         toggleVisiblitiy(target)
     }
-    
-
 }
 function toggleVisiblitiy(target){
     target.classList.toggle('hide');
 }
-// function toggleVisiblitiy(dropDown) {
-//     // SIDEBAR DROPDOWN
-//     if(!dropDown) return
-//     if (dropDown.closest('.side-bar')) {
-//         const li = dropDown.parentElement;
-//         const ul = li?.querySelector(':scope > ul');
-//         if (!ul) return;
-
-//         ul.classList.toggle('hide');
-//         return;
-//     }
-//     // CONTENT DROPDOWN (github page, javscript page , all -codeCmdShrt etc.)
-//     const dropParent = dropDown.closest('.drop-parent');
-//     console.log(dropParent)
-//     if(dropParent.classList.contains('topic')){
-//         const topicSnips = dropParent.querySelector('.topic-snips')
-//         topicSnips.classList.toggle('hide')
-//     }
-//     const snip = dropDown.closest('.snip')
-//     if(snip){
-        
-//     }
-// }
-function toggleVisiblity(target) {
-    target.classList.toggle('hide');
-}
-// function toggleD
 function hideEls(els) {   
     if(!els) return
     els.forEach(el => {
@@ -124,16 +106,10 @@ function hideEls(els) {
         }
     })
 }
-function collapseAll(els){
-    if(!els) return
-    els.forEach(el => {
-        el.classList.add('collapse')
-    })
-}
-// function collapseCode(els){els.forEach(el => el.classList.add('collapsed'))}
-// This all needs to be fixed
+
 export function toggleCollapsedCode(target){
     const snip = target.closest('.snip')
+    if(!snip) return
     const codeContainer = snip.querySelector('.code-container')
     const copyCode = snip.querySelector('.copy-code')
     if(codeContainer.classList.contains('hide')){

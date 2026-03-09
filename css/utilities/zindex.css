@@ -1,4 +1,11 @@
 /* zindex.css */
+:root {
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sidebar: 500;
+    --z-ui: 9000;
+    --z-overlay: 10000;
+}
 .page-wrapper>.side-bar {
     z-index: 1;
 }
@@ -7,4 +14,13 @@
 }
 .popup-btn {
     z-index: 11;
+}
+
+#sideBarBtn,
+#darkModeBtn{
+    z-index: var(--z-ui);
+}
+
+.copy-code.copied{
+    z-index: var(--z-overlay);
 }
