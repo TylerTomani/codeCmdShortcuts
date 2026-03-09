@@ -1,51 +1,47 @@
-.page-wrapper .side-bar {
-    header {
-        margin-bottom: 10%;
-        .page-links-container>a {margin-left: 2.5%;}
+.side-bar-ul-container>.side-bar-topics {
+    gap: 2rem;
+    a {
+        display: inline-block;
+        padding: 1% 4%;
+        border-radius: 4px;
     }
-    .side-bar-ul-container>.side-bar-topics {
-        gap: 2rem;
-        a {
-            display: inline-block;
-            padding: 1% 4%;
-            border-radius: 4px;
-        }
-    
-        /* List indentation*/
-        li {
-            margin-top: 8%;
-        }
-    
-        li>ul {
-            margin-left: 12%;
-        }
-    
-        li>ul>li>ul {
-            margin-left: 16%;
-            padding: 0 5%;
-    
-        }
-        li>ul>li>ul>li {
-            list-style-type: num;
-    
-        }
+
+    /* List indentation*/
+    li {
+        margin-top: 8%;
+    }
+
+    li>ul {
+        margin-left: 12%;
+    }
+
+    li>ul>li>ul {
+        margin-left: 16%;
+        padding: 0 5%;
+
+    }
+    li>ul>li>ul>li {
+        list-style-type: num;
+
     }
 }
 .page-wrapper>.main-content nav {margin-left: 2.5%;}
 .topics-container{padding: 2.5% 1%;}
 /* Topics */
 .topic {
-    header>h3 {
-        padding-top: 2%;
-        margin-left: 0;
-    }
-    .topic-snips > .snip > h4 {
-        margin: 1%;
-        padding-left: 1%;
-    }
-    .snip .drop-down{
-        margin-left: 5%;
-        display: inline-block;
-    }
 }
-
+.topic header>h3 {
+    /* padding-top: 2%; */
+    margin-left: 0;
+}
+.topic-snips > .snip > h4 {
+    margin: 1%;
+    padding-left: 1%;
+}
+.snip .drop-down{
+    margin-left: 5%;
+    display: inline-block;
+}
+.snip .code-container {
+    margin-left: 3% !important;
+}

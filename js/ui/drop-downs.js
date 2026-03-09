@@ -1,22 +1,34 @@
 // drop-downs.js
 // Almost Done fix toggling subSideBarTopics
 const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
+import { mainLandingPage } from "../core/inject-content.js";
+function updateCodeCmds() {
+    return document.querySelectorAll('.code-cmd')
+}
 function updateDropSnips() {
     return document.querySelectorAll('.drop-snips')
 }
 function updateCodeContainers() {
     return document.querySelectorAll('.code-container')
 }
-import { mainLandingPage } from "../../core/inject-content.js";
+
 function collapseAll(els) {
     if (!els) return
     els.forEach(el => {        
         el.classList.add('collapse')
     })
 }
+function addShow(els) {
+    if (!els) return
+    els.forEach(el => {        
+        el.classList.add('show')
+    })
+}
 export function initDropDowns() {   
     const codeContainers = updateCodeContainers()
     const dropSnips = updateDropSnips()
+    const codeCmds = updateCodeCmds()
+    addShow(codeCmds)
     console.log(codeContainers.length)
     if(!document.listenersAdded){
         document.addEventListener("click", e => {

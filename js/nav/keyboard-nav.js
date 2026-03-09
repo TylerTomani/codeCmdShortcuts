@@ -3,6 +3,11 @@ let lastLetterPressed = null
 import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 import { letterNav } from "./letter-nav.js"
 import { numNav } from "./number-nav.js"
+/** IMPLEMENT FOCUS ZONE FOR :
+ *          - side-bar,page-title, topic-title, snip-title
+ */
+// 
+
 const navState = {
     focusZone : null,
 
@@ -89,10 +94,7 @@ export function keyboardNav({ e, mainContentEls }) {
 export function isActuallyVisible(el) {
     if (!el) return false;
     // 1. Sidebar collapsed → block ALL sidebar descendants
-    if (
-        pageWrapper.classList.contains('collapsed') &&
-        el.closest('.side-bar')
-    ) {
+    if (pageWrapper.classList.contains('collapsed') && el.closest('.side-bar')) {
         return false;
     }
     // 2. CSS visibility checks
