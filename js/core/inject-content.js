@@ -1,4 +1,4 @@
-// inject-page.js
+// inject-content.js
 // import { letterFocus } from "./letter-focus-codeCmdShorts.js";
 export const mainLandingPage = document.querySelector("#mainLandingPage");
 const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
@@ -6,10 +6,25 @@ const homeAside = document.querySelector('#homeAside')
 import { initDropDowns,handleDropDown } from "../ui/drop-downs.js";
 import { initCopyCodes } from "../copy-code.js";
 import { initCollapseCode } from "../ui/collapse-code.js";
-export function initInjectcontetListeners(){
+
+
+export function initInjectContentListeners(){
     let href
+    const sideBarTopics = document.querySelector('.side-bar-topics')
     // href = homeAside.href
-    injectPage({ href })
+    // injectPage({ href })
+    sideBarTopics.addEventListener('click', e=> {
+        const link = e.target.closest('a')
+
+        if (!link) return
+
+        e.preventDefault()
+
+        const href = link.href
+        console.log(href)
+
+        injectPage({ href })
+    })
     sideBarTopicsAs.forEach(el => {
         if(el.hasAttribute('autofocus')){
             href = el.href

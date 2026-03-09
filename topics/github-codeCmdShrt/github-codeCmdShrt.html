@@ -6,15 +6,19 @@
     <title>github-codeCmdShrt</title>
 </head>
 <body>
-    <div id="githubCodeCmdShrtPage" class="page-container">
-        <h2>github</h2>
-        <ul tabindex="0" id="mainTopicsContainer" class="topic-container">      
+    <div id="githubCodeCmdShrtPage" class="page-container drop-parent">
+        
+        <h2><a class="drop-down page-title" href="#">github</a></h2>
+        <div tabindex="0" id="mainTopicsContainer" class="main-topics-container ">
+
             <li class="topic drop-parent">
-                <h3><a href="#" class="topic-title drop-down">git <code>&lt;commands></code></a></h3>
+                <header>
+                    <h3><a href="#" class="topic-title drop-down">git <code>&lt;commands></code></a></h3>
+                </header>
                 <ul class="topic-snips drop-snips show">
                     <!-- 1. create branch -->
-                    <div class="snip">
-                        <h4><a href="#" class="drop-code-cmd">1. create branch</a></h4>
+                    <div class="snip drop-parent">
+                        <h4><a href="#" class="snip-title   ">1. create branch</a></h4>
                         <div class="code-cmd">
                             <div class="code-container">
                                 <pre tabindex="0" class="copy-code">
@@ -77,6 +81,6 @@ git checkout draft -- path/to/your-directory</pre>
                     
                 </ul>
             </li>
-        </ul>        
+        </div>        
     </div>
 </body>
