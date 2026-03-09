@@ -47,5 +47,8 @@
         margin-left: 5%;
         display: inline-block;
     }
+    .code-cmd{
+        margin-left: 1%;
+    }
 }
 
