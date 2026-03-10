@@ -1,11 +1,14 @@
 export async function buildSidebar() {
 
-    const container = document.querySelector('.side-bar-topics')
+    const container =
+        document.querySelector(".side-bar-topics")
 
-    const res = await fetch('../../side-bar-topics.json')
+    const res =
+        await fetch("data/side-bar-topics.json")
+
     const data = await res.json()
 
-    container.innerHTML = ''
+    container.innerHTML = ""
 
     data.topics.forEach(topic => {
         container.appendChild(buildItem(topic))
@@ -13,31 +16,35 @@ export async function buildSidebar() {
 
 }
 
-
 function buildItem(item) {
 
-    const li = document.createElement('li')
+    const li = document.createElement("li")
 
-    const a = document.createElement('a')
+    const a = document.createElement("a")
 
     a.textContent = item.title
     a.href = item.href || "#"
 
+    if (item.id) {
+        a.id = item.id
+    }
+
     if (item.items) {
-        a.classList.add('drop-down')
+        a.classList.add("drop-down")
     }
 
     li.appendChild(a)
-    
+
     if (item.items && item.items.length) {
 
-        const ul = document.createElement('ul')
+        const ul = document.createElement("ul")
 
         item.items.forEach(child => {
             ul.appendChild(buildItem(child))
         })
 
         li.appendChild(ul)
+
     }
 
     return li

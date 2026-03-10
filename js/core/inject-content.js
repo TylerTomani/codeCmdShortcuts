@@ -1,104 +1,69 @@
 // inject-content.js
-// import { letterFocus } from "./letter-focus-codeCmdShorts.js";
-export const mainLandingPage = document.querySelector("#mainLandingPage");
-const sideBarTopicsAs = document.querySelectorAll('.side-bar-topics a')
-const homeAside = document.querySelector('#homeAside')
-import { initDropDowns,handleDropDown } from "../ui/drop-downs.js";
-import { initCopyCodes } from "../copy-code.js";
-import { initCollapseCode } from "../ui/collapse-code.js";
+import { initDropDowns, handleDropDown } from "../ui/drop-downs.js"
+import { initCopyCodes } from "../copy-code.js"
+import { initCollapseCode } from "../ui/collapse-code.js"
 
+export const mainLandingPage =
+    document.querySelector("#mainLandingPage")
 
-export function initInjectContentListeners(){
-    let href
-    const sideBarTopics = document.querySelector('.side-bar-topics')
-    // href = homeAside.href
-    // injectPage({ href })
-    sideBarTopics.addEventListener('click', e=> {
-        const link = e.target.closest('a')
+const DEFAULT_PAGE =
+    "topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html"
 
+const pageCache = new Map()
+
+export function initInjectContentListeners() {
+
+    const sideBar = document.querySelector(".side-bar-topics")
+
+    // load default page
+    injectPage({ href: DEFAULT_PAGE })
+
+    // single sidebar listener
+    sideBar.addEventListener("click", e => {
+
+        const link = e.target.closest("a")
         if (!link) return
 
         e.preventDefault()
 
-        const href = link.href
-        console.log(href)
+        handleDropDown(e)
 
-        injectPage({ href })
-    })
-    sideBarTopicsAs.forEach(el => {
-        if(el.hasAttribute('autofocus')){
-            href = el.href
-            injectPage({href})
-        }
-        
- {       el.addEventListener('click', e => {
-            e.preventDefault()
-            e.stopPropagation()
-            const href = e.target.href
-            handleDropDown(e)
-            injectPage({href})
-        });
-        el.addEventListener('pointerdown', e => {
-            
-            handleDropDown(e)
-        });}
-        el.addEventListener('keydown', e => {
-            let key = e.key.toLowerCase()
-            
-            if(key === 'enter'){
-                if (!e.shiftKey){
-                    const href = e.target.href
-                    injectPage({href})
-                } else {
-                    e.preventDefault()
+        injectPage({
+            href: link.getAttribute("href")
+        })
 
-                    const href = e.target.href
-                    injectPage({
-                        href,
-                        focusMain: e.shiftKey
-                    })
-                }
-            }
-        });
     })
+
 }
- async function injectPage({ href, focusMain = false }) {
-     if(!href ){
-        // href = 'home.html'
-         href = 'topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html'
 
-    }
+async function injectPage({ href }) {
+
+    if (!href) return
+
     try {
-        const response = await fetch(href)
-        const html = await response.text()
+
+        let html
+
+        // page caching
+        if (pageCache.has(href)) {
+            html = pageCache.get(href)
+        } else {
+            const res = await fetch(href)
+            html = await res.text()
+            pageCache.set(href, html)
+        }
+
         mainLandingPage.innerHTML = html
+
+        // reinitialize page features
         initCopyCodes()
         initDropDowns()
         initCollapseCode()
-        const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
-        const mainTopicEls = mainTopicsContainer.querySelectorAll('a,[id]')
-        if(mainTopicsContainer){
-            // mainTo
-        }
-        if(mainTopicEls){
-            mainTopicEls.forEach(el => {
-                if(el.classList.contains('FocusEL')){
-                    // el.focus()
-                    // return
-                }
-            })
-        }
 
-        // if (focusMain) {
-        //     requestAnimationFrame(() => {
-        //         const mainTopicsContainer = document.querySelector('#mainTopicsContainer')
-        //         if (mainTopicsContainer) {
-        
-        //             mainTopicsContainer.focus()
-        //         }
-        //     })
-        // }
-    } catch {
-        console.log('error try')
+    } catch (err) {
+
+        console.error("Injection failed:", err)
+
     }
+
 }
