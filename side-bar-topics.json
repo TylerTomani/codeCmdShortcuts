@@ -1,0 +1,124 @@
+{
+    "topics": [
+        {
+            "title": "github",
+            "id": "githubAside",
+            "href": "topics/github-codeCmdShrt/github-codeCmdShrt.html"
+        },
+        {
+            "title": "Debugging",
+            "id": "debuggingAside",
+            "href": "topics/debuging-codeCmdShrt/debuging-codeCmdShrt.html",
+            "items": [
+                {
+                    "title": "javascript (working on it)",
+                    "href": "topics/debuging-codeCmdShrt/debuging-codeCmdShrt.html",
+                    "items": [
+                        {
+                            "title": "tbd",
+                            "href": "#"
+                        },
+                        {
+                            "title": "",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Javascript",
+            "id": "javascriptAside",
+            "href": "topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html",
+            "items": [
+                {
+                    "title": "Keyboard nav",
+                    "href": "topics/javascript-codeCmdShrt/keyboard-nav/keyboard-nav-JS.html",
+                    "items": [
+                        {
+                            "title": "letter-nav",
+                            "href": "#"
+                        },
+                        {
+                            "title": "num-nav",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "HTML Style",
+            "id": "htmlAside",
+            "href": "topics/html-codeCmdShrt/html-codeCmdShrt.html",
+            "items": [
+                {
+                    "title": "sub Topic",
+                    "href": "topics/html-codeCmdShrt/sub-topics/sub-topic.html"
+                }
+            ]
+        },
+        {
+            "title": "Browser Dev Tools",
+            "id": "browserDevTools",
+            "href": "topics/browserDevTools-codeCmdShrt/browserDevTools-codeCmdShrt.html",
+            "items": [
+                {
+                    "title": "chrome dev tools",
+                    "href": "topics/browserDevTools-codeCmdShrt/chrome-codeCmdShrt/chrome-codeCmdShrt.html"
+                }
+            ]
+        },
+        {
+            "title": "Mac Essentials",
+            "id": "macEssentialsSideBar",
+            "href": "topics/mac-essential-codeCmdShort/mac-essential-codeCmdShort.html",
+            "items": [
+                {
+                    "title": "Terminal MacOS",
+                    "href": "topics/terminal-mac-codeCmdShort/terminal-mac-codeCmdShort.html",
+                    "items": [
+                        {
+                            "title": "1.",
+                            "href": "#"
+                        },
+                        {
+                            "title": "2.",
+                            "href": "#"
+                        }
+                    ]
+                },
+                {
+                    "title": "restore / install OS",
+                    "href": "topics/javascript-codeCmdShrt/pageScripts/keyboard-nav-letter-nums.js",
+                    "items": [
+                        {
+                            "title": "1.",
+                            "href": "#"
+                        },
+                        {
+                            "title": "2.",
+                            "href": "#"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Visual Studio Code",
+            "id": "vsCodeAside",
+            "href": "topics/visualStudio-codeCmdShrt/visualStudio-codeCmdShrt.html",
+            "items": [
+                {
+                    "title": "sub Topic",
+                    "href": "topics/visualStudio-codeCmdShrt/sub-topics/sub-topic.html"
+                }
+            ]
+        },
+        {
+            "title": "home",
+            "id": "homeAside",
+            "href": "home.html"
+        }
+    ]
+}

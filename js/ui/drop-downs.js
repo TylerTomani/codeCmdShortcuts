@@ -1,142 +1,135 @@
 // drop-downs.js
-// Almost Done fix toggling subSideBarTopics
-const sub2SideBarTopics = document.querySelectorAll('ul.side-bar-topics > li > ul > li > ul')
+// Unified dropdown handler for sidebar and main landing page
+
 import { mainLandingPage } from "../core/inject-content.js";
-function updateCodeCmds() {
-    return document.querySelectorAll('.code-cmd')
+
+// Utility functions to always query fresh elements
+function getCodeContainers() {
+    return document.querySelectorAll('.code-container');
 }
-function updateDropSnips() {
-    return document.querySelectorAll('.drop-snips')
+function getDropSnips() {
+    return document.querySelectorAll('.drop-snips');
 }
-function updateCodeContainers() {
-    return document.querySelectorAll('.code-container')
+function getCodeCmds() {
+    return document.querySelectorAll('.code-cmd');
 }
 
+// Collapse/show helpers
 function collapseAll(els) {
-    if (!els) return
-    els.forEach(el => {        
-        el.classList.add('collapse')
-    })
+    if (!els) return;
+    els.forEach(el => el.classList.add('collapse'));
 }
-function addShow(els) {
-    if (!els) return
-    els.forEach(el => {        
-        el.classList.add('show')
-    })
-}
-export function initDropDowns() {   
-    const codeContainers = updateCodeContainers()
-    const dropSnips = updateDropSnips()
-    const codeCmds = updateCodeCmds()
-    addShow(codeCmds)
-    if(!document.listenersAdded){
-        document.addEventListener("click", e => {
-            handleDropDown(e,codeContainers)
-        })
-        
-        document.addEventListener("keydown", handleDropDown);
-        document.listenersAdded = true
-        hideEls(sub2SideBarTopics)
-    }
-    collapseAll(codeContainers)
-    hideEls(dropSnips)
-    
-}
-export function handleDropDown(e,codeContainers) {
-    if(e.type === 'click'){
-        let target = e.target;
-        if(e.target.classList.contains('copy-code')){return}
-        
-        // Find way to collapse all .topic  drop-snips
-        if (!e.target.classList.contains('.page-title')){
-            // hideEls()
-        }
-        if (e.target.classList.contains('topic-title')) {
-            const codeContainers = updateCodeContainers()
-            // console.log(codeContainers.length)
-            collapseAll(codeContainers)
 
-        }
-        
-        if (!e.target.classList.contains("drop-down")) {
-            target = e.target.closest(".drop-down");
-        }
-        
-        if (!target) return
-        if (target.closest('.side-bar')) {
-            e.preventDefault()
-            const li = target.parentElement;
-            const ul = li?.querySelector(':scope > ul');
-            if (!ul) return;
-            toggleVisiblitiy(ul)
-            return;
-        }        
-        if(e.target.closest('.drop-parent')){
-            const dropParent = e.target.closest('.drop-parent')
-            const target = dropParent.querySelector('.drop-snips')
-            toggleVisiblitiy(target)
-        }
-        
-        // Meaning it's a topic drop down
-        
-        // prevent navigation for sidebar dropdowns
-        return
-    }
-    if (e.type === "keydown") {
-        let target;
-        const key = e.key.toLowerCase()
-        if (e.shiftKey && e.metaKey && key === 'enter') {
-            e.preventDefault()
-            toggleCollapsedCode(e.target)
-        }
-        if(key === 'enter'){
-            if(e.shiftKey && key === 'enter'){
-                if (e.target.classList.contains('snip-title')) {
-                    e.preventDefault()
-                    const snip = e.target.closest('.snip')
-                    const copyCode = snip.querySelector('.copy-code')
-                    copyCode.focus()
-                    return
-                }
-            }
-            if(e.target.classList.contains('.side-bar')) {
-                if (e.shiftKey && key === 'enter') {
-                    mainLandingPage.focus()
-                    mainLandingPage.scrollTo(0,0)
-                }
-                if (!e.shiftKey || !e.metaKey) {
-                    if (snip) { return }
-                    if ((e.key === "Enter" || e.key === " ") &&
-                        document.activeElement.classList.contains("drop-down")) {
-                        e.preventDefault(); // THIS stops the synthetic click
-                        target = document.activeElement;
-                    } 
-                } 
-            }
-        }
-        if (!target) return
-        toggleVisiblitiy(target)
-    }
-}
-function toggleVisiblitiy(target){
-    target.classList.toggle('hide');
-}
-function hideEls(els) {   
-    if(!els) return
+function hideEls(els) {
+    if (!els) return;
     els.forEach(el => {
-        if(!el.classList.contains('show')){
-            el.classList.add('hide')
-        }
-    })
+        if (!el.classList.contains('show')) el.classList.add('hide');
+    });
 }
 
-export function toggleCollapsedCode(target){
-    const snip = target.closest('.snip')
-    if(!snip) return
-    const codeContainer = snip.querySelector('.code-container')
-    const copyCode = snip.querySelector('.copy-code')
-    if(codeContainer.classList.contains('hide')){
-        codeContainer.classList.remove('hide')
+function toggleVisibility(el) {
+    if (!el) return;
+    el.classList.toggle('hide');
+}
+
+// Toggle code snippet collapse for shift+cmd+enter
+export function toggleCollapsedCode(target) {
+    const snip = target.closest('.snip');
+    if (!snip) return;
+    const codeContainer = snip.querySelector('.code-container');
+    if (!codeContainer) return;
+
+    if (codeContainer.classList.contains('hide')) {
+        codeContainer.classList.remove('hide');
     }
-    codeContainer.classList.toggle('collapse')
+    codeContainer.classList.toggle('collapse');
+}
+
+// Main initializer
+export function initDropDowns() {
+    // Show all code commands initially
+    getCodeCmds().forEach(cmd => cmd.classList.add('show'));
+
+    // Collapse all code containers & hide all drop-snips
+    collapseAll(getCodeContainers());
+    hideEls(getDropSnips());
+
+    // Add document-level listeners once
+    if (!document.listenersAdded) {
+        document.addEventListener('click', handleDropDown);
+        document.addEventListener('keydown', handleDropDown);
+        document.listenersAdded = true;
+    }
+}
+
+// Unified click & keydown handler
+export function handleDropDown(e) {
+    // Normalize target
+    let target = e.target.closest('.drop-down, .drop-parent, .topic-title');
+    if (!target) return;
+
+    // --- CLICK LOGIC ---
+    if (e.type === 'click') {
+        // Ignore copy-code clicks
+        if (e.target.closest('.copy-code')) return;
+
+        // Sidebar dropdowns
+        const sidebarUL = target.closest('.side-bar ul');
+        if (sidebarUL) {
+            e.preventDefault();
+            const liUL = target.parentElement.querySelector(':scope > ul');
+            toggleVisibility(liUL);
+            return;
+        }
+
+        // Main landing page dropdowns
+        const dropSnips = target.closest('.drop-parent')?.querySelector('.drop-snips');
+        if (dropSnips) {
+            toggleVisibility(dropSnips);
+            return;
+        }
+
+        // Topic titles collapse all code containers
+        if (target.classList.contains('topic-title')) {
+            collapseAll(getCodeContainers());
+        }
+    }
+
+    // --- KEYDOWN LOGIC ---
+    if (e.type === 'keydown') {
+        const key = e.key.toLowerCase();
+
+        // Shift + Cmd + Enter -> toggle code snippet collapse
+        if (e.shiftKey && e.metaKey && key === 'enter') {
+            e.preventDefault();
+            toggleCollapsedCode(e.target);
+            return;
+        }
+
+        // Enter key on drop-down elements
+        // Enter key on drop-down elements
+        if (key === 'enter' && document.activeElement.classList.contains('drop-down')) {
+            e.preventDefault();
+
+            // Sidebar dropdown
+            const sidebarUL = document.activeElement.parentElement.querySelector(':scope > ul');
+            if (sidebarUL) {
+                toggleVisibility(sidebarUL);
+                return;
+            }
+
+            // Main landing page dropdown
+            const dropSnips = document.activeElement.closest('.drop-parent')?.querySelector('.drop-snips');
+            if (dropSnips) {
+                toggleVisibility(dropSnips);
+                return;
+            }
+        }
+
+        // Shift + Enter on sidebar -> focus main landing page
+        if (key === 'enter' && e.shiftKey && target.closest('.side-bar')) {
+            mainLandingPage.focus();
+            mainLandingPage.scrollTo(0, 0);
+        }
+    }
 }

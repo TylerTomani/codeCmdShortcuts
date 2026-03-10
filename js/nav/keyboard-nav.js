@@ -12,7 +12,7 @@ const navState = {
     focusZone : null,
 
 }
-export function keyboardNav({ e, mainContentEls }) {
+export function keyboardNav(e ) {
     
     const key = (e.key || '').toLowerCase()
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer

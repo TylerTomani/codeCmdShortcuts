@@ -29,24 +29,6 @@
 .topics-container{padding: 2.5% 1%;}
 /* Topics */
 .topic {
-<<<<<<< HEAD
-    header>h3 {
-        padding-top: 2%;
-        margin-left: 0;
-    }
-    .topic-snips > .snip > h4 {
-        margin: 1%;
-        padding-left: 1%;
-    }
-    .snip .drop-down{
-        margin-left: 5%;
-        display: inline-block;
-    }
-    .code-cmd{
-        margin-left: 1%;
-    }
-=======
->>>>>>> json-engine
 }
 .topic header>h3 {
     /* padding-top: 2%; */
