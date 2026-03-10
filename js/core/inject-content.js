@@ -1,69 +1,102 @@
 // inject-content.js
-import { initDropDowns, handleDropDown } from "../ui/drop-downs.js"
-import { initCopyCodes } from "../copy-code.js"
-import { initCollapseCode } from "../ui/collapse-code.js"
+
+import { initDropDowns, toggleSidebarDropdown } from "../ui/drop-downs.js";
+import { initCopyCodes } from "../copy-code.js";
+import { initCollapseCode } from "../ui/collapse-code.js";
 
 export const mainLandingPage =
-    document.querySelector("#mainLandingPage")
+    document.querySelector("#mainLandingPage");
 
 const DEFAULT_PAGE =
-    "topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html"
+    "topics/javascript-codeCmdShrt/javascript-codeCmdShrt.html";
 
-const pageCache = new Map()
+const pageCache = new Map();
 
 export function initInjectContentListeners() {
 
-    const sideBar = document.querySelector(".side-bar-topics")
+    const sideBar =
+        document.querySelector(".side-bar-topics");
 
-    // load default page
-    injectPage({ href: DEFAULT_PAGE })
+    // Load default page
+    injectPage(DEFAULT_PAGE);
 
-    // single sidebar listener
-    sideBar.addEventListener("click", e => {
+    // Sidebar click listener
+    sideBar.addEventListener("click", async (e) => {
 
-        const link = e.target.closest("a")
-        if (!link) return
+        const link = e.target.closest("a");
+        if (!link) return;
 
-        e.preventDefault()
+        const href = link.getAttribute("href");
 
-        handleDropDown(e)
+        console.log("clicked:", href);
 
-        injectPage({
-            href: link.getAttribute("href")
-        })
+        if (link.classList.contains("drop-down")) {
+            toggleSidebarDropdown(link);
+        }
 
-    })
+        if (!href || href === "#") return;
+
+        e.preventDefault();
+
+        console.log("Injecting:", href);
+
+        await injectPage(href);
+
+    });
 
 }
 
-async function injectPage({ href }) {
+async function injectPage(href) {
 
-    if (!href) return
+    if (!href) return;
 
     try {
 
-        let html
+        let html;
 
-        // page caching
         if (pageCache.has(href)) {
-            html = pageCache.get(href)
+            html = pageCache.get(href);
         } else {
-            const res = await fetch(href)
-            html = await res.text()
-            pageCache.set(href, html)
+
+            const res = await fetch(href);
+
+            if (!res.ok) {
+                throw new Error(`Failed to fetch ${href}`);
+            }
+
+            html = await res.text();
+
+            pageCache.set(href, html);
         }
 
-        mainLandingPage.innerHTML = html
+        // Parse HTML safely
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, "text/html");
 
-        // reinitialize page features
-        initCopyCodes()
-        initDropDowns()
-        initCollapseCode()
+        // Grab the actual page content
+        const newContent =
+            doc.querySelector("#mainLandingPage") ||
+            doc.querySelector(".main-landing-page") ||
+            doc.body;
+
+        if (!newContent) {
+            throw new Error("No valid page content found");
+        }
+
+        mainLandingPage.innerHTML = newContent.innerHTML;
+
+        initCopyCodes();
+        initDropDowns();
+        initCollapseCode();
+
+        mainLandingPage.scrollTo(0, 0);
 
     } catch (err) {
 
-        console.error("Injection failed:", err)
+        console.error("Page injection failed:", err);
 
+        mainLandingPage.innerHTML =
+            `<p style="color:red;">Failed to load page: ${href}</p>`;
     }
 
 }

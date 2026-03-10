@@ -1,3 +1,4 @@
+// build-sidebar.js
 export async function buildSidebar() {
 
     const container =
@@ -21,6 +22,7 @@ function buildItem(item) {
     const li = document.createElement("li")
 
     const a = document.createElement("a")
+    a.setAttribute("tabindex", "0");
 
     a.textContent = item.title
     a.href = item.href || "#"

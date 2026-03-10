@@ -1,3 +1,4 @@
+// app.js
 import { buildSidebar } from "./core/build-sidebar.js"
 import { initInjectContentListeners } from "./core/inject-content.js"
 
