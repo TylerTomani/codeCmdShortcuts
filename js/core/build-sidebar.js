@@ -1,11 +1,11 @@
 // build-sidebar.js
+import { initDropDowns } from "../ui/drop-downs.js"
+
 export async function buildSidebar() {
 
-    const container =
-        document.querySelector(".side-bar-topics")
+    const container = document.querySelector(".side-bar-topics")
 
-    const res =
-        await fetch("data/side-bar-topics.json")
+    const res = await fetch("data/side-bar-topics.json")
 
     const data = await res.json()
 
@@ -14,7 +14,9 @@ export async function buildSidebar() {
     data.topics.forEach(topic => {
         container.appendChild(buildItem(topic))
     })
+    container.querySelectorAll('li > ul').forEach(ul => ul.classList.add('hide'));
 
+    initDropDowns()
 }
 
 function buildItem(item) {

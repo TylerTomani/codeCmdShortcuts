@@ -1,9 +1,7 @@
 // inject-content.js
-
 import { initDropDowns, toggleSidebarDropdown } from "../ui/drop-downs.js";
 import { initCopyCodes } from "../copy-code.js";
 import { initCollapseCode } from "../ui/collapse-code.js";
-
 export const mainLandingPage =
     document.querySelector("#mainLandingPage");
 
@@ -13,43 +11,25 @@ const DEFAULT_PAGE =
 const pageCache = new Map();
 
 export function initInjectContentListeners() {
-
-    const sideBar =
-        document.querySelector(".side-bar-topics");
-
+    const sideBar = document.querySelector(".side-bar-topics");
     // Load default page
     injectPage(DEFAULT_PAGE);
-
     // Sidebar click listener
     sideBar.addEventListener("click", async (e) => {
-
         const link = e.target.closest("a");
         if (!link) return;
-
         const href = link.getAttribute("href");
-
-        console.log("clicked:", href);
-
         if (link.classList.contains("drop-down")) {
             toggleSidebarDropdown(link);
         }
-
         if (!href || href === "#") return;
-
         e.preventDefault();
-
-        console.log("Injecting:", href);
-
+        // console.log("Injecting:", href);
         await injectPage(href);
-
     });
-
 }
-
 async function injectPage(href) {
-
     if (!href) return;
-
     try {
 
         let html;
@@ -92,11 +72,8 @@ async function injectPage(href) {
         mainLandingPage.scrollTo(0, 0);
 
     } catch (err) {
-
-        console.error("Page injection failed:", err);
-
+        // console.error("Page injection failed:", err);
         mainLandingPage.innerHTML =
             `<p style="color:red;">Failed to load page: ${href}</p>`;
     }
-
 }

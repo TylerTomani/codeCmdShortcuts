@@ -1,4 +1,5 @@
 // keyboard-nav.js
+const mainContent = document.querySelector('#mainContent')
 let lastLetterPressed = null
 import { main, pageWrapper,sideBarBtn } from "../ui/toggle-sidebar.js"
 import { letterNav } from "./letter-nav.js"
@@ -18,6 +19,19 @@ export function keyboardNav(e ) {
     // this exit clause ensures going to previous element if right before on dropdowns in mainTopcContainer
     // **** Special Cases For This Script
     
+    if(key === 'm'){
+        if (e.target.closest('.topic') || e.target.closest('.topic')){
+            // const mainContent = document.querySelector('#mainContent')
+            // console.log(mainContent)
+            mainContent.focus()
+            pageWrapper.scrollIntoView({behavior:'instant',
+                inline:'end',
+                block:'end'
+            })
+            window.scrollTo(0,0)
+        }
+        
+    }    
     if(key === 'enter'){
         if(e.shiftKey && key === 'enter'){
             if(e.target.classList.contains('copy-code')){

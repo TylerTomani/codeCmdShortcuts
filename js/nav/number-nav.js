@@ -3,6 +3,7 @@ import { isActuallyVisible } from "./keyboard-nav.js"
 
 export function numNav({e}){
     if (/^[1-9]$/.test(e.key)) { // number handling
+        console.log('here')
         let target
         const active = document.activeElement
 
@@ -18,17 +19,11 @@ export function numNav({e}){
         const index = Number(e.key) - 1
         const snip = snips[index]
         
-        // if (!snip) return
         if (e.target.classList.contains('snip-title') || 
             e.target.classList.contains('topic-title')){
                 target = snips[index].querySelector('.drop-down')
 
         }
-        // prefer link → fallback to code
-        // let target =
-        //     snip.querySelector('.drop-down') ||
-        //     snip.querySelector('.copy-code')
-        // console.log(target)
         if (target) {
             e.preventDefault()
             target.focus()

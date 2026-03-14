@@ -2,7 +2,8 @@ import { isActuallyVisible } from "./keyboard-nav.js"
 let lastLetterPressed = null
 export function letterNav({ e }) {
     const key = e.key.toLowerCase()
-     const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
+    //  const allEls = [...document.querySelectorAll('a,#sideBarBtn,#mainTopicsContainer,#darkModeBtn,#chatGptMyLink,#programShortcutsLink')].filter(el => {
+     const allEls = [...document.querySelectorAll('a,[id]')].filter(el => {
             const rect = el.getBoundingClientRect()
             if(!el.hasAttribute('tabindex')){el.setAttribute('tabindex', '0')}
             return isActuallyVisible(el)
@@ -62,6 +63,7 @@ export function letterNav({ e }) {
         // // // // // // // // // // // // // // // // // // // // // // 
                 const prevEl = allEls[iActiveAll - 1]
                 // This logic 
+                if(!prevEl)return
                 if (!prevEl.closest('.side-bar') && !activeEl.closest('.side-bar')){
                     return
                     const prevIsM =
@@ -128,4 +130,5 @@ export function letterNav({ e }) {
         //     target = allEls[iActiveAll]
         // }   
         target.focus()
+        // console.log(target)
 }
